@@ -10,11 +10,12 @@
     /* position: fixed;
     top: 0px;
     width: 100%; */
+    color: red;
 }
 
 .top-menu > .right {
     float: right;
-    color: white;
+    /* color: white; */
     padding-right: 10%;
 }
 
@@ -39,7 +40,7 @@
 
 .top-menu > .left {
     float: left;
-    color:white
+    /* color:white */
 }
 
 .top-menu > .left > * {

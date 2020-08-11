@@ -10,6 +10,10 @@ import Lead from "./Lead"
 import "./Menu.css"
 
 class TopMenu extends Component{
+    static defaultProps = {
+        color: 'white',
+        lead: false,
+    }
     constructor(props){
         super (props)
         this.state = {
@@ -29,20 +33,29 @@ class TopMenu extends Component{
     }
     render = () => {
         let top_menu_class = `top-menu ${this.state.menu_class}`
+
+        const {lead, color} = this.props;
+        let isLead;
+        if(lead){
+            isLead = <Lead text="Will Hord" color={color}/>
+        } else {
+            isLead = '';
+        }
         return (
             <div>
                 <div className={top_menu_class} >
-                    <Lead text="Will Hord" />
+                    {isLead}
+                    {/* <Lead text="Will Hord" /> */}
                     {/* <div className='left'>
                     <Item text='Left1'/>
                     <Item text='Left2'/>
                     </div> */}
                     <div className='right'>
-                        <Item text='Home' path='/test' />
-                        <Item text='Resume' path='/' />
-                        <Item text='Projects' path= '/'/>
-                        <Item text='About' path='/'/>
-                        <Item text='Contact' path='/'/>
+                        <Item text='Home' path='/' color={color} />
+                        <Item text='Resume' path='/' color={color} />
+                        <Item text='Projects' path= '/test' color={color} />
+                        <Item text='About' path='/' color={color} />
+                        <Item text='Contact' path='/Contact' color={color} />
                     </div>
                     <FontAwesomeIcon icon={faBars} className='top-menu-icon' onClick={this.setToggleTopMenuClass}/>
                     <div className='clear-fix' />

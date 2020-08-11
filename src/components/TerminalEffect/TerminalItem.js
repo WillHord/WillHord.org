@@ -9,8 +9,8 @@ class TerminalItem extends React.Component {
       dataText: [],
       lastLine: false,
       firstLine: false,
-      typeSpeed: 150,
-      deleteSpeed: 30,
+      typeSpeed: 50,
+      deleteSpeed: 15,
     }
 
     constructor(props) {
@@ -33,7 +33,13 @@ class TerminalItem extends React.Component {
         this.handleType()
       }
     }
-
+    
+    componentWillUnmount() {
+      // fix Warning: Can't perform a React state update on an unmounted component
+      this.setState = (state,callback)=>{
+          return;
+      };
+    }
 
     handleType = () => {
       const { dataText, typeSpeed, deleteSpeed } = this.props;
@@ -58,7 +64,7 @@ class TerminalItem extends React.Component {
           loopNum: loopNum + 1
         });
       } else if(text === dataText[dataText.length - 1] && text.length === dataText[dataText.length -1].length && !Stopped){
-          console.log('Done typing')
+          // console.log('Done typing')
           this.setState({Stopped: true})
           setTimeout(() => this.props.animationHandler(), 200);
           if(!this.props.lastLine){

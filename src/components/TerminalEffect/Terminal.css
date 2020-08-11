@@ -1,0 +1,32 @@
+/* @import url('https://fonts.googleapis.com/css?family=VT323');
+body {
+  font-family: 'VT323', monospace;
+  background-color: #003B00;
+  padding: 1em 2em;
+} */
+
+h3 {
+  color: white;
+}
+
+.terminalText{
+  font-family: 'Ubuntu Mono', monospace;
+  color: white;
+  margin: 0;
+}
+
+.cursor {
+  border-left: .1em solid white;
+  animation: blink .7s steps(1) infinite;
+}
+
+.cursorComplete{
+    border: none;
+    animation: none;
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}

@@ -22,7 +22,12 @@ class Homepage extends React.Component{
         Items: [],
         lines: [
           ['Hello World','My name is Will Hord'],
-         ['I am a developer, current Sophmore at UC Santa Cruz, and ']
+         ['I’m a coder, a maker, a developer and a collaborator.'],
+         ['I make everything from websites and bots to machine algorithms and games.'],
+         ['I’m interested in pushing the boundaries of what machines can do, to see how far humanity can go with the aid of technology.'],
+         ['I’m currently seeking out opportunities to put my skills to use towards any challenge.'],
+         ['When I’m not coding or tinkering, I am a sophomore at UC Santa Cruz studying Computer Science and Engineering.'],
+         ['Check out my Resume and my About page to learn more about me and what I do']
         ],
         animationStarted: false,
         lineFinished: false,
@@ -32,6 +37,14 @@ class Homepage extends React.Component{
     this.TerminalAnimation = this.TerminalAnimation.bind(this);
     this.animationHandler = this.animationHandler.bind(this);
   }
+
+  componentWillUnmount() {
+    // fix Warning: Can't perform a React state update on an unmounted component
+    this.setState = (state,callback)=>{
+        return;
+    };
+  }
+
   animationHandler(){
     this.setState({lineFinished: true})
     const { lines, currentLine} = this.state;
@@ -44,6 +57,8 @@ class Homepage extends React.Component{
         dataText={lines[currentLine - 1]}
         animationHandler={this.animationHandler}
         firstLine={true}
+        typeSpeed={150}
+        deleteSpeed={30}
         /> ]
     })
     this.setState({currentLine: currentLine + 1});
@@ -101,7 +116,6 @@ class Homepage extends React.Component{
             boxes with recent projects that link to them
             {/* TODO: Animate ProjectBoxes on view */}
             <div className='boxContainer'>
-              <Waypoint onEnter={this.ProjectBoxAnimation}/>
                 <Fade bottom>
                   <div>
                     <Box title='Test' summary='Summary' path='/'/>

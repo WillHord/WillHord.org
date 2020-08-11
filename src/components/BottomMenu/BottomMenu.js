@@ -21,11 +21,11 @@ class BottomMenu extends React.Component{
             <div className='BottomMenu'>
                 <div className='Links'>
                     <ul>
-                        <BottomMenuItem text='Home' path='/test' />
+                        <BottomMenuItem text='Home' path='/' />
                         <BottomMenuItem text='Resume' path='/' />
-                        <BottomMenuItem text='Projects' path= '/'/>
+                        <BottomMenuItem text='Projects' path= '/test'/>
                         <BottomMenuItem text='About' path='/'/>
-                        <BottomMenuItem text='Contact' path='/'/>
+                        <BottomMenuItem text='Contact' path='/Contact'/>
                     </ul>
                 </div>
                 <div className='social-icons'>

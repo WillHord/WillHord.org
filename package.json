@@ -13,6 +13,7 @@
     "@testing-library/user-event": "^7.2.1",
     "animate.css": "^4.1.0",
     "create-react-class": "^15.6.3",
+    "formik": "^2.1.5",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-bootstrap-validation": "^0.1.11",
@@ -22,7 +23,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-waypoint": "^9.0.3",
-    "yargs-parser": "^19.0.1"
+    "yargs-parser": "^19.0.1",
+    "yup": "^0.29.3"
   },
   "scripts": {
     "start": "react-scripts start",

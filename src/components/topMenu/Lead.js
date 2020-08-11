@@ -10,8 +10,12 @@ class Lead extends Component {
     }
 
     render() {
+        const color = this.props.color;
+        const colorStyle ={
+            color: color,
+        }
         return (
-            <div className='top-menu-lead'>
+            <div className='top-menu-lead' style={colorStyle}>
                 {this.text}
             </div>
         )

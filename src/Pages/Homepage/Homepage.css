@@ -3,7 +3,7 @@ body {
     font-family: Trebuchet MS,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Tahoma,sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: white;
+    background-color: black;
     /* background-color: #282E34; */
     color: white;
   }
@@ -15,7 +15,7 @@ body {
 
 .projects{
     width: 100%;
-    height: 40vh;
+    min-height: 40vh;
     /* position: relative; */
     text-align: center;
     /* display: inline-block; */
@@ -30,12 +30,12 @@ body {
   padding-top: 2%;
   padding-bottom: 5%;
   text-align: center;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .whoAmI{
   width: 100%;
-  height: 40vh;
+  min-height: 40vh;
   text-align: left;
   position: relative;
   padding-top: 10px;

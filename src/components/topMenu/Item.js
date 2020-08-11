@@ -11,11 +11,13 @@ class Item extends Component {
         super(props)
         this.text = props.text
         this.path = props.path
+        this.color = props.color
     }
 
     render() {
+        const color = this.props.color;
         const itemStyle = {
-            color: 'white',
+            color: color,
             textDecoration: 'none',
             fontSize: '17px',
         };
