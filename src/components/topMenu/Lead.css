@@ -1,0 +1,17 @@
+.top-menu-lead {
+    padding: 10px;
+    color: white;
+    display: inline-block;
+    float: left;
+    font-size: 25px;
+    padding-left: 7%;
+}
+
+@media screen and (max-width: 600px) {
+    .top-menu-lead {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        float: none;
+    }
+}
