@@ -22,9 +22,9 @@ class BottomMenu extends React.Component{
                 <div className='Links'>
                     <ul>
                         <BottomMenuItem text='Home' path='/' />
-                        <BottomMenuItem text='Resume' path='/' />
-                        <BottomMenuItem text='Projects' path= '/test'/>
-                        <BottomMenuItem text='About' path='/'/>
+                        <BottomMenuItem text='Resume' path='/Resume' />
+                        <BottomMenuItem text='Projects' path= '/Projects'/>
+                        <BottomMenuItem text='About' path='/About'/>
                         <BottomMenuItem text='Contact' path='/Contact'/>
                     </ul>
                 </div>
@@ -38,7 +38,7 @@ class BottomMenu extends React.Component{
                     </ul>
                 </div>
                 <div className='login'>
-                    <Link className='loginLink' to='/test'>Login</Link>
+                    <Link className='loginLink' to='/Login'>Login</Link>
                 </div>
                 <div className='license'>
                     {/* TODO: Fix license position */}

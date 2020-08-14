@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-// Page Imports
+// Main Pages Imports
 import Homepage from './Pages/Homepage/Homepage';
 import Resume from './Pages/Resume/Resume';
 import Projects from './Pages/Projects/Projects';
@@ -10,6 +10,8 @@ import About from './Pages/About/About';
 import Contact from './Pages/Contact/Contact';
 import Login from './Pages/Login/Login';
 
+// Font Import
+import './Fonts/customFonts.css';
 
 import test from './test';
 

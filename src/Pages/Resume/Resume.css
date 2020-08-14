@@ -1,0 +1,153 @@
+.ResumeBody{
+    background-color: #282E34;
+    color: black;
+    background-color: white;
+    width: 100%;
+    overflow-x: hidden;
+    /* height: 100%; */
+}
+
+.TopPicture{
+    background-image: url('/WillHordMicrosoft.jpg');
+    background-position: right;
+    background-size: cover;
+    background-color: white;
+    height: 60vh;
+    width: 100%;
+}
+
+.outerContent{
+    width: 100%;
+    margin-top: -30px;
+    padding-top: 60px;
+    min-height: 100vh;
+    background-color: #282E34;
+    text-align: center;
+    /* display: block; */
+}
+
+.innerContent{
+    /* padding: 2% 2% 2% 2%; */
+    width: 700px;
+    max-width: 1024px;
+    min-height: 100vh;
+    background-color: #282E34;
+    /* min-height: 700px; */
+    /* box-sizing: content-box; */
+    display: block;
+    overflow: hidden;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.TitleDivider{
+    border-color: white;
+    border-style: solid;
+    border-radius: 10px;
+    width: 700px;
+    opacity: .3;
+}
+
+.ResumeTitle{
+    padding-top:3%;
+    text-align: center;
+}
+
+.SectionTitle{
+    text-align: left;
+    /* padding-left: 7%; */
+    padding-top: 5%;
+}
+
+
+
+.leftSide{
+    width: 48%;
+    display: inline-block;
+    /* min-height: 700px; */
+    float: left;
+    /* padding-right: 5%; */
+}
+
+.leftSide h1{
+    font-size: 5vw;
+}
+
+.leftSide p{
+    font-size: 2vw;
+}
+
+.rightSide p{
+    font-size: 2.5vw;
+}
+
+
+/* @media screen and (max-width: 800px) {
+    .leftSide p{
+        font-size: inherit;
+    }
+    
+    .rightSide p{
+        font-size: 3vw;
+    }
+} */
+
+/* .rightSide p{
+    min-width: 100vh;
+} */
+
+.rightSide{
+    width: 48%;
+    /* min-height: 700px; */
+    float: right;
+    display: inline-block;
+    padding-right: 3%;
+}
+
+.verticalDivider{
+    display: inline-block;
+    width: 1%;
+    /* float: left; */
+    /* right: 3%; */
+    position: absolute;
+    /* display: inline-block; */
+    border-left: 1px solid #ccc;
+    margin: 0 10px;
+    min-height: 90%;
+    top: 30px;
+}
+
+.Education{
+    position: relative;
+    display: table;
+    box-sizing: border-box;
+    background-color: #282E34;
+    color: white;
+    min-height: 100vh;
+    width: 100%;
+    /* z-index: 1000; */
+    display: block;
+    /* overflow: visible; */
+}
+
+.WorkExperience{
+    position: relative;
+    background-color: white;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.ProgrammingLanguages{
+    position: relative;
+    background-color: #282E34;
+    color: white;
+    height: 100vh;
+    width: 100%;
+}
+
+.TechnicalKnowledge{
+    position: relative;
+    background-color: white;
+    height: 100vh;
+    width: 100%;
+}

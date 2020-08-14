@@ -13,6 +13,7 @@ h3 {
   font-family: 'Ubuntu Mono', monospace;
   color: white;
   margin: 0;
+  font-size: inherit;
 }
 
 .cursor {

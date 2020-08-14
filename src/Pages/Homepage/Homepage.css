@@ -4,7 +4,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: black;
-    /* background-color: #282E34; */
+    background-color: #282E34;
     color: white;
   }
 
@@ -12,6 +12,15 @@ body {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
   }
+
+.name{
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  color: white;
+  z-index: 1000;
+}
+
 
 .projects{
     width: 100%;

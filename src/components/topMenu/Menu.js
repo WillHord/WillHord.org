@@ -13,6 +13,7 @@ class TopMenu extends Component{
     static defaultProps = {
         color: 'white',
         lead: false,
+        shadow: 'none',
     }
     constructor(props){
         super (props)
@@ -34,10 +35,10 @@ class TopMenu extends Component{
     render = () => {
         let top_menu_class = `top-menu ${this.state.menu_class}`
 
-        const {lead, color} = this.props;
+        const {lead, color, shadow} = this.props;
         let isLead;
         if(lead){
-            isLead = <Lead text="Will Hord" color={color}/>
+            isLead = <Lead text="Will Hord" color={color} />
         } else {
             isLead = '';
         }
@@ -51,12 +52,13 @@ class TopMenu extends Component{
                     <Item text='Left2'/>
                     </div> */}
                     <div className='right'>
-                        <Item text='Home' path='/' color={color} />
-                        <Item text='Resume' path='/' color={color} />
-                        <Item text='Projects' path= '/test' color={color} />
-                        <Item text='About' path='/' color={color} />
-                        <Item text='Contact' path='/Contact' color={color} />
+                        <Item text='Home' path='/' color={color} shadow={shadow}/>
+                        <Item text='Resume' path='/Resume' color={color} shadow={shadow}/>
+                        <Item text='Projects' path= '/Projects' color={color} shadow={shadow}/>
+                        <Item text='About' path='/About' color={color} shadow={shadow}/>
+                        <Item text='Contact' path='/Contact' color={color} shadow={shadow}/>
                     </div>
+                    {/* TODO: Fix Compatibility  */}
                     <FontAwesomeIcon icon={faBars} className='top-menu-icon' onClick={this.setToggleTopMenuClass}/>
                     <div className='clear-fix' />
                 </div>

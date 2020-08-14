@@ -1,0 +1,31 @@
+@font-face {
+    font-family: "Orion";
+    src: url("./Orion/orion-webfont.ttf");
+    src: url("./Orion/orion-webfont.woff") format("woff"),
+    url("./Orion/orion-webfont.otf") format("opentype"),
+    url("./Orion/orion-webfont.svg") format("svg");
+    }
+
+@font-face {
+    font-family: "Orion-Bold";
+    src: url("./OrionBold/orion_bold-webfont.ttf");
+    src: url("./OrionBold/orion_bold-webfont.woff") format("woff"),
+    url("./OrionBold/orion_bold-webfont.otf") format("opentype"),
+    url("./OrionBold/orion_bold-webfont.svg") format("svg");
+    }
+
+@font-face {
+    font-family: "Moon";
+    src: url("./Moon/moon2.0-regular-webfont.ttf");
+    src: url("./Moon/moon2.0-regular-webfont.woff") format("woff"),
+    url("./Moon/Moon2.0-Regular.otf") format("opentype"),
+    url("./Moon/moon2.0-regular-webfont.svg") format("svg");
+    }
+
+@font-face {
+    font-family: "Moon-Light";
+    src: url("./Moon-Light/moon2.0-light-webfont.ttf");
+    src: url("./Moon-Light/moon2.0-light-webfont.woff") format("woff"),
+    url("./Moon-Light/Moon2.0-Light.otf") format("opentype"),
+    url("./Moon-Light/moon2.0-light-webfont.svg") format("svg");
+    }

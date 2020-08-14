@@ -12,14 +12,16 @@ class Item extends Component {
         this.text = props.text
         this.path = props.path
         this.color = props.color
+        this.shadow = props.shadow
     }
 
     render() {
-        const color = this.props.color;
+        const {color, shadow} = this.props;
         const itemStyle = {
             color: color,
             textDecoration: 'none',
             fontSize: '17px',
+            textShadow: shadow,
         };
         return (
             <div className='top-menu-item'>

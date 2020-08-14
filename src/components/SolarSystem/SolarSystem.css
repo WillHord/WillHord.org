@@ -1,3 +1,4 @@
+
 .solarSystem {
     overflow: hidden;
     display: flex;
@@ -13,17 +14,56 @@
     /* display: table; */
 }
 
+.nameNone{
+    opacity: 0;
+}
+
+.name{
+    font-family: Moon-Light;
+    opacity: 100%;
+    text-shadow: 2px 2px #000;
+    letter-spacing: .2em;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    color: white;
+    z-index: 10000;
+    font-size: 500%;
+    /* padding-bottom: -.1em; */
+    padding-top: 10px;
+    padding-left: .85em;
+    animation: revealName ease-in 3s;
+  }
+
+.name p{
+    word-spacing: 10px;
+}
+
+@keyframes revealName {
+    0% {
+        opacity: 0%;
+      clip-path: inset(0px 50% 0px 50%);
+      -webkit-clip-path: inset(0px 50% 0px 50%);
+     }
+    100% {
+        opacity: 100%;
+       clip-path: inset(0px 0px 0px 0px);
+       -webkit-clip-path: inset(0px 0px 0px 0px);
+    }
+  }
+
+
 .sun {
     width: 100px;
     height: 100px;
     border-radius: 100%;
     /* background-color: blue; */
     position: absolute;
-    z-index: 100;
+    z-index: 10;
     background-image:url('./sun.jpg') ;
     background-size: cover;
     box-shadow: -5px -5px 25px 1px rgba(0,0,0,.5) inset, 0 0 5px 1px rgba(0,0,0,.9);
-    
+
     /* background-color: #FB7209;
     background-size: cover;
     box-shadow: 0 0 60px rgba(255, 160, 60, 0.4);
@@ -227,7 +267,7 @@
     from{
         opacity: 0;
         transform: translateY(-200px);
-    } 
+    }
     to {
         opacity: 1;
         transform: translateY(0);

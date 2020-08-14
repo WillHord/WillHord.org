@@ -41,7 +41,25 @@ import './SolarSystem.css'
 
 
 class SolarSystem extends React.Component{
+    constructor(props){
+        super (props)
+        this.state = {
+            active: false,
+        };
+        this.nameAnimationDelay = this.nameAnimationDelay.bind(this);
+    }
+
+    nameAnimationDelay(){
+        console.log("name should have loaded")
+        this.setState({active: true})
+    }
+    
+    componentDidMount(){
+        setTimeout(this.nameAnimationDelay,2000)
+    }
+
     render(){
+        // const nameState = this.state;
         return (
             <>
                 <div className='solarSystem'>
@@ -49,6 +67,9 @@ class SolarSystem extends React.Component{
                         {/* <div className='twinkling'></div> */}
                     </div>
                     <div className='sun'/>
+                    <div className={this.state.active ? 'name':null}>
+                        <p>Will Hord</p>
+                    </div>
                     <div className='planet1Orbit'>
                         <div className='planet1Rotate'>
                             <div className='planet1CounterRotate'>

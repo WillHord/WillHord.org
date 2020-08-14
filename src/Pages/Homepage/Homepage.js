@@ -23,7 +23,7 @@ class Homepage extends React.Component{
         lines: [
           ['Hello World','My name is Will Hord'],
          ['I’m a coder, a maker, a developer and a collaborator.'],
-         ['I make everything from websites and bots to machine algorithms and games.'],
+         ['I make everything from websites and bots to machine learning algorithms and games.'],
          ['I’m interested in pushing the boundaries of what machines can do, to see how far humanity can go with the aid of technology.'],
          ['I’m currently seeking out opportunities to put my skills to use towards any challenge.'],
          ['When I’m not coding or tinkering, I am a sophomore at UC Santa Cruz studying Computer Science and Engineering.'],
@@ -37,7 +37,7 @@ class Homepage extends React.Component{
     this.TerminalAnimation = this.TerminalAnimation.bind(this);
     this.animationHandler = this.animationHandler.bind(this);
   }
-
+  // TODO: Fix body tag on every page
   componentWillUnmount() {
     // fix Warning: Can't perform a React state update on an unmounted component
     this.setState = (state,callback)=>{
@@ -116,7 +116,7 @@ class Homepage extends React.Component{
             boxes with recent projects that link to them
             {/* TODO: Animate ProjectBoxes on view */}
             <div className='boxContainer'>
-                <Fade bottom>
+                <Fade bottom duration={1500} >
                   <div>
                     <Box title='Test' summary='Summary' path='/'/>
                     <Box title='Test2' summary='Summary2' path='/'/>

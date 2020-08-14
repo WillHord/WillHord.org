@@ -5,6 +5,8 @@
     float: left;
     font-size: 25px;
     padding-left: 7%;
+    font-family: Moon;
+    letter-spacing: .1em;
 }
 
 @media screen and (max-width: 600px) {

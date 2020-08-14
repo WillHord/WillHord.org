@@ -8,7 +8,7 @@
     padding-bottom: 5%;
     /* padding:50px 80px; */
     text-align: center;
-    height: 25vh;
+    min-height: 25vh;
     overflow: hidden;
 }
 
@@ -85,6 +85,8 @@
 }
 
 .loginLink:hover {
+    color: white;
+    text-decoration: none;
     opacity: 0.2;
     transition: 0.2s;
   }
