@@ -1,3 +1,4 @@
+
 .top-menu {
     overflow: hidden;
     padding-top: .5%;
@@ -11,6 +12,7 @@
     top: 0px;
     width: 100%; */
     color: red;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .top-menu > .right {
@@ -68,6 +70,7 @@
     top: 0;
     right: 0;
     display: none;
+    z-index: 1000;
 }
 
 @media screen and (max-width: 600px) {
@@ -88,9 +91,11 @@
 
 @media screen and (max-width: 600px) {
     .top-menu.toggled {
-        padding: 60px 0 0 0;
+        padding: 0 0 0 0;
         max-height: 1500px;
         transition: max-height 1s;
+        background-color: #282E34;
+        z-index: 100;
     }
 
     .top-menu.toggled > .left {
@@ -98,7 +103,7 @@
         margin: 15px 0 0 0 ;
     }
 
-    .top-menu.toggled *:not(.top-menu-lead):not(.top-menu-icon) {
+    .top-menu.toggled *:not(.top-menu-lead):not(.burgerIconContainer) {
         float: none;
         display: block !important;
         text-align: left;

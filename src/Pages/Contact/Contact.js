@@ -22,7 +22,7 @@ class Contact extends React.Component{
     render(){
         return (
             <>
-            <TopMenu color='black' lead={true}/>
+            <TopMenu color='white' lead={true} backgroundColor={'#282E34'} burgerColor={'black'}/>
             <div className='contactFormBody'>
                 <div className='contactForm'>
                     <div className='Title'>

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faBars} from '@fortawesome/free-solid-svg-icons/faBars'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faBars} from '@fortawesome/free-solid-svg-icons/faBars';
 // import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 
-import Item from "./Item"
-import Lead from "./Lead"
+import Item from "./Item";
+import Lead from "./Lead";
+import BurgerIcon from './BurgerIcon';
 
 import "./Menu.css"
 
@@ -14,14 +15,21 @@ class TopMenu extends Component{
         color: 'white',
         lead: false,
         shadow: 'none',
+        backgroundColor: 'transparent',
+        burgerColor: null,
     }
     constructor(props){
         super (props)
         this.state = {
             menu_class: '',
+            isDesktop: false,
         }
+
+        this.setToggleTopMenuClass = this.setToggleTopMenuClass.bind(this);
+        this.SizeUpdate = this.SizeUpdate.bind(this);
     }
-    setToggleTopMenuClass = () => {
+    setToggleTopMenuClass(){
+        console.log("BEEP BOOP");
         if (this.state.menu_class === '') {
             this.setState({
                 menu_class: 'toggled',
@@ -32,19 +40,52 @@ class TopMenu extends Component{
             })
         }
     }
-    render = () => {
+
+    componentDidMount() {
+        this.SizeUpdate();
+        window.addEventListener("resize", this.SizeUpdate);
+      }
+    
+      componentWillUnmount() {
+        window.removeEventListener("resize", this.SizeUpdate);
+      }
+    
+      SizeUpdate() {
+        this.setState({ isDesktop: window.innerWidth > 600 });
+      }
+
+    render(){
         let top_menu_class = `top-menu ${this.state.menu_class}`
 
-        const {lead, color, shadow} = this.props;
+        const {lead, shadow, backgroundColor, burgerColor} = this.props;
+        const color = this.state.isDesktop ? this.props.color : 'white';
+
+        let BurgerColor;
+        if(burgerColor !== null){
+            BurgerColor = this.props.burgerColor;
+        } else {
+            BurgerColor = color;
+        }
+
+        let bgColor;
+        if(!this.state.isDesktop && this.state.menu_class === ''){
+            bgColor = 'transparent';
+        } else {
+            bgColor = backgroundColor;
+        }
+        const navbarStyle={
+            backgroundColor: bgColor,
+
+        }
+
         let isLead;
-        if(lead){
+        if(lead && this.state.isDesktop){
             isLead = <Lead text="Will Hord" color={color} />
         } else {
             isLead = '';
         }
         return (
-            <div>
-                <div className={top_menu_class} >
+                <div className={top_menu_class} style={navbarStyle} >
                     {isLead}
                     {/* <Lead text="Will Hord" /> */}
                     {/* <div className='left'>
@@ -58,11 +99,9 @@ class TopMenu extends Component{
                         <Item text='About' path='/About' color={color} shadow={shadow}/>
                         <Item text='Contact' path='/Contact' color={color} shadow={shadow}/>
                     </div>
-                    {/* TODO: Fix Compatibility  */}
-                    <FontAwesomeIcon icon={faBars} className='top-menu-icon' onClick={this.setToggleTopMenuClass}/>
+                    <BurgerIcon onClick={this.setToggleTopMenuClass} setToggleTopMenuClass={this.setToggleTopMenuClass} color={BurgerColor}/>
                     <div className='clear-fix' />
                 </div>
-            </div>
         )
     }
 }

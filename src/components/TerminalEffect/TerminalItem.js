@@ -9,7 +9,7 @@ class TerminalItem extends React.Component {
       dataText: [],
       lastLine: false,
       firstLine: false,
-      typeSpeed: 50,
+      typeSpeed: 40,
       deleteSpeed: 15,
     }
 

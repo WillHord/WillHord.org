@@ -17,7 +17,6 @@ class BottomMenu extends React.Component{
         }
         return(
             <>
-            {/* TODO: Fix size compatibility */}
             <div className='BottomMenu'>
                 <div className='Links'>
                     <ul>

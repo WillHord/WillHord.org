@@ -2,41 +2,36 @@
     background-color: #282E34;
     color: black;
     background-color: white;
-    width: 100%;
+    /* width: 100%; */
     overflow-x: hidden;
-    /* height: 100%; */
+    font-family: 'Open Sans', sans-serif;
 }
 
 .TopPicture{
     background-image: url('/WillHordMicrosoft.jpg');
-    background-position: right;
     background-size: cover;
-    background-color: white;
-    height: 60vh;
+    /* background-color: white; */
+    height: 80vh;
     width: 100%;
 }
 
 .outerContent{
     width: 100%;
+    overflow-x: hidden;
     margin-top: -30px;
     padding-top: 60px;
     min-height: 100vh;
-    background-color: #282E34;
+    background-color: #36454f;
     text-align: center;
-    /* display: block; */
 }
 
 .innerContent{
-    /* padding: 2% 2% 2% 2%; */
     width: 700px;
     max-width: 1024px;
     min-height: 100vh;
-    background-color: #282E34;
-    /* min-height: 700px; */
-    /* box-sizing: content-box; */
+    color: white;
     display: block;
-    overflow: hidden;
-    text-align: center;
+    text-align: left;
     margin: 0 auto;
 }
 
@@ -44,7 +39,7 @@
     border-color: white;
     border-style: solid;
     border-radius: 10px;
-    width: 700px;
+    width: 100%;
     opacity: .3;
 }
 
@@ -55,99 +50,145 @@
 
 .SectionTitle{
     text-align: left;
-    /* padding-left: 7%; */
     padding-top: 5%;
 }
 
-
-
-.leftSide{
-    width: 48%;
-    display: inline-block;
-    /* min-height: 700px; */
+.LargeIcon{
+    width: 60px;
+    height: 60px;
     float: left;
-    /* padding-right: 5%; */
+    background-color: white;
+    border-radius: 50%;
+    opacity: .8;
+    margin-left: -95px;
+
+    /* filter: grayscale(100%); */
 }
 
-.leftSide h1{
-    font-size: 5vw;
+.alignRight{
+    float: right;
 }
 
-.leftSide p{
-    font-size: 2vw;
+.Coursework{
+    list-style: disc;
 }
 
-.rightSide p{
-    font-size: 2.5vw;
+.EducationSection{
+    padding-top: 20px;
+    min-height: 200px;
+}
+
+.WorkSection{
+    padding-top: 40px;
+    min-height: 200px;
+}
+
+.TechnicalSection{
+    padding-top: 40px;
+    min-height: 200px;
+}
+
+.OtherTechnicalSkills{
+    padding-top: 40px;
+    min-height: 200px;
+}
+
+.indent{
+    padding-left: 40px;
+}
+
+.alignCenter{
+    text-align: center;
+    padding-top: 10px;
+    margin: 0 auto;
+}
+
+.sideBySide{
+    /* float: left; */
+    padding-right: 5%;
+    margin-left: 40px;
+}
+
+.wrap{
+    overflow-wrap: normal;
 }
 
 
-/* @media screen and (max-width: 800px) {
-    .leftSide p{
-        font-size: inherit;
+@media screen and (max-width: 725px) {
+    .innerContent{
+        width: 85%;
+    }
+
+    .alignRight{
+        display: none;
+    }
+
+    .indent{
+        padding-left: 30px;
     }
     
-    .rightSide p{
-        font-size: 3vw;
+    .sideBySide{
+        margin-left: 5px;
+        padding-right: 4%;
     }
-} */
 
-/* .rightSide p{
-    min-width: 100vh;
-} */
-
-.rightSide{
-    width: 48%;
-    /* min-height: 700px; */
-    float: right;
-    display: inline-block;
-    padding-right: 3%;
+    .LargeIcon{
+        display: none;
+    }
 }
 
-.verticalDivider{
-    display: inline-block;
-    width: 1%;
-    /* float: left; */
-    /* right: 3%; */
-    position: absolute;
-    /* display: inline-block; */
-    border-left: 1px solid #ccc;
-    margin: 0 10px;
-    min-height: 90%;
-    top: 30px;
+
+
+
+.inTextLink{
+    text-decoration: none;
+    color: inherit;
 }
 
-.Education{
-    position: relative;
-    display: table;
-    box-sizing: border-box;
-    background-color: #282E34;
+.inTextLink:hover{
+    text-decoration: none;
+    color: red;
+}
+
+
+.FullResumeButton{
+    text-align: center;
+    width: 150px;
+    height: 60px;
+    border-color: white;
+    border-width: 1px;
+    border-style: solid;
+    background-color: transparent;
     color: white;
-    min-height: 100vh;
-    width: 100%;
-    /* z-index: 1000; */
-    display: block;
-    /* overflow: visible; */
+    transition: .5s;
 }
 
-.WorkExperience{
-    position: relative;
+.FullResumeButton:hover{
     background-color: white;
-    min-height: 100vh;
-    width: 100%;
+    color: black;
 }
 
-.ProgrammingLanguages{
-    position: relative;
-    background-color: #282E34;
+.FullResumeButton:focus{
+    outline: none;
+}
+
+.PaperButton{
+    text-align: center;
+    width: 120px;
+    height: 50px;
+    border-color: white;
+    border-width: 1px;
+    border-style: solid;
+    background-color: transparent;
     color: white;
-    height: 100vh;
-    width: 100%;
+    transition: .5s;
 }
 
-.TechnicalKnowledge{
-    position: relative;
+.PaperButton:hover{
     background-color: white;
-    height: 100vh;
-    width: 100%;
+    color: black;
+}
+
+.PaperButton:focus{
+    outline: none;
 }

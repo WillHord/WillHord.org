@@ -14,6 +14,7 @@ import TerminalItem from '../../components/TerminalEffect/TerminalItem'
 
 
 import './planning.css'
+import { faExpeditedssl } from '@fortawesome/free-brands-svg-icons';
 
 class Homepage extends React.Component{
   constructor(props){
@@ -32,14 +33,23 @@ class Homepage extends React.Component{
         animationStarted: false,
         lineFinished: false,
         currentLine: 1,
-        boxStyle: 'boxFadeInBefore'
+        // boxStyle: 'boxFadeInBefore',
+        isDesktop: false,
     }
     this.TerminalAnimation = this.TerminalAnimation.bind(this);
     this.animationHandler = this.animationHandler.bind(this);
+    this.SizeUpdate = this.SizeUpdate.bind(this);
   }
   // TODO: Fix body tag on every page
+
+  componentDidMount() {
+    this.SizeUpdate();
+    window.addEventListener("resize", this.SizeUpdate);
+  }
+
   componentWillUnmount() {
     // fix Warning: Can't perform a React state update on an unmounted component
+    window.removeEventListener("resize", this.SizeUpdate);
     this.setState = (state,callback)=>{
         return;
     };
@@ -57,7 +67,7 @@ class Homepage extends React.Component{
         dataText={lines[currentLine - 1]}
         animationHandler={this.animationHandler}
         firstLine={true}
-        typeSpeed={150}
+        typeSpeed={50}
         deleteSpeed={30}
         /> ]
     })
@@ -94,16 +104,28 @@ class Homepage extends React.Component{
     }
   }
 
-  // ProjectBoxAnimation(){
-  //   this.setState({boxStyle: 'boxFadeIn'})
-  //   console.log()
-  // }
+
+  SizeUpdate() {
+    this.setState({ isDesktop: window.innerWidth > 600 });
+  }
+
+
 
   render(){
+    const isDesktop = this.state.isDesktop;
+    const img1Style = {
+      width: '100%',
+      height: '80vh',
+      position: 'relative',
+      // backgroundAttachment: 'fixed',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+      backgroundImage: isDesktop ? "url('/WillHordIBM.jpg')" : "url('/WillHordIBMMobile.jpg')"
+    }
     return(
       <>
           <TopMenu/>
-          {/* TODO: Add futuristic text ontop of solar system */}
           <SolarSystem/>
           <div className='whoAmI'>
             <Waypoint onEnter={this.TerminalAnimation}/>
@@ -111,21 +133,16 @@ class Homepage extends React.Component{
               {this.state.Items}
             </ul>
           </div>
-          <div className='picOrGame'>Either a quick little platform game or picture of me</div>
+          <div style={img1Style}/>
           <div className='projects'>
-            boxes with recent projects that link to them
-            {/* TODO: Animate ProjectBoxes on view */}
+            <h4>Recent Projects</h4>
             <div className='boxContainer'>
-                <Fade bottom duration={1500} >
-                  <div>
-                    <Box title='Test' summary='Summary' path='/'/>
-                    <Box title='Test2' summary='Summary2' path='/'/>
-                    <Box title='Test3' summary='Summary3' path='/'/>
-                  </div>
-                </Fade>
+                    <Box title='Discord Bot' summary='Summary' path='/' fadeIn={1400}/>
+                    <Box title='iMessage Bot' summary='Summary2' path='/' fadeIn={1600}/>
+                    <Box title='MAT2CSV' summary='Summary3' path='/' fadeIn={1900}/>
             </div>
           </div>
-          <div className='clickerGame'>Global Clicker Game</div>
+          <div className='img2'></div>
           <BottomBar/>
       </>
     )
