@@ -1,5 +1,4 @@
 import React from 'react';
-import Fade from 'react-reveal/Fade'
 
 import TopMenu from '../../components/topMenu/Menu'
 import BottomMenu from '../../components/BottomMenu/BottomMenu'
@@ -56,7 +55,7 @@ class Resume extends React.Component{
         }
         return (
             <>
-                <TopMenu color='white' lead={true} backgroundColor={'#282E34'} burgerColor={'black'}/>
+                <TopMenu color='white' lead={true} backgroundColor={'#282E34'} burgerColor={'white'}/>
                 <div className='TopPicture'> 
 
                 </div>
@@ -72,8 +71,8 @@ class Resume extends React.Component{
                         </div>
                         <hr className='TitleDivider'/>
                         <div className='EducationSection'>
-                            <a target='_blank' href='http://UCSC.edu'>
-                                <img className='LargeIcon' src={'/UCSantaCruzLogo.png'}/>
+                            <a target='_blank' rel="noopener noreferrer" href='http://UCSC.edu'>
+                                <img className='LargeIcon' src={'/UCSantaCruzLogo.png'} alt=''/>
                             </a>
                             <b className='wrap'>University Of California Santa Cruz</b>
                             <span className='alignRight'>2019-Current</span>
@@ -95,8 +94,8 @@ class Resume extends React.Component{
                             <br/>
                         </div>
                         <div className='EducationSection'>
-                            <a target='_blank' href='https://www.dfsd.org/hs'>
-                                <img className='LargeIcon' src={'/DobbsFerryHighSchoolLogo.png'}/>
+                            <a target='_blank' rel="noopener noreferrer" href='https://www.dfsd.org/hs'>
+                                <img className='LargeIcon' src={'/DobbsFerryHighSchoolLogo.png'} alt=''/>
                             </a>
                             <b>Dobbs Ferry High School</b>
                             <span className='alignRight'>2015-2019</span>
@@ -118,8 +117,8 @@ class Resume extends React.Component{
                         </div>
                         <hr className='TitleDivider'/>
                         <div className='WorkSection'>
-                            <a target='_blank' href='http://www.research.ibm.com/labs/watson/'>
-                                <img className='LargeIcon' src={'/IBMLogo.png'}/>
+                            <a target='_blank' rel="noopener noreferrer" href='http://www.research.ibm.com/labs/watson/'>
+                                <img className='LargeIcon' src={'/IBMLogo.png'} alt=''/>
                                 {/* TODO: FIX IBM Logo */}
                             </a>
                             <b>IBM Thomas J. Watson Research Center</b>
@@ -132,10 +131,10 @@ class Resume extends React.Component{
                             <br/>
                             <p>
                             Conducted two independent Artificial Intelligence research projects resulting in authoring a scientific 
-                            research paper presented at the 
-                            <a className='inTextLink'
-                            href='https://www.spiedigitallibrary.org/conference-proceedings-of-spie/10953/109532A/Predicting-conversion-to-psychosis-in-clinical-high-risk-patients-using/10.1117/12.2525341.short?SSO=1'> SPIE medical imaging conference </a>
-                             - February 2019. The first project consisted of using 
+                            research paper presented at the S
+                            {/* <a className='inTextLink'
+                            href='https://www.spiedigitallibrary.org/conference-proceedings-of-spie/10953/109532A/Predicting-conversion-to-psychosis-in-clinical-high-risk-patients-using/10.1117/12.2525341.short?SSO=1'> SPIE medical imaging conference </a> */}
+                            PIE medical imaging conference - February 2019. The first project consisted of using 
                             python and machine learning to detect schizophrenia in fMRI data from patients. The other project I worked on used python
                             and MATLAB to determine which areas of the brain cocaine addictions affect.
 
@@ -147,8 +146,8 @@ class Resume extends React.Component{
                             <br/>
                         </div>
                         <div className='WorkSection'>
-                            <a target='_blank' href='https://www.pelhamschools.org/'>
-                                <img className='LargeIcon' src={'/PelhamScoolsLogo.png'}/>
+                            <a target='_blank' rel="noopener noreferrer" href='https://www.pelhamschools.org/'>
+                                <img className='LargeIcon' src={'/PelhamScoolsLogo.png'} alt=''/>
                                 {/* TODO: FIX Pelham Logo */}
                             </a>
                             <b>Pelham School District</b>

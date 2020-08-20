@@ -1,4 +1,4 @@
-
+/* TODO: Add fade in animation for top menu */
 .top-menu {
     overflow: hidden;
     padding-top: .5%;
@@ -13,6 +13,7 @@
     width: 100%; */
     color: red;
     font-family: 'Montserrat', sans-serif;
+
 }
 
 .top-menu > .right {

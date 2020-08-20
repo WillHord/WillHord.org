@@ -1,6 +1,8 @@
 import React from 'react';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik, Field, Form, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
+import axios from 'axios';
+
 
 import TopMenu from '../../components/topMenu/Menu'
 
@@ -17,8 +19,47 @@ const LoginSchema = Yup.object().shape({
       .required("Message is required")
   });
 
+  const API_PATH = '/api/Contact/Contact.php';
+
 
 class Contact extends React.Component{
+    constructor(props){
+        super (props);
+        this.state = {
+            name: '',
+            email: '',
+            message: '',
+            mailSent: false,
+            error: null
+        }
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleSubmit(values){
+        console.log(values.name);
+        console.log(values.email);
+        console.log(values.message);
+
+        this.setState({name: values.name});
+        this.setState({email: values.email});
+        this.setState({message: values.message});
+
+        // event.preventDefault();
+        axios({
+          method: 'post',
+          url: `${API_PATH}`,
+          headers: { 'content-type': 'application/json' },
+          data: this.state
+        })
+          .then(result => {
+            this.setState({
+              mailSent: result.data.sent
+            })
+          })
+          .catch(error => this.setState({ error: error.message }));
+      };
+
+
     render(){
         return (
             <>
@@ -32,12 +73,14 @@ class Contact extends React.Component{
                     <Formik
                     initialValues={{ name: "", email: "", message: "" }}
                     validationSchema={LoginSchema}
-                    onSubmit={({ setSubmitting }) => {
-                        alert("Form is validated! Submitting the form...");
+                    onSubmit={(values, {setSubmitting}) => {
+                        // console.log(values.email)
+                        this.handleSubmit(values);
                         setSubmitting(false);
+                        
                     }}
                     >
-                    {({ touched, errors, isSubmitting }) => (
+                    {({ values, touched, errors, isSubmitting }) => (
                         <Form className="ContactForm">
                         <div className="form-group form-control-inline">
                             <label htmlFor="name">Name</label>
@@ -84,7 +127,6 @@ class Contact extends React.Component{
                                 touched.message && errors.message ? "is-invalid" : ""
                             }`}
                             rows='3'
-                            // style={{height:'100%'}}
                             />
                             <ErrorMessage
                             component="div"
@@ -97,6 +139,7 @@ class Contact extends React.Component{
                             type="submit"
                             className="btn btn-primary btn-block"
                             disabled={isSubmitting}
+                            // onClick={() => console.log(values.name)}
                         >
                             {isSubmitting ? "Please wait..." : "Submit"}
                         </button>

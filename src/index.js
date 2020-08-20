@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import ScrollToTop from 'react-router-scroll-top'
 
-import ScrollToTop from './ScrollToTop'
 
 // Main Pages Imports
 import Homepage from './Pages/Homepage/Homepage';

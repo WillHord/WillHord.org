@@ -1,0 +1,119 @@
+.LargeBoxContainer{
+    background-color: white;
+    min-height: 400px;
+    width: 45%;
+    color: black;
+    margin: 20px;
+    padding: 0;
+    display: inline-block;
+    transition: transform .3s;
+
+
+    /* -ms-box-shadow: 3px 3px 5px 6px #36454f;
+        -o-box-shadow: 3px 3px 5px 6px #36454f;
+            -moz-box-shadow: 3px 3px 5px 6px #36454f;
+                -webkit-box-shadow: 3px 3px 5px 6px #36454f;
+                   box-shadow:3px 3px 5px 6px #36454f; */
+}
+
+/* .LargeBoxContainer:hover{
+    transform: scale(1.1);
+} */
+
+.boxImg{
+    background-color: green;
+    width: 100%;
+    min-height: 200px;
+    padding: 0;
+}
+
+.BoxBody{
+    background-color: white;
+    min-height: 200px;
+    text-align: left;
+    margin: 10px 10px 20px 10px;
+    position: relative;
+    display: flex;
+    align-content: flex-start;
+}
+.BoxBody h5{
+    padding-right: 10px;
+    display: inline;
+}
+
+.BoxBody p{
+    white-space: normal;
+    display: inline;
+    min-height: 200px;
+    padding-bottom: 30px;
+
+}
+
+.BoxBody .languageFooterBox{
+    width: 89%;
+    position: absolute;
+    bottom: 0;
+}
+
+.projectTitle{
+    font-size: 1.25rem;
+    padding-right: 10px;
+    display: inline-flex;
+    height: 20px;
+}
+
+.projectDescription{
+    white-space: normal;
+    display: inline-flex;
+    min-height: 200px;
+}
+
+.ProjectsTitle{
+    padding-top:3%;
+    text-align: center;
+}
+
+.BoxBody .githubFooter{
+    padding-left: 5px;
+    padding-top: 5px;
+    min-width: 50px;
+    min-height: 25px;
+    position: absolute;
+    bottom: 0;
+    display: inline;
+    /* background-color: red; */
+    right: 0;
+}
+
+/* Language Footer Styles */
+
+.FooterBox{
+    min-width: 60px;
+    height: 30px;
+    background-color: transparent;
+    border-color: black;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 2px;
+    float: left;
+    /* display: inline; */
+    margin-right: 10px;
+    text-align: center;
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.FooterBox:hover{
+    opacity: .3;
+}
+
+/* .BoxBody .FooterBox{
+    position: absolute;
+    bottom: 0;
+} */
+.language{
+    color: black;
+    margin-left: 3px;
+    margin-right: 3px;
+}

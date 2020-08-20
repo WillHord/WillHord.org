@@ -50,7 +50,6 @@ class SolarSystem extends React.Component{
     }
 
     nameAnimationDelay(){
-        console.log("name should have loaded")
         this.setState({active: true})
     }
     

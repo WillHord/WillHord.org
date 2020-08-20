@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faBars} from '@fortawesome/free-solid-svg-icons/faBars';
-// import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 
 import Item from "./Item";
@@ -29,7 +26,6 @@ class TopMenu extends Component{
         this.SizeUpdate = this.SizeUpdate.bind(this);
     }
     setToggleTopMenuClass(){
-        console.log("BEEP BOOP");
         if (this.state.menu_class === '') {
             this.setState({
                 menu_class: 'toggled',

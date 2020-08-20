@@ -1,20 +1,16 @@
 import React from 'react';
-// import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { Waypoint } from 'react-waypoint';
-import Fade from 'react-reveal/Fade';
 
 import './Homepage.css'
 
 import TopMenu from '../../components/topMenu/Menu'
 import SolarSystem from '../../components/SolarSystem/SolarSystem'
-// import ProjectBoxes from '../../components/ProjectBoxes/ProjectBoxes'
 import BottomBar from '../../components/BottomMenu/BottomMenu'
 import Box from '../../components/ProjectBoxes/Box'
 import TerminalItem from '../../components/TerminalEffect/TerminalItem'
 
 
 import './planning.css'
-import { faExpeditedssl } from '@fortawesome/free-brands-svg-icons';
 
 class Homepage extends React.Component{
   constructor(props){
@@ -123,6 +119,17 @@ class Homepage extends React.Component{
       backgroundSize: 'cover',
       backgroundImage: isDesktop ? "url('/WillHordIBM.jpg')" : "url('/WillHordIBMMobile.jpg')"
     }
+
+    const img2Style = {
+      width: '100%',
+      height: '80vh',
+      position: 'relative',
+      backgroundAttachment: 'fixed',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+      backgroundImage: isDesktop ? "url('/WillHordUCSantaCruz.jpg')" : "url('/WillHordUCSantaCruzMobile.jpg')"
+    }
     return(
       <>
           <TopMenu/>
@@ -137,12 +144,12 @@ class Homepage extends React.Component{
           <div className='projects'>
             <h4>Recent Projects</h4>
             <div className='boxContainer'>
-                    <Box title='Discord Bot' summary='Summary' path='/' fadeIn={1400}/>
-                    <Box title='iMessage Bot' summary='Summary2' path='/' fadeIn={1600}/>
-                    <Box title='MAT2CSV' summary='Summary3' path='/' fadeIn={1900}/>
+                    <Box title='Discord Bot' summary='Summary' path='/Projects' fadeIn={1400}/>
+                    <Box title='iMessage Bot' summary='Summary2' path='/Projects' fadeIn={1600}/>
+                    <Box title='MAT2CSV' summary='Summary3' path='/Projects' fadeIn={1900}/>
             </div>
           </div>
-          <div className='img2'></div>
+          <div style={img2Style}></div>
           <BottomBar/>
       </>
     )

@@ -43,7 +43,7 @@ class TerminalItem extends React.Component {
 
     handleType = () => {
       const { dataText, typeSpeed, deleteSpeed } = this.props;
-      const { isDeleting, loopNum, text, typingSpeed, Stopped, cursor } = this.state;
+      const { isDeleting, loopNum, text, typingSpeed, Stopped } = this.state;
       const i = loopNum % dataText.length;
       const fullText = dataText[i];
 
@@ -64,13 +64,11 @@ class TerminalItem extends React.Component {
           loopNum: loopNum + 1
         });
       } else if(text === dataText[dataText.length - 1] && text.length === dataText[dataText.length -1].length && !Stopped){
-          // console.log('Done typing')
           this.setState({Stopped: true})
           setTimeout(() => this.props.animationHandler(), 200);
           if(!this.props.lastLine){
             setTimeout(() => this.setState({cursor: 'cursorComplete'}), 200);
           }
-          // this.setState({cursor: 'cursorComplete'})
       }
       setTimeout(this.handleType, typingSpeed);
     };
