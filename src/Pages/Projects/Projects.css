@@ -1,6 +1,10 @@
 .projectBody{
-    background-color: black;
+    background-color: #292a2c;
     color: white;
+    font-family: 'Montserrat', sans-serif;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: auto;
 }
 
 
@@ -19,7 +23,7 @@
     margin-top: -30px;
     padding-top: 60px;
     min-height: 100vh;
-    background-color: #36454f;
+    /* background-color: #36454f; */
     text-align: center;
     padding-bottom: 50px;
 }

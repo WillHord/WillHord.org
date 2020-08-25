@@ -45,8 +45,10 @@ class SolarSystem extends React.Component{
         super (props)
         this.state = {
             active: false,
+            isDesktop: false,
         };
         this.nameAnimationDelay = this.nameAnimationDelay.bind(this);
+        this.SizeUpdate = this.SizeUpdate.bind(this);
     }
 
     nameAnimationDelay(){
@@ -55,9 +57,36 @@ class SolarSystem extends React.Component{
     
     componentDidMount(){
         setTimeout(this.nameAnimationDelay,2000)
+        this.SizeUpdate();
+        window.addEventListener("resize", this.SizeUpdate);
+    }
+
+    componentWillUnmount(){
+        window.removeEventListener("resize", this.SizeUpdate);
+    }
+
+    SizeUpdate() {
+        this.setState({ isDesktop: window.innerWidth > 600 });
     }
 
     render(){
+        const isDesktop = this.state.isDesktop;
+        let Title;
+
+        const NameStyle = {
+            paddingLeft: isDesktop ? '.9em' : '0',
+        }
+
+        if(isDesktop){
+            Title = <p>Will Hord</p>;
+        } else{
+            Title =
+            <>
+                <span className='alignCenter' style={{marginLeft:"15%"}}>Will</span>
+                <div style={{height:'50px'}}/>
+                <span className='alignCenter' >Hord</span>
+            </>
+        }
         // const nameState = this.state;
         return (
             <>
@@ -66,8 +95,8 @@ class SolarSystem extends React.Component{
                         {/* <div className='twinkling'></div> */}
                     </div>
                     <div className='sun'/>
-                    <div className={this.state.active ? 'name':null}>
-                        <p>Will Hord</p>
+                    <div className={this.state.active ? 'name':null} style={NameStyle}>
+                        {Title}
                     </div>
                     <div className='planet1Orbit'>
                         <div className='planet1Rotate'>

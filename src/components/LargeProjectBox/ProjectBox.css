@@ -88,12 +88,12 @@
 /* Language Footer Styles */
 
 .FooterBox{
-    min-width: 60px;
+    min-width: 65px;
     height: 30px;
-    background-color: transparent;
+    /* background-color: transparent; */
     border-color: black;
     border-style: solid;
-    border-radius: 10px;
+    border-radius: 5px;
     border-width: 2px;
     float: left;
     /* display: inline; */
@@ -101,11 +101,15 @@
     text-align: center;
     cursor: pointer;
 
-    transition: .3s;
+    transition: .4s;
+    
 }
 
 .FooterBox:hover{
     opacity: .3;
+    /* background-color: red; */
+    /* -moz-transform: rotate(0);
+    transform: rotate(0); */
 }
 
 /* .BoxBody .FooterBox{

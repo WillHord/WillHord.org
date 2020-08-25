@@ -31,12 +31,12 @@
     font-size: 500%;
     /* padding-bottom: -.1em; */
     padding-top: 10px;
-    padding-left: .85em;
+    /* padding-left: .85em; */
     animation: revealName ease-in 3s;
   }
 
 .name p{
-    word-spacing: 10px;
+    word-spacing: 25px;
 }
 
 @keyframes revealName {

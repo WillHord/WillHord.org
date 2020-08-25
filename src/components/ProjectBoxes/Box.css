@@ -1,20 +1,21 @@
 .box{
-    height: 30vh;
-    width: 22vh;
+    height: 40vh;
+    width: 32vh;
     background-color: white;
-    border-radius: 15px;
+    border-radius: 3px;
     color: black;
     position: relative;
     transition: transform .3s;
     text-align: left;
-    display: inline-block;
-    margin-right: 3%;
+    /* display: inline-block; */
+    /* margin-right: 5%; */
+    margin-top: 12%;
 
-    -ms-box-shadow: 3px 3px 5px 6px #ccc;
-        -o-box-shadow: 3px 3px 5px 6px #ccc;
-            -moz-box-shadow: 3px 3px 5px 6px #ccc;
-                -webkit-box-shadow: 3px 3px 5px 6px #ccc;
-                   box-shadow:3px 3px 5px 6px #ccc;
+    /* -ms-box-shadow: 3px 3px 5px 6px #b8b8b8;
+        -o-box-shadow: 3px 3px 5px 6px #b8b8b8;
+            -moz-box-shadow: 3px 3px 5px 6px #b8b8b8cc;
+                -webkit-box-shadow: 3px 3px 5px 6px #b8b8b8;
+                   box-shadow:3px 3px 5px 6px #b8b8b8; */
 }
 
 
@@ -60,4 +61,3 @@
     padding-left: 15%;
     font-size: 2vh;
 }
-

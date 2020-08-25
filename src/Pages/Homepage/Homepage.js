@@ -1,5 +1,6 @@
 import React from 'react';
 import { Waypoint } from 'react-waypoint';
+import { Redirect } from 'react-router';
 
 import './Homepage.css'
 
@@ -10,7 +11,7 @@ import Box from '../../components/ProjectBoxes/Box'
 import TerminalItem from '../../components/TerminalEffect/TerminalItem'
 
 
-import './planning.css'
+// import './planning.css'
 
 class Homepage extends React.Component{
   constructor(props){
@@ -31,6 +32,9 @@ class Homepage extends React.Component{
         currentLine: 1,
         // boxStyle: 'boxFadeInBefore',
         isDesktop: false,
+        defaultTypeSpeed: 10,
+        lineBuffer: 200,
+        redirectProjects: false,
     }
     this.TerminalAnimation = this.TerminalAnimation.bind(this);
     this.animationHandler = this.animationHandler.bind(this);
@@ -41,11 +45,13 @@ class Homepage extends React.Component{
   componentDidMount() {
     this.SizeUpdate();
     window.addEventListener("resize", this.SizeUpdate);
+    document.getElementsByTagName('body')[0].className = 'HomepageBody';
   }
 
   componentWillUnmount() {
     // fix Warning: Can't perform a React state update on an unmounted component
     window.removeEventListener("resize", this.SizeUpdate);
+    document.getElementsByTagName('body')[0].className = '';
     this.setState = (state,callback)=>{
         return;
     };
@@ -65,6 +71,7 @@ class Homepage extends React.Component{
         firstLine={true}
         typeSpeed={50}
         deleteSpeed={30}
+        lineBuffer={this.state.lineBuffer}
         /> ]
     })
     this.setState({currentLine: currentLine + 1});
@@ -76,6 +83,8 @@ class Homepage extends React.Component{
             prefix={'>'}
             dataText={lines[currentLine - 1]}
             animationHandler={this.animationHandler}
+            typeSpeed={this.state.defaultTypeSpeed}
+            lineBuffer={this.state.lineBuffer}
             /> ]
         })
         this.setState({currentLine: currentLine + 1});
@@ -86,7 +95,9 @@ class Homepage extends React.Component{
         prefix={'>'}
         dataText={lines[currentLine - 1]}
         animationHandler={this.animationHandler}
+        typeSpeed={this.state.defaultTypeSpeed}
         lastLine={true}
+        lineBuffer={this.state.lineBuffer}
         /> ]
     })
     this.setState({currentLine: currentLine + 1})
@@ -110,9 +121,10 @@ class Homepage extends React.Component{
   render(){
     const isDesktop = this.state.isDesktop;
     const img1Style = {
-      width: '100%',
+      width: isDesktop ? '90%': '100%',
       height: '80vh',
       position: 'relative',
+      margin: '0 auto',
       // backgroundAttachment: 'fixed',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
@@ -121,35 +133,106 @@ class Homepage extends React.Component{
     }
 
     const img2Style = {
-      width: '100%',
-      height: '80vh',
+      width: isDesktop ? '90%': '100%',
+      height: '90vh',
+      margin: '0 auto',
       position: 'relative',
-      backgroundAttachment: 'fixed',
+      // backgroundAttachment: 'fixed',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
       backgroundImage: isDesktop ? "url('/WillHordUCSantaCruz.jpg')" : "url('/WillHordUCSantaCruzMobile.jpg')"
     }
+
+    if(this.state.redirectProjects){
+      return <Redirect push to="/Projects"/>;
+    }
+
+    let projectBoxes;
+    let img1;
+    let img2;
+    if(isDesktop){
+      projectBoxes =
+      <>
+        <Box title='WillHord.org' summary='Summary' path='/Projects' fadeIn={1400}/>
+        <Box title='Discord Bot' summary='Summary' path='/Projects' fadeIn={1500}/>
+        <Box title='iMessage Bot' summary='Summary2' path='/Projects' fadeIn={1600} endBox={true}/>
+      </>;
+      img1 =<>
+      <section id='img1Container'>
+            <div style={img1Style}/>
+      </section>
+      </>;
+      img2 =<>
+      <div id='img2Container'>
+        <div style={img2Style}/>
+      </div>
+      </>;
+
+    } else{
+      projectBoxes =
+      <>
+        <Box title='WillHord.org' summary='Summary' path='/Projects' fadeIn={1400}/>
+        <Box title='Discord Bot' summary='Summary' path='/Projects' fadeIn={1500}/>
+      </>;
+      img1 = <div style={img1Style}/>;
+
+      img2 = <div style={img2Style}/>;
+
+    }
+
+
     return(
       <>
           <TopMenu/>
           <SolarSystem/>
-          <div className='whoAmI'>
-            <Waypoint onEnter={this.TerminalAnimation}/>
-            <ul>
-              {this.state.Items}
-            </ul>
-          </div>
-          <div style={img1Style}/>
-          <div className='projects'>
-            <h4>Recent Projects</h4>
-            <div className='boxContainer'>
-                    <Box title='Discord Bot' summary='Summary' path='/Projects' fadeIn={1400}/>
-                    <Box title='iMessage Bot' summary='Summary2' path='/Projects' fadeIn={1600}/>
-                    <Box title='MAT2CSV' summary='Summary3' path='/Projects' fadeIn={1900}/>
+          <section id='whoAmI'>
+            {/* <h4 style={{color:'white'}}>Loading WhoAmI.exe</h4> */}
+            <div id='whoAmIInnerContent'>
+
+
+            <div className='HomepageTerminal'>
+              <div className='TerminalTop'>
+                <div className='closeWindowIcon'/>
+                <div className='minimizeWindowIcon'/>
+                <div className='expandWindowIcon'/>
+
+              </div>
+              <ul>
+                {this.state.Items}
+              </ul>
             </div>
-          </div>
-          <div style={img2Style}></div>
+
+            {/* <div id='WhoAmISidePicture'/> */}
+
+            </div>
+            <Waypoint onEnter={this.TerminalAnimation}/>
+
+          </section>
+
+          {img1}
+          {/* <section id='img1Container'>
+            <div style={img1Style}/>
+          </section> */}
+
+
+
+          <section className='projects'>
+            <div className='innerHomepageContent'>
+              <h4>Recent Projects</h4>
+              <div className='boxContainer'>
+                {projectBoxes}
+              </div>
+              <button className='homepageButton'
+              onClick={() => {this.setState({redirectProjects: true})}}
+              >More Projects</button>
+            </div>
+
+          </section>
+          {img2}
+          {/* <div id='img2Container'>
+            <div style={img2Style}></div>
+          </div> */}
           <BottomBar/>
       </>
     )

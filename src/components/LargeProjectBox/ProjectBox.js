@@ -45,8 +45,7 @@ class ProjectBox extends React.Component{
 
         const boxMobile = {
             width: isDesktop ? '45%' : '90%',
-            transform: hovered ? 'scale(1.05)' : 'scale(1)',
-            
+            // transform: hovered ? 'scale(1.005)' : 'scale(1)',
         }
 
         const boxHoverStyle = {

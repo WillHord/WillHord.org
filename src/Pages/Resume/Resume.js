@@ -5,7 +5,6 @@ import BottomMenu from '../../components/BottomMenu/BottomMenu'
 
 
 import './Resume.css'
-import './ResumePlanning.css'
 
 class Resume extends React.Component{
     constructor(props){
@@ -53,12 +52,19 @@ class Resume extends React.Component{
             float: isDesktop ? 'right' : 'none',
             textAlign: isDesktop ? 'inherit' : 'center'
         }
+
+        const TopPictureStyle ={
+            backgroundImage: isDesktop ? 'url(/WillHordIBM.jpg)' : 'url(/WillHordIBMMobile.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: isDesktop ? '50% 25%' : 'initial',
+            // height: '80vh',
+            // width: '100%',
+        }
+
         return (
             <>
-                <TopMenu color='white' lead={true} backgroundColor={'#282E34'} burgerColor={'white'}/>
-                <div className='TopPicture'> 
-
-                </div>
+                <TopMenu color='white' lead={true} backgroundColor={'#1a1a1a'} burgerColor={'black'}/>
+                <div className='TopPicture' style={TopPictureStyle}/>
                 
                 <div className='outerContent'>
                     <div className='innerContent'>
@@ -101,13 +107,13 @@ class Resume extends React.Component{
                             <span className='alignRight'>2015-2019</span>
                             <br/>
                             <b>International Baccalaureate Diploma </b>
-                            <span className='alignRight'>Santa Cruz, CA</span>
-                            <br/>
+                            <span className='alignRight'>Dobbs Ferry, NY</span>
+                            {/* <br/>
                             <br/>
                             <br/>
                             <p>
                                 Recieved my high school IB diploma in 2019.
-                            </p>
+                            </p> */}
                             <br/>
                             <br/>
                         </div>
@@ -235,7 +241,6 @@ class Resume extends React.Component{
                                 <li>LaTeX</li>
                             </ul>
                             <br/>
-                            {/* <br/> */}
                         </div>
                         <hr className='TitleDivider'/>
                         <div className='alignCenter' style={{paddingBottom: '30px'}}>

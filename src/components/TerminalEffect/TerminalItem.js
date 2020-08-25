@@ -9,8 +9,9 @@ class TerminalItem extends React.Component {
       dataText: [],
       lastLine: false,
       firstLine: false,
-      typeSpeed: 40,
+      typeSpeed: 30,
       deleteSpeed: 15,
+      lineBuffer: 200,
     }
 
     constructor(props) {
@@ -28,7 +29,7 @@ class TerminalItem extends React.Component {
 
     componentDidMount() {
       if(this.props.firstLine){
-        setTimeout(this.handleType, 3000)
+        setTimeout(this.handleType, 1000)
       } else {
         this.handleType()
       }
@@ -65,7 +66,7 @@ class TerminalItem extends React.Component {
         });
       } else if(text === dataText[dataText.length - 1] && text.length === dataText[dataText.length -1].length && !Stopped){
           this.setState({Stopped: true})
-          setTimeout(() => this.props.animationHandler(), 200);
+          setTimeout(() => this.props.animationHandler(), this.props.lineBuffer);
           if(!this.props.lastLine){
             setTimeout(() => this.setState({cursor: 'cursorComplete'}), 200);
           }

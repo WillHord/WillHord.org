@@ -5,6 +5,11 @@ import Fade from 'react-reveal/Fade';
 import './Box.css'
 
 class Box extends React.Component{
+    static defaultProps = {
+        endBox: false,
+
+    }
+
     constructor(props){
         super(props)
         this.title = props.title
@@ -14,40 +19,49 @@ class Box extends React.Component{
 
         this.state = {
             hovered: false,
+            isDesktop: false,
         }
 
-        this.handleMouseEnter = this.handleMouseEnter.bind(this);
-        this.handleMouseLeave = this.handleMouseLeave.bind(this);
+        this.SizeUpdate = this.SizeUpdate.bind(this);
     }
 
-    handleMouseEnter(){
-        this.setState({hovered: true})
+    componentDidMount(){
+        this.SizeUpdate();
+        window.addEventListener("resize", this.SizeUpdate);
     }
 
-    handleMouseLeave(){
-        this.setState({hovered: false})
+    componentWillUnmount(){
+        window.removeEventListener("resize", this.SizeUpdate);
+    }
+
+    SizeUpdate() {
+        this.setState({ isDesktop: window.innerWidth > 600 });
     }
 
 
     render(){
-        const hovered = this.state.hovered;
+        const {hovered, isDesktop} = this.state;
+        const endBox = this.props.endBox;
 
         const linkForProject = {
             textDecoration: 'none',
             color: 'black'
         }
-        
+
         const boxHover = {
             transform: hovered ? 'scale(1.1)' : 'scale(1)',
             display: 'inline-block',
-            marginRight: '3%',
+            marginRight: isDesktop ? endBox ? '0' : '4%':'0',
         }
 
         return(
             <>
             <Fade bottom duration={this.fadeIn} >
                 <div style={boxHover} >
-                <div className='box' onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave} style={boxHover}>
+                <div className='box' 
+                onMouseEnter={() => {this.setState({hovered:true})}} 
+                onMouseLeave={() => {this.setState({hovered: false})}} 
+                style={boxHover}>
                     <div className='Title'>{this.title}</div>
                     <hr className='dividerTop' />
                     <div className='Summary'>{this.summary}</div>
@@ -56,7 +70,7 @@ class Box extends React.Component{
                         
                         <Link style={linkForProject} to={this.path}>
                             <div className='linkToProject'>
-                                To Project Page &rarr;
+                                To Project &rarr;
                             </div>
                         </Link>
                     </div>

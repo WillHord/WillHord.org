@@ -10,10 +10,12 @@ h3 {
 }
 
 .terminalText{
-  font-family: 'Ubuntu Mono', monospace;
+  /* font-family: 'Ubuntu Mono', monospace; */
+  font-family: Andale Mono,AndaleMono,monospace; 
   color: white;
   margin: 0;
-  font-size: inherit;
+  font-size: 20px;
+  padding-bottom: 15px;
 }
 
 .cursor {

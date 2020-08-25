@@ -44,9 +44,9 @@ class Projects extends React.Component{
     }
 
     render(){
-        const description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit purus nisl, sed viverra purus tristique non. Vivamus pulvinar malesuada est pretium convallis. Sed sit amet tortor et urna sodales pellentesque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. ";
+        // const description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit purus nisl, sed viverra purus tristique non. Vivamus pulvinar malesuada est pretium convallis. Sed sit amet tortor et urna sodales pellentesque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. ";
 
-        const testArray = ["python","sql"];
+        // const testArray = ["python","sql"];
 
         const projects = [
             {
@@ -72,13 +72,13 @@ class Projects extends React.Component{
         ]
         return (
             <>
-            <TopMenu color='white' lead={true} backgroundColor={'#282E34'} burgerColor={'white'}/>
+            <TopMenu color='white' lead={true} backgroundColor={'#1a1a1a'} burgerColor={'white'}/>
             <div className='ProjectTopImg'/>
 
             <div className='outerContentProjects'>
                 <div className='innerContentProjects'>
                     <div className='ProjectTitle'>
-                        <h5>Projects</h5>
+                        <h3>Projects</h3>
                     </div>
                     <hr className='TitleDivider'/>
                     <br/>
