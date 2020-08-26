@@ -1,4 +1,3 @@
-
 .solarSystem {
     overflow: hidden;
     display: flex;
@@ -8,17 +7,15 @@
     margin: 0 auto;
     width: 100%;
     height: 100vh;
-    /* text-align: center; */
     background-color: black;
-    /* background-position: center center; */
-    /* display: table; */
+
 }
 
-.nameNone{
+.nameNone {
     opacity: 0;
 }
 
-.name{
+.name {
     font-family: Moon-Light;
     opacity: 100%;
     text-shadow: 2px 2px #000;
@@ -29,59 +26,51 @@
     color: white;
     z-index: 10;
     font-size: 500%;
-    /* padding-bottom: -.1em; */
     padding-top: 10px;
-    /* padding-left: .85em; */
     animation: revealName ease-in 3s;
-  }
+}
 
-.name p{
+.name p {
     word-spacing: 25px;
 }
 
 @keyframes revealName {
     0% {
         opacity: 0%;
-      clip-path: inset(0px 50% 0px 50%);
-      -webkit-clip-path: inset(0px 50% 0px 50%);
-     }
+        clip-path: inset(0px 50% 0px 50%);
+        -webkit-clip-path: inset(0px 50% 0px 50%);
+    }
+
     100% {
         opacity: 100%;
-       clip-path: inset(0px 0px 0px 0px);
-       -webkit-clip-path: inset(0px 0px 0px 0px);
+        clip-path: inset(0px 0px 0px 0px);
+        -webkit-clip-path: inset(0px 0px 0px 0px);
     }
-  }
+}
 
 
 .sun {
     width: 100px;
     height: 100px;
     border-radius: 100%;
-    /* background-color: blue; */
     position: absolute;
     z-index: 10;
-    background-image:url('./sun.jpg') ;
+    background-image: url('./sun.jpg');
     background-size: cover;
-    box-shadow: -5px -5px 25px 1px rgba(0,0,0,.5) inset, 0 0 5px 1px rgba(0,0,0,.9);
-
-    /* background-color: #FB7209;
-    background-size: cover;
-    box-shadow: 0 0 60px rgba(255, 160, 60, 0.4);
-    background-image: url('./sun.png'); */
-
+    box-shadow: -5px -5px 25px 1px rgba(0, 0, 0, .5) inset, 0 0 5px 1px rgba(0, 0, 0, .9);
     animation: planetSpin 4000s linear infinite, SunFadeIn 2.5s ease-out;
 }
 
 
-.planet1Orbit{
+.planet1Orbit {
     position: absolute;
     width: 150px;
     height: 150px;
     -webkit-transform: scaleX(3) skewY(-30deg);
-        -moz-transform: scaleX(3) skewY(-30deg);
-            -o-transform: scaleX(3) skewY(-30deg);
-                -ms-transform: scaleX(3) skewY(-30deg);
-                    transform: scaleX(3) skewY(-30deg);
+    -moz-transform: scaleX(3) skewY(-30deg);
+    -o-transform: scaleX(3) skewY(-30deg);
+    -ms-transform: scaleX(3) skewY(-30deg);
+    transform: scaleX(3) skewY(-30deg);
     border-style: solid;
     border-color: rgba(255, 255, 255, 0.2);
     border-width: 1px;
@@ -89,61 +78,57 @@
     animation: planetFadeInTop 1.3s ease-out;
 }
 
-.planet1Rotate{
+.planet1Rotate {
     position: absolute;
-    /* left: 5%; */
     top: 3%;
     width: 110%;
     height: 100%;
     -webkit-animation: circle 5s infinite linear;
-        -moz-animation: circle 5s infinite linear;
-            -o-animation: circle 5s infinite linear;
-                animation: circle 5s infinite linear;
+    -moz-animation: circle 5s infinite linear;
+    -o-animation: circle 5s infinite linear;
+    animation: circle 5s infinite linear;
 
     -webkit-transform-origin: 50% 50%;
-        -moz-transform-origin: 50% 50%;
-            -o-transform-origin: 50% 50%;
-                transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
 }
 
-.planet1CounterRotate{
+.planet1CounterRotate {
     width: 50px;
     height: 50px;
     overflow: hidden;
     -webkit-animation: ccircle 5s infinite linear;
-        -moz-animation: ccircle 5s infinite linear;
-            -o-animation: ccircle 5s infinite linear;
-                animation: ccircle 5s infinite linear;
+    -moz-animation: ccircle 5s infinite linear;
+    -o-animation: ccircle 5s infinite linear;
+    animation: ccircle 5s infinite linear;
 }
 
-.planet1{
+.planet1 {
     width: 5vh;
     height: 5vh;
     background-color: green;
-    background-image:url('./Mercury.jpeg') ;
+    background-image: url('./Mercury.jpeg');
     background-size: cover;
-    box-shadow: -5px -5px 25px 1px rgba(0,0,0,.5) inset, 0 0 5px 1px rgba(0,0,0,.9);
+    box-shadow: -5px -5px 25px 1px rgba(0, 0, 0, .5) inset, 0 0 5px 1px rgba(0, 0, 0, .9);
     border-radius: 100%;
     display: block;
     -webkit-animation: sizeOfInner 5s infinite linear;
-        -moz-animation: sizeOfInner 5s infinite linear;
-            -o-animation: sizeOfInner 5s infinite linear;
-                animation: sizeOfInner 5s infinite linear;
+    -moz-animation: sizeOfInner 5s infinite linear;
+    -o-animation: sizeOfInner 5s infinite linear;
+    animation: sizeOfInner 5s infinite linear;
 }
 
-/* .planet1:hover{
-    animation-play-state: paused;
-} */
 
-.planet2Orbit{
+.planet2Orbit {
     position: absolute;
     width: 200px;
     height: 200px;
     -webkit-transform: scaleX(3) skewY(-30deg);
-        -moz-transform: scaleX(3) skewY(-30deg);
-            -o-transform: scaleX(3) skewY(-30deg);
-                -ms-transform: scaleX(3) skewY(-30deg);
-                    transform: scaleX(3) skewY(-30deg);
+    -moz-transform: scaleX(3) skewY(-30deg);
+    -o-transform: scaleX(3) skewY(-30deg);
+    -ms-transform: scaleX(3) skewY(-30deg);
+    transform: scaleX(3) skewY(-30deg);
     border-style: solid;
     border-color: rgba(255, 255, 255, 0.2);
     border-width: 1px;
@@ -151,61 +136,59 @@
     animation: planetFadeInBottom 2s ease-out;
 }
 
-.planet2Rotate{
+.planet2Rotate {
     position: absolute;
     overflow: hidden;
     width: 90%;
     height: 100%;
     left: 5%;
     -webkit-animation: circle 10s infinite linear;
-        -moz-animation: circle 10s infinite linear;
-            -o-animation: circle 10s infinite linear;
-                animation: circle 10s infinite linear;
+    -moz-animation: circle 10s infinite linear;
+    -o-animation: circle 10s infinite linear;
+    animation: circle 10s infinite linear;
 
     -webkit-transform-origin: 50% 50%;
-        -moz-transform-origin: 50% 50%;
-            -o-transform-origin: 50% 50%;
-                transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
 }
 
-.planet2CounterRotate{
+.planet2CounterRotate {
     overflow: hidden;
     width: 50px;
     height: 50px;
     -webkit-animation: ccircle 10s infinite linear;
-        -moz-animation: ccircle 10s infinite linear;
-            -o-animation: ccircle 10s infinite linear;
-                animation: ccircle 10s infinite linear;
+    -moz-animation: ccircle 10s infinite linear;
+    -o-animation: ccircle 10s infinite linear;
+    animation: ccircle 10s infinite linear;
 }
 
-.planet2{
+.planet2 {
     width: 50px;
     height: 50px;
-    /* position: absolute; */
     left: 0px;
     top: 0px;
-    background-image:url('./mars.png') ;
+    background-image: url('./mars.png');
     background-size: cover;
-    box-shadow: -5px -5px 25px 1px rgba(0,0,0,.5) inset, 0 0 5px 1px rgba(0,0,0,.9);
-    /* background-color: red; */
+    box-shadow: -5px -5px 25px 1px rgba(0, 0, 0, .5) inset, 0 0 5px 1px rgba(0, 0, 0, .9);
     border-radius: 100%;
     display: block;
     -webkit-animation: sizeOfInner 10s infinite linear;
-        -moz-animation: sizeOfInner 10s infinite linear;
-            -o-animation: sizeOfInner 10s infinite linear;
-                animation: sizeOfInner 10s infinite linear,planetSpin 400s linear infinite;
+    -moz-animation: sizeOfInner 10s infinite linear;
+    -o-animation: sizeOfInner 10s infinite linear;
+    animation: sizeOfInner 10s infinite linear, planetSpin 400s linear infinite;
 }
 
 
-.planet3Orbit{
+.planet3Orbit {
     position: absolute;
     width: 250px;
     height: 250px;
     -webkit-transform: scaleX(3) skewY(-30deg);
-        -moz-transform: scaleX(3) skewY(-30deg);
-            -o-transform: scaleX(3) skewY(-30deg);
-                -ms-transform: scaleX(3) skewY(-30deg);
-                    transform: scaleX(3) skewY(-30deg);
+    -moz-transform: scaleX(3) skewY(-30deg);
+    -o-transform: scaleX(3) skewY(-30deg);
+    -ms-transform: scaleX(3) skewY(-30deg);
+    transform: scaleX(3) skewY(-30deg);
     border-style: solid;
     border-color: rgba(255, 255, 255, 0.2);
     border-width: 1px;
@@ -213,61 +196,65 @@
     animation: planetFadeInTop 1.7s ease-out;
 }
 
-.planet3Rotate{
+.planet3Rotate {
     position: absolute;
     overflow: hidden;
     width: 80%;
     height: 100%;
     left: 10%;
     -webkit-animation: circle 15s infinite linear;
-        -moz-animation: circle 15s infinite linear;
-            -o-animation: circle 15s infinite linear;
-                animation: circle 15s infinite linear;
+    -moz-animation: circle 15s infinite linear;
+    -o-animation: circle 15s infinite linear;
+    animation: circle 15s infinite linear;
 
     -webkit-transform-origin: 50% 50%;
-        -moz-transform-origin: 50% 50%;
-            -o-transform-origin: 50% 50%;
-                transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
 }
 
-.planet3CounterRotate{
+.planet3CounterRotate {
     overflow: hidden;
     width: 50px;
     height: 50px;
     -webkit-animation: ccircle 15s infinite linear;
-        -moz-animation: ccircle 15s infinite linear;
-            -o-animation: ccircle 15s infinite linear;
-                animation: ccircle 15s infinite linear;
+    -moz-animation: ccircle 15s infinite linear;
+    -o-animation: ccircle 15s infinite linear;
+    animation: ccircle 15s infinite linear;
 }
 
-.planet3{
+.planet3 {
     width: 50px;
     height: 50px;
-    /* position: absolute; */
     left: 0px;
     top: 0px;
-    /* background-image: radial-gradient(circle at 50px 50px, rgba(255,255,255,0.5), rgba(0,0,0,.7)), url('./Jupiter.jpg'); */
-    background-image:url('./Jupiter.jpg') ;
+    background-image: url('./Jupiter.jpg');
     background-size: cover;
-    box-shadow: -5px -5px 25px 1px rgba(0,0,0,.5) inset, 0 0 5px 1px rgba(0,0,0,.9);
+    box-shadow: -5px -5px 25px 1px rgba(0, 0, 0, .5) inset, 0 0 5px 1px rgba(0, 0, 0, .9);
     border-radius: 100%;
     display: block;
     -webkit-animation: sizeOfInner 15s infinite linear;
-        -moz-animation: sizeOfInner 15s infinite linear;
-            -o-animation: sizeOfInner 15s infinite linear;
-                animation: sizeOfInner 15s infinite linear, planetSpin 500s linear infinite;
+    -moz-animation: sizeOfInner 15s infinite linear;
+    -o-animation: sizeOfInner 15s infinite linear;
+    animation: sizeOfInner 15s infinite linear, planetSpin 500s linear infinite;
 }
 
-@keyframes planetSpin{
-    from {background-position: 0;}
-    to{background-position: -10000px;}
+@keyframes planetSpin {
+    from {
+        background-position: 0;
+    }
+
+    to {
+        background-position: -10000px;
+    }
 }
 
-@keyframes SunFadeIn{
-    from{
+@keyframes SunFadeIn {
+    from {
         opacity: 0;
         transform: translateY(-200px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -275,23 +262,25 @@
 }
 
 
-@keyframes planetFadeInTop{
-    from{
+@keyframes planetFadeInTop {
+    from {
         opacity: 0;
         transform: translateY(-130px) scaleX(3) skewY(-30deg);
     }
-    to{
+
+    to {
         opacity: 1;
         transform: translateY(0) scaleX(3) skewY(-30deg);
     }
 }
 
-@keyframes planetFadeInBottom{
-    from{
+@keyframes planetFadeInBottom {
+    from {
         opacity: 0;
         transform: translateY(130px) scaleX(3) skewY(-30deg);
     }
-    to{
+
+    to {
         opacity: 1;
         transform: translateY(0) scaleX(3) skewY(-30deg);
     }
@@ -300,91 +289,147 @@
 
 
 
-.stars, .twinkling {
-	position:absolute;
-	display:block;
-    top:0;
-    bottom:0;
-    left:0;
-    right:0;
-    width:100%;
-    height:100vh;
+.stars,
+.twinkling {
+    position: absolute;
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
 }
+
 .stars {
-	z-index: 0;
-	background: rgb(0, 0, 0) url('./Stars-WillHord.jpg') repeat top center;
+    z-index: 0;
+    background: rgb(0, 0, 0) url('./Stars-WillHord.jpg') repeat top center;
     background-size: cover;
 }
 
-.twinkling{
-	z-index: 1;
-	background:transparent url('background2.png') repeat top center;
-	animation: move-twink-back 50s linear infinite;
+.twinkling {
+    z-index: 1;
+    background: transparent url('background2.png') repeat top center;
+    animation: move-twink-back 50s linear infinite;
 }
 
 @keyframes move-twink-back {
-	from {background-position:0 0;}
-	to {background-position:-10000px 5000px;}
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -10000px 5000px;
+    }
 }
 
 
 
 
-/* @-webkit-keyframes sizeOfInner {
-    0%  { -webkit-transform: scaleX(0.33) scale(.60);}
-    25%  { -webkit-transform: scaleX(0.33) scale(.75); }
-    50%  { -webkit-transform: scaleX(0.33) scale(.1); }
-    75%  { -webkit-transform: scaleX(0.33) scale(.75); }
-    100%  { -webkit-transform: scaleX(0.33) scale(.60); }
-} */
-
 @keyframes sizeOfInner {
-    0%  {transform: scaleX(0.33) scale(.6);}
-    20%  {transform: scaleX(0.33) scale(.6); }
-    40%  {transform: scaleX(0.33) scale(.75); }
-    60%  {transform: scaleX(0.33) scale(1); }
-    80%  {transform: scaleX(0.33) scale(.75); }
-    100% {transform: scaleX(0.33) scale(.6);}
+    0% {
+        transform: scaleX(0.33) scale(.6);
+    }
+
+    20% {
+        transform: scaleX(0.33) scale(.6);
+    }
+
+    40% {
+        transform: scaleX(0.33) scale(.75);
+    }
+
+    60% {
+        transform: scaleX(0.33) scale(1);
+    }
+
+    80% {
+        transform: scaleX(0.33) scale(.75);
+    }
+
+    100% {
+        transform: scaleX(0.33) scale(.6);
+    }
 }
 
 
 @-webkit-keyframes circle {
-    from {-webkit-transform: rotateZ(0deg)}
-    to {-webkit-transform: rotateZ(360deg)}
+    from {
+        -webkit-transform: rotateZ(0deg)
+    }
+
+    to {
+        -webkit-transform: rotateZ(360deg)
+    }
 }
 
 @-moz-keyframes circle {
-    from {-moz-transform: rotateZ(0deg)}
-    to {-moz-transform: rotateZ(360deg)}
+    from {
+        -moz-transform: rotateZ(0deg)
+    }
+
+    to {
+        -moz-transform: rotateZ(360deg)
+    }
 }
 
 @-o-keyframes circle {
-    from {-o-transform: rotateZ(0deg)}
-    to {-o-transform: rotateZ(360deg)}
+    from {
+        -o-transform: rotateZ(0deg)
+    }
+
+    to {
+        -o-transform: rotateZ(360deg)
+    }
 }
 
 @keyframes circle {
-    from {transform: rotateZ(0deg)}
-    to {transform: rotateZ(360deg)}
+    from {
+        transform: rotateZ(0deg)
+    }
+
+    to {
+        transform: rotateZ(360deg)
+    }
 }
 
 
 @-webkit-keyframes ccircle {
-    from {-webkit-transform: rotateZ(360deg)}
-    to {-webkit-transform: rotateZ(0deg)}
+    from {
+        -webkit-transform: rotateZ(360deg)
+    }
+
+    to {
+        -webkit-transform: rotateZ(0deg)
+    }
 }
 
 @-moz-keyframes ccircle {
-    from {-moz-transform: rotateZ(360deg)}
-    to {-moz-transform: rotateZ(0deg)}
+    from {
+        -moz-transform: rotateZ(360deg)
+    }
+
+    to {
+        -moz-transform: rotateZ(0deg)
+    }
 }
 
 @-o-keyframes ccircle {
-    from {-o-transform: rotateZ(360deg)}
-    to {-o-transform: rotateZ(0deg)}
+    from {
+        -o-transform: rotateZ(360deg)
+    }
+
+    to {
+        -o-transform: rotateZ(0deg)
+    }
 }
 
 @keyframes ccircle {
-    from {transform: rotateZ(360deg)}
-    to {transform: rotateZ(0deg)}
+    from {
+        transform: rotateZ(360deg)
+    }
+
+    to {
+        transform: rotateZ(0deg)
+    }
 }

@@ -1,8 +1,7 @@
-.burgerIconContainer{
+.burgerIconContainer {
     position: absolute;
     top: 10px;
     right: 1rem;
-    /* display: flex; */
     flex-direction: column;
     justify-content: space-around;
     width: 2rem;
@@ -16,7 +15,7 @@
 }
 
 
-.hamburgerBar{
+.hamburgerBar {
     width: 2rem;
     height: 0.25rem;
     border-radius: 10px;
@@ -28,7 +27,7 @@
 
 
 @media screen and (max-width: 600px) {
-    .burgerIconContainer{
+    .burgerIconContainer {
         display: flex;
         padding: 0;
     }

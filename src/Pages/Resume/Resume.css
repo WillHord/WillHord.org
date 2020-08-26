@@ -1,38 +1,28 @@
-.ResumeBody{
-    /* background-color: #282E34; */
+.ResumeBody {
     background-color: #292a2c;
     color: black;
-    /* background-color: white; */
-    /* width: 100%; */
     overflow-x: hidden;
     font-family: 'Open Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: auto;
 }
 
-.TopPicture{
-    /* background-image: url('/WillHordIBM.jpg');
-    background-size: cover;
-    background-position: 50% 25%; */
-    /* transform: translateY(-100px); */
-    /* background-color: white; */
-    /* background-color: red; */
+.TopPicture {
     z-index: 1000;
     height: 80vh;
     width: 100%;
 }
 
-.outerContent{
+.outerContent {
     width: 100%;
     overflow-x: hidden;
     margin-top: -30px;
     padding-top: 60px;
     min-height: 100vh;
-    /* background-color: #36454f; */
     text-align: center;
 }
 
-.innerContent{
+.innerContent {
     width: 700px;
     max-width: 1024px;
     min-height: 100vh;
@@ -42,7 +32,7 @@
     margin: 0 auto;
 }
 
-.TitleDivider{
+.TitleDivider {
     border-color: white;
     border-style: solid;
     border-radius: 10px;
@@ -50,17 +40,17 @@
     opacity: .3;
 }
 
-.ResumeTitle{
-    padding-top:3%;
+.ResumeTitle {
+    padding-top: 3%;
     text-align: center;
 }
 
-.SectionTitle{
+.SectionTitle {
     text-align: left;
     padding-top: 5%;
 }
 
-.LargeIcon{
+.LargeIcon {
     width: 60px;
     height: 60px;
     float: left;
@@ -68,97 +58,80 @@
     border-radius: 50%;
     opacity: .8;
     margin-left: -95px;
-
-    /* filter: grayscale(100%); */
 }
 
-.alignRight{
+.alignRight {
     float: right;
 }
 
-.Coursework{
+.Coursework {
     list-style: disc;
 }
 
-.EducationSection{
+.EducationSection {
     padding-top: 20px;
     min-height: 100px;
 }
 
-.WorkSection{
+.WorkSection {
     padding-top: 40px;
     min-height: 200px;
 }
 
-.TechnicalSection{
+.TechnicalSection {
     padding-top: 40px;
     min-height: 200px;
 }
 
-.OtherTechnicalSkills{
+.OtherTechnicalSkills {
     padding-top: 40px;
     min-height: 200px;
 }
 
-.indent{
+.indent {
     padding-left: 40px;
 }
 
-.alignCenter{
+.alignCenter {
     text-align: center;
     padding-top: 10px;
     margin: 0 auto;
 }
 
-.sideBySide{
-    /* float: left; */
+.sideBySide {
     padding-right: 5%;
     margin-left: 40px;
 }
 
-.wrap{
+.wrap {
     overflow-wrap: normal;
 }
 
 
 @media screen and (max-width: 725px) {
-    .innerContent{
+    .innerContent {
         width: 85%;
     }
 
-    .alignRight{
+    .alignRight {
         display: none;
     }
 
-    .indent{
+    .indent {
         padding-left: 30px;
     }
-    
-    .sideBySide{
+
+    .sideBySide {
         margin-left: 5px;
         padding-right: 4%;
     }
 
-    .LargeIcon{
+    .LargeIcon {
         display: none;
     }
 }
 
-
-
-
-.inTextLink{
-    text-decoration: none;
-    color: inherit;
-}
-
-.inTextLink:hover{
-    text-decoration: none;
-    color: red;
-}
-
-
-.FullResumeButton{
+.FullResumeButton {
     text-align: center;
     width: 150px;
     height: 60px;
@@ -170,16 +143,16 @@
     transition: .5s;
 }
 
-.FullResumeButton:hover{
+.FullResumeButton:hover {
     background-color: white;
     color: black;
 }
 
-.FullResumeButton:focus{
+.FullResumeButton:focus {
     outline: none;
 }
 
-.PaperButton{
+.PaperButton {
     text-align: center;
     width: 120px;
     height: 50px;
@@ -191,11 +164,11 @@
     transition: .5s;
 }
 
-.PaperButton:hover{
+.PaperButton:hover {
     background-color: white;
     color: black;
 }
 
-.PaperButton:focus{
+.PaperButton:focus {
     outline: none;
 }

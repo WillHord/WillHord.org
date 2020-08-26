@@ -1,85 +1,86 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Fade from 'react-reveal/Fade';
+import React from "react";
+import Fade from "react-reveal/Fade";
 
-import './Box.css'
+import "./Box.css";
 
-class Box extends React.Component{
-    static defaultProps = {
-        endBox: false,
+class Box extends React.Component {
+  static defaultProps = {
+    endBox: false,
+  };
 
-    }
+  constructor(props) {
+    super(props);
+    this.title = props.title;
+    this.summary = props.summary;
+    this.path = props.path;
+    this.fadeIn = props.fadeIn;
 
-    constructor(props){
-        super(props)
-        this.title = props.title
-        this.summary = props.summary
-        this.path = props.path
-        this.fadeIn = props.fadeIn
+    this.state = {
+      hovered: false,
+      isDesktop: false,
+    };
 
-        this.state = {
-            hovered: false,
-            isDesktop: false,
-        }
+    this.SizeUpdate = this.SizeUpdate.bind(this);
+  }
 
-        this.SizeUpdate = this.SizeUpdate.bind(this);
-    }
+  componentDidMount() {
+    this.SizeUpdate();
+    window.addEventListener("resize", this.SizeUpdate);
+  }
 
-    componentDidMount(){
-        this.SizeUpdate();
-        window.addEventListener("resize", this.SizeUpdate);
-    }
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.SizeUpdate);
+  }
 
-    componentWillUnmount(){
-        window.removeEventListener("resize", this.SizeUpdate);
-    }
+  SizeUpdate() {
+    this.setState({ isDesktop: window.innerWidth > 600 });
+  }
 
-    SizeUpdate() {
-        this.setState({ isDesktop: window.innerWidth > 600 });
-    }
+  render() {
+    const { hovered, isDesktop } = this.state;
+    const endBox = this.props.endBox;
 
+    const linkForProject = {
+      textDecoration: "none",
+      color: "black",
+    };
 
-    render(){
-        const {hovered, isDesktop} = this.state;
-        const endBox = this.props.endBox;
+    const boxHover = {
+      transform: hovered ? "scale(1.1)" : "scale(1)",
+      display: "inline-block",
+      marginRight: isDesktop ? (endBox ? "0" : "4%") : "0",
+    };
 
-        const linkForProject = {
-            textDecoration: 'none',
-            color: 'black'
-        }
+    return (
+      <>
+        <Fade bottom duration={this.fadeIn}>
+          <div style={boxHover}>
+            <div
+              className="box"
+              onMouseEnter={() => {
+                this.setState({ hovered: true });
+              }}
+              onMouseLeave={() => {
+                this.setState({ hovered: false });
+              }}
+              style={boxHover}
+            >
+              <div className="Title">{this.title}</div>
+              <hr className="dividerTop" />
+              <div className="Summary">{this.summary}</div>
+              <div className="LinkDiv">
+                <hr className="dividerBottom" />
 
-        const boxHover = {
-            transform: hovered ? 'scale(1.1)' : 'scale(1)',
-            display: 'inline-block',
-            marginRight: isDesktop ? endBox ? '0' : '4%':'0',
-        }
-
-        return(
-            <>
-            <Fade bottom duration={this.fadeIn} >
-                <div style={boxHover} >
-                <div className='box' 
-                onMouseEnter={() => {this.setState({hovered:true})}} 
-                onMouseLeave={() => {this.setState({hovered: false})}} 
-                style={boxHover}>
-                    <div className='Title'>{this.title}</div>
-                    <hr className='dividerTop' />
-                    <div className='Summary'>{this.summary}</div>
-                    <div className='LinkDiv'>
-                        <hr className='dividerBottom'/>
-                        
-                        <Link style={linkForProject} to={this.path}>
-                            <div className='linkToProject'>
-                                To Project &rarr;
-                            </div>
-                        </Link>
-                    </div>
-                </div>
-                </div>
-            </Fade>
-            </>
-        )
-    }
+                <a style={linkForProject} target="_blank" href={this.path}>
+                  <div className="linkToProject">To Project &rarr;</div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </Fade>
+      </>
+    );
+  }
 }
 
 export default Box;

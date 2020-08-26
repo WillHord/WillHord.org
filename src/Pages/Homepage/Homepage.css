@@ -1,19 +1,4 @@
-body {
-    margin: 0 auto;
-    font-family: Trebuchet MS,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Tahoma,sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-color: black;
-    background-color: #282E34;
-    color: white;
-  }
-
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
-  }
-
-.HomepageBody{
+.HomepageBody {
   margin: 0 auto;
   background-color: #292a2c;
   font-family: 'Montserrat', sans-serif;
@@ -22,71 +7,41 @@ body {
   -moz-osx-font-smoothing: auto;
 }
 
-#img1Container{
+#img1Container {
   width: 100%;
   min-height: 80vh;
-  /* background-color: red; */
   background-color: #f0f0f0;
   margin: 0 auto;
   padding-top: 10%;
   padding-bottom: 10%;
 }
 
-#img2Container{
+#img2Container {
   width: 100%;
   min-height: 80vh;
-  /* background-color: red; */
   background-color: #f0f0f0;
   margin: 0 auto;
   padding-top: 10%;
   padding-bottom: 10%;
 }
 
-
-#WhoAmISidePicture{
-  background-image: url('/WillHordArduino.JPG');
-  background-size: cover;
-  background-repeat: no-repeat;
-  /* filter: grayscale(90%); */
-  width: 400px;
-  height: 450px;
-}
-
-
-
-
-
-.name{
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  color: white;
-  z-index: 1000;
-}
-
-.projects{
+.projects {
   width: 100%;
   min-height: 80vh;
-  /* position: relative; */
   text-align: center;
-  /* display: inline-block; */
-  /* padding-top: 10px; */
-  /* margin: 0 auto; */
   margin: 3% 0 3% 0;
 
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background-color: #a7a7a7; */
-  /* background-color: #24305e; */
   color: white;
 }
 
-.projects h4{
+.projects h4 {
   color: white;
 }
 
-.innerHomepageContent{
+.innerHomepageContent {
   width: 800px;
   max-width: 1024px;
   min-height: 75vh;
@@ -98,18 +53,17 @@ body {
   scrollbar-width: none;
 }
 
-.boxContainer{
+.boxContainer {
   padding-top: 2%;
   padding-bottom: 5%;
   width: 100%;
-  text-align: center;
-  /* overflow-x: scroll; */
-  display: inline-block;
-  /* white-space: nowrap; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
 }
 
-.homepageButton{
+.homepageButton {
   margin-top: 10px;
   text-align: center;
   width: 150px;
@@ -122,34 +76,30 @@ body {
   transition: .5s;
 }
 
-.homepageButton:hover{
+.homepageButton:hover {
   border-color: white;
   background-color: white;
   color: #292a2c;
 }
 
-.homepageButton:focus{
+.homepageButton:focus {
   outline: none;
 }
 
 
-#whoAmI{
+#whoAmI {
   width: 100%;
   min-height: 40vh;
   text-align: left;
   position: relative;
   padding-top: 10px;
   padding-bottom: 20px;
-  /* background-color: white; */
-  /* background-color: #adadad; */
   text-align: center;
-  /* padding-bottom: 5%; */
   padding-top: 5%;
   padding-bottom: 5%;
 }
 
-#whoAmIInnerContent{
-  /* width: 900px; */
+#whoAmIInnerContent {
   height: 100%;
   margin: 0 auto;
   display: flex;
@@ -158,23 +108,18 @@ body {
   justify-content: center;
 }
 
-.TerminalTop{
-  /* margin-top: 4%; */
+.TerminalTop {
   width: 100%;
   height: 30px;
   background-color: grey;
-
-  /* display: inline-block; */
   text-align: left;
   margin-bottom: 0;
-  /* border-top-left-radius: 10px;
-  border-top-right-radius: 10px; */
   display: flex;
   justify-content: left;
   align-items: center;
 }
 
-.HomepageTerminal{
+.HomepageTerminal {
   width: 700px;
   max-width: 1024px;
   min-height: 80vh;
@@ -182,39 +127,29 @@ body {
   color: black;
   display: inline-block;
   text-align: left;
-  /* margin: 0 auto; */
   overflow-x: hidden;
-  /* margin-top: 0; */
-  /* margin-top: 4%; */
-  /* margin-right: 30px; */
-
-
-
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 
-  /* border-top: gray; */
-  /* border-top-width: 20px;
-  border-top-style: solid;
-  border-top-left-radius: 5px; */
+
 }
 
-.HomepageTerminal ul{
+.HomepageTerminal ul {
   padding-left: 5px;
   margin-top: 3%;
 }
 
-.closeWindowIcon{
+.closeWindowIcon {
   width: 15px;
   height: 15px;
-  background-color:#FF605C;
+  background-color: #FF605C;
   border-radius: 50%;
   margin-left: 10px;
 }
 
-.minimizeWindowIcon{
+.minimizeWindowIcon {
   width: 15px;
   height: 15px;
   background-color: #FFBD44;
@@ -222,7 +157,7 @@ body {
   margin-left: 10px;
 }
 
-.expandWindowIcon{
+.expandWindowIcon {
   width: 15px;
   height: 15px;
   background-color: #00CA4E;
@@ -230,27 +165,16 @@ body {
   margin-left: 10px;
 }
 
-
-.img2{
-  width: 100%;
-  height: 80vh;
-  /* text-align: center; */
-  /* padding-top: 10px; */
-  
-  background-image: url('/WillHordUCSantaCruz.jpg');
-  background-size: cover;
-  background-position: center;
-  background-position-x: left;
-  background-attachment: fixed;
-}
-
-
-@media screen and (max-width: 700px){
-  .innerHomepageContent{
+@media screen and (max-width: 700px) {
+  .innerHomepageContent {
     width: 85%;
   }
 
-  .HomepageTerminal{
+  .HomepageTerminal {
     width: 85%;
+  }
+
+  .boxContainer {
+    flex-direction: column;
   }
 }
