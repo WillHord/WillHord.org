@@ -13,6 +13,7 @@ This repo contains the source code and documentation powering [WillHord.org](htt
 
 ### Installation
 
+1. `git clone https://github.com/WillHord/WillHord.org.git'` to clone the repo
 1. `cd WillHord.org` to go into the project root
 1. `yarn` to install the website's npm dependencies
 
