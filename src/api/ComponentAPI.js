@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "https://test.willhord.org/api";
+const baseURL = "https://www.willhord.org/api";
 
 axios.defaults.xsrfCookieName = "csrftoken";
 axios.defaults.xsrfHeaderName = "X-CSRFToken";
