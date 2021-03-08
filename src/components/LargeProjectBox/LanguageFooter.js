@@ -1,29 +1,16 @@
-import React from "react";
+import React from 'react';
 
 import "./ProjectBox.css";
 
-class LanguageFooter extends React.Component {
-  constructor(props) {
-    super(props);
+const LanguageFooter = (props) => {
 
-    this.language = props.language;
-    this.state = {};
-  }
-
-  render() {
-    return (
-      <>
-        <div
-          className="FooterBox"
-          onClick={() => {
-            this.props.changeSort(this.language);
-          }}
-        >
-          <span className="language"> {this.language}</span>
-        </div>
-      </>
-    );
-  }
+    return (<div 
+    className="FooterBox"
+    onClick={() => props.sortBy(props.language)}
+    >
+        <span className="language">{props.language}</span>
+    </div>
+    )
 }
 
 export default LanguageFooter;

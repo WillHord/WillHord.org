@@ -1,123 +1,87 @@
-import React from "react";
+import React, {useState} from 'react';
 import Fade from "react-reveal/Fade";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
+// import LanguageFooter from "./LanguageFooter";
 import LanguageFooter from "./LanguageFooter";
+
+import GetDesktop from "../isDesktop";
 
 import "./ProjectBox.css";
 
-class ProjectBox extends React.Component {
-  constructor(props) {
-    super(props);
+const ProjectBox = (props) => {
+    // const [hovered, setHovered] = useState(false)
+    const [githubHovered, setGithubHovered] = useState(false);
 
-    this.title = props.title;
-    this.description = props.description;
-    this.image = props.image;
-    this.github = props.github;
-    this.programmingLanguages = props.programmingLanguages;
+    const title = props.title;
+    const description = props.description;
+    const image = props.image;
+    const github = props.github;
+    const programmingLanguages = props.programmingLanguages;
 
-    this.state = {
-      hovered: false,
-      isDesktop: false,
-      githubHovered: false,
-    };
+    const isDesktop = GetDesktop();
 
-    this.SizeUpdate = this.SizeUpdate.bind(this);
-  }
-
-  componentDidMount() {
-    this.SizeUpdate();
-    window.addEventListener("resize", this.SizeUpdate);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.SizeUpdate);
-  }
-
-  SizeUpdate() {
-    this.setState({ isDesktop: window.innerWidth > 725 });
-  }
-
-  render() {
-    const { isDesktop, githubHovered } = this.state;
-
-    const boxMobile = {
-      width: isDesktop ? "45%" : "90%",
-      // transform: hovered ? 'scale(1.005)' : 'scale(1)',
-    };
-
-    const boxHoverStyle = {
-      minHeight: "400px",
-      display: "inline",
-    };
-
-    const githubLinkStyle = {
-      textDecoration: "none",
-      color: "black",
-      transition: ".3s",
-      opacity: githubHovered ? ".3" : "1",
-    };
-    return (
-      <>
-        <Fade bottom duration={1000}>
-          <div style={boxHoverStyle}>
-            <div
-              className="LargeBoxContainer"
-              style={boxMobile}
-              onMouseEnter={() => {
-                this.setState({ hovered: true });
-              }}
-              onMouseLeave={() => {
-                this.setState({ hovered: false });
-              }}
-            >
-              <figure className="boxImg">
+    return(
+        <Fade duration={1000}>
+            <section className='LargeBoxContainer' style={{
+            width: isDesktop ? "45%" : '90%',
+          }}>
+            <section className='boxImg'>
                 <img
-                  src={this.image}
+                  src={image}
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                   alt=''
                 />
-              </figure>
-              <div className="BoxBody">
-                <p>
-                  <span className="projectTitle">{this.title}</span>
-                  {this.description}
+            </section>
+
+            <section className='BoxBody'>
+              <div className='textArea'>
+                  <p>
+                  <span className="projectTitle"><u><b>{title}</b></u></span>
+                  {description}
                 </p>
 
-                <div className="languageFooterBox">
-                  {this.programmingLanguages.map((language) => (
+              </div>
+              <div className='languageFooterBox'>
+                <div style={{
+                  flex:'6',
+                }}>
+                    {programmingLanguages.map((language) => (
                     <LanguageFooter
                       key={language.pk}
                       language={language.name}
-                      changeSort={this.props.changeSort.bind(this)}
+                      sortBy={props.sortBy}
                     />
                   ))}
+
                 </div>
-                <div className="githubFooter">
-                  <a
+                <div style={{
+                  flex:'1',
+                  alignSelf:'center',
+                }}>
+                    <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    href={this.github}
-                    style={githubLinkStyle}
-                    onMouseEnter={() => {
-                      this.setState({ githubHovered: true });
+                    href={github}
+                    style={{
+                        textDecoration:'none',
+                        color:'black',
+                        transition:'.3s',
+                        opacity: githubHovered ? '.3' : '1',
                     }}
-                    onMouseLeave={() => {
-                      this.setState({ githubHovered: false });
-                    }}
+                    onMouseEnter={() => {setGithubHovered(true);}}
+                    onMouseLeave={() => {setGithubHovered(false);}}
                   >
                     <FontAwesomeIcon icon={faGithub} size="lg" />
                     &#8594;
                   </a>
                 </div>
               </div>
-            </div>
-          </div>
+            </section>
+          </section>
         </Fade>
-      </>
-    );
-  }
+    )
 }
 
 export default ProjectBox;

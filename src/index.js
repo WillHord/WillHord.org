@@ -3,18 +3,13 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ScrollToTop from "react-router-scroll-top";
 import Analytics from 'react-router-ga';
-// import { hydrate, render } from "react-dom";
 
 
 // Main Pages Imports
-// import Homepage from "./Pages/Homepage/Homepage";
-import Homepage from "./Pages/Homepage/Homepage_function";
-// import Resume from "./Pages/Resume/Resume";
-import Resume from "./Pages/Resume/Resume_Hooks";
-// import Projects from "./Pages/Projects/Projects";
-import Projects from "./Pages/Projects/Projects_Hooks";
-// import About from "./Pages/About/About";
-import About from "./Pages/About/About_Hooks"
+import Homepage from "./Pages/Homepage/Homepage";
+import Resume from "./Pages/Resume/Resume";
+import Projects from "./Pages/Projects/Projects";
+import About from "./Pages/About/About"
 import Contact from "./Pages/Contact/Contact";
 import Login from "./Pages/Login/Login";
 
@@ -47,10 +42,3 @@ function Website() {
 }
 
 ReactDOM.render(<Website />, document.getElementById("root"));
-
-// const rootElement = document.getElementById("root");
-// if (rootElement.hasChildNodes()) {
-//   hydrate(<Website />, rootElement);
-// } else {
-//   render(<Website />, rootElement);
-// }
