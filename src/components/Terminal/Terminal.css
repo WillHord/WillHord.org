@@ -1,4 +1,4 @@
-.Terminal{
+.Terminal {
     color: white;
     margin-bottom: 10px;
     font-size: 20px;
@@ -6,20 +6,18 @@
     margin-left: 1%;
 }
 
-.TerminalBreak{
+.TerminalBreak {
     display: block;
     margin-top: 10px;
 }
 
-.skip{
+.skip {
     color: white;
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
     margin-right: 5%;
     margin-bottom: 5%;
-    /* position: absolute; */
-    /* display: block; */
     bottom: 5%;
     right: 3%;
     min-width: 80px;
@@ -27,7 +25,7 @@
     transition: .2s;
 }
 
-.skip:hover{
+.skip:hover {
     opacity: .5;
     cursor: pointer;
 }
