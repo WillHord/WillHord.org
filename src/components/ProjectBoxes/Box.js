@@ -71,7 +71,7 @@ class Box extends React.Component {
               <div className="LinkDiv">
                 <hr className="dividerBottom" />
 
-                <a style={linkForProject} target="_blank" href={this.path}>
+                <a style={linkForProject} target="_blank" rel="noopener noreferrer" href={this.path}>
                   <div className="linkToProject">To Project &rarr;</div>
                 </a>
               </div>

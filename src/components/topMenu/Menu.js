@@ -46,7 +46,7 @@ class TopMenu extends Component {
   }
 
   SizeUpdate() {
-    this.setState({ isDesktop: window.innerWidth > 600 });
+    this.setState({ isDesktop: window.innerWidth > 705 });
   }
 
   render() {

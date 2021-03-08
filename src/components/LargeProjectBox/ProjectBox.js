@@ -40,7 +40,7 @@ class ProjectBox extends React.Component {
   }
 
   render() {
-    const { hovered, isDesktop, githubHovered } = this.state;
+    const { isDesktop, githubHovered } = this.state;
 
     const boxMobile = {
       width: isDesktop ? "45%" : "90%",
@@ -76,6 +76,7 @@ class ProjectBox extends React.Component {
                 <img
                   src={this.image}
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  alt=''
                 />
               </figure>
               <div className="BoxBody">
@@ -85,10 +86,10 @@ class ProjectBox extends React.Component {
                 </p>
 
                 <div className="languageFooterBox">
-                  {this.programmingLanguages.map((language, index) => (
+                  {this.programmingLanguages.map((language) => (
                     <LanguageFooter
-                      key={index}
-                      language={language}
+                      key={language.pk}
+                      language={language.name}
                       changeSort={this.props.changeSort.bind(this)}
                     />
                   ))}
@@ -96,6 +97,7 @@ class ProjectBox extends React.Component {
                 <div className="githubFooter">
                   <a
                     target="_blank"
+                    rel="noopener noreferrer"
                     href={this.github}
                     style={githubLinkStyle}
                     onMouseEnter={() => {

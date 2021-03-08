@@ -8,46 +8,95 @@ import TopMenu from "../../components/topMenu/Menu";
 import SolarSystem from "../../components/SolarSystem/SolarSystem";
 import BottomBar from "../../components/BottomMenu/BottomMenu";
 import Box from "../../components/ProjectBoxes/Box";
-import TerminalItem from "../../components/TerminalEffect/TerminalItem";
+// import TerminalItem from "../../components/TerminalEffect/TerminalItem";
+
+import ComponentAPI from "../../api/ComponentAPI";
+import axios from 'axios';
+
+import Terminal from "../../components/Terminal/Terminal";
+import TerminalItem from "../../components/Terminal/TerminalItem";
+import TerminalSkip from "../../components/Terminal/TerminalSkip"
+
+// import Terminal from "../../components/Terminal/Terminal";
+// import TerminalItem from "../../components/Terminal/TerminalItem";
+// import TerminalSkip from "../../components/Terminal/TerminalSkip";
 
 class Homepage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      Items: [],
-      lines: [
-        ["Hello World", "My name is Will Hord"],
-        ["I’m a coder, a maker, a developer and a collaborator."],
-        [
-          "I make everything from websites and bots to machine learning algorithms and games.",
-        ],
-        [
-          "I’m interested in pushing the boundaries of what machines can do, to see how far humanity can go with the aid of technology.",
-        ],
-        [
-          "I’m currently seeking out opportunities to put my skills to use towards any challenge.",
-        ],
-        [
-          "When I’m not coding or tinkering, I am a sophomore at UC Santa Cruz studying Computer Science and Engineering.",
-        ],
-        [
-          "Check out my Resume and my About page to learn more about me and what I do",
-        ],
-      ],
-      animationStarted: false,
-      lineFinished: false,
-      currentLine: 1,
+      APIresponse: false,
+      SmallBoxResponse: false,
+      TerminalText: [],
+      SmallProjectBoxData: [],
       isDesktop: false,
-      defaultTypeSpeed: 10,
-      lineBuffer: 200,
       redirectProjects: false,
+      image1: null,
+      image1Mobile: null,
+      image2: null,
+      image2Mobile: null,
     };
-    this.TerminalAnimation = this.TerminalAnimation.bind(this);
-    this.animationHandler = this.animationHandler.bind(this);
+    // this.TerminalAnimation = this.TerminalAnimation.bind(this);
+    // this.animationHandler = this.animationHandler.bind(this);
     this.SizeUpdate = this.SizeUpdate.bind(this);
+    this.GetAPI = this.GetAPI.bind(this);
+
+    this.TerminalItems = null;
   }
 
-  componentDidMount() {
+  async GetAPI(){
+    try{
+      ComponentAPI.get('/Files/HeaderImage/')
+        .then(res =>{
+          this.setState({
+            image1: res.data.find(function(e) { return e.name === 'HomePageImage1'; }).image.full_size,
+            image1Mobile: res.data.find(function(e) { return e.name === 'HomePageImage1Mobile'; }).image.full_size,
+            image2: res.data.find(function(e) { return e.name === 'HomePageImage2'; }).image.full_size,
+            image2Mobile: res.data.find(function(e) { return e.name === 'HomePageImage2Mobile'; }).image.full_size
+          })
+        })
+    } catch(error){
+      throw error;
+    }
+    try{
+      ComponentAPI.get('/Components/TerminalText/')
+        .then(res => res.data)
+        .then(res =>{
+          this.setState({TerminalText: res, APIresponse: true});
+          // this.setState({APIresponse: true})
+        })
+    }catch(error){
+      throw error
+    }
+    // try{
+    //   const res = await ComponentAPI.get('/Components/SmallProjectBox/')
+    //   console.log(res)
+    //   this.setState({SmallProjectBoxData: res.data})
+    //   this.setState({SmallBoxResponse: true})
+    //   console.log(this.state.SmallProjectBoxData)
+    //     // .then(res => {
+    //     //   this.setState({SmallProjectBoxData: res.data, SmallBoxResponse: true});
+    //     //   console.log(this.state.SmallProjectBoxData)
+    //     //   console.log(res)
+    //     // })
+    // }catch(error){
+    //   throw error
+    // }
+  }
+
+
+
+  async componentDidMount() {
+    await this.GetAPI();
+
+    await ComponentAPI.get('/Components/SmallProjectBox/').then(res =>{
+      console.log(res.data)
+      this.setState({SmallProjectBoxData: res.data})
+      this.setState({SmallBoxResponse: true})
+    })
+    console.log(this.state.SmallProjectBoxData)
+
+
     this.SizeUpdate();
     window.addEventListener("resize", this.SizeUpdate);
     document.getElementsByTagName("body")[0].className = "HomepageBody";
@@ -61,73 +110,15 @@ class Homepage extends React.Component {
     };
   }
 
-  animationHandler() {
-    this.setState({ lineFinished: true });
-    const { lines, currentLine } = this.state;
-
-    if (currentLine === 1) {
-      this.setState({
-        Items: [
-          ...this.state.Items,
-          <TerminalItem
-            key={currentLine}
-            prefix={">"}
-            dataText={lines[currentLine - 1]}
-            animationHandler={this.animationHandler}
-            firstLine={true}
-            typeSpeed={50}
-            deleteSpeed={30}
-            lineBuffer={this.state.lineBuffer}
-          />,
-        ],
-      });
-      this.setState({ currentLine: currentLine + 1 });
-    } else if (currentLine < lines.length) {
-      this.setState({
-        Items: [
-          ...this.state.Items,
-          <TerminalItem
-            key={currentLine}
-            prefix={">"}
-            dataText={lines[currentLine - 1]}
-            animationHandler={this.animationHandler}
-            typeSpeed={this.state.defaultTypeSpeed}
-            lineBuffer={this.state.lineBuffer}
-          />,
-        ],
-      });
-      this.setState({ currentLine: currentLine + 1 });
-    } else if (currentLine === lines.length) {
-      this.setState({
-        Items: [
-          ...this.state.Items,
-          <TerminalItem
-            key={currentLine}
-            prefix={">"}
-            dataText={lines[currentLine - 1]}
-            animationHandler={this.animationHandler}
-            typeSpeed={this.state.defaultTypeSpeed}
-            lastLine={true}
-            lineBuffer={this.state.lineBuffer}
-          />,
-        ],
-      });
-      this.setState({ currentLine: currentLine + 1 });
-    }
-  }
-  TerminalAnimation() {
-    const animationStarted = this.state.animationStarted;
-    if (!animationStarted) {
-      this.setState({ animationStarted: true });
-      this.animationHandler();
-    }
-  }
-
   SizeUpdate() {
     this.setState({ isDesktop: window.innerWidth > 600 });
   }
 
   render() {
+    const terminalStyle = {
+      color: 'white',
+    }
+
     const isDesktop = this.state.isDesktop;
     const img1Style = {
       width: isDesktop ? "90%" : "100%",
@@ -138,8 +129,8 @@ class Homepage extends React.Component {
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
       backgroundImage: isDesktop
-        ? "url('/Images/WillHordIBM.jpg')"
-        : "url('/Images/WillHordIBMMobile.jpg')",
+        ? 'url(' + this.state.image1 +')'
+        : 'url(' + this.state.image1Mobile + ')',
     };
 
     const img2Style = {
@@ -147,13 +138,12 @@ class Homepage extends React.Component {
       height: "90vh",
       margin: "0 auto",
       position: "relative",
-      backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
       backgroundPosition: "50% 0%",
       backgroundImage: isDesktop
-        ? "url('/Images/WillHordUCSantaCruz.jpg')"
-        : "url('/Images/WillHordUCSantaCruzMobile.jpg')",
+        ? 'url(' + this.state.image2 +')'
+        : 'url(' + this.state.image2Mobile + ')',
     };
 
     if (this.state.redirectProjects) {
@@ -164,34 +154,37 @@ class Homepage extends React.Component {
     let img1;
     let img2;
     if (isDesktop) {
-      projectBoxes = (
-        <>
-          <Box
-            title="WillHord.org"
-            summary="This website! This is my personal website which houses
-        my resume, my past work, and information about me!"
-            path="https://github.com/WillHord/WillHord.org"
-            fadeIn={1400}
-          />
+      // projectBoxes = {
 
-          <Box
-            title="Discord Bot"
-            summary="A bot written in python which uses the discord api to play music, games, and give
-         information on stocks all in discord."
-            path="https://github.com/WillHord/DiscordBot"
-            fadeIn={1500}
-          />
+      // }
+      // projectBoxes = (
+      //   <>
+      //     <Box
+      //       title="WillHord.org"
+      //       summary="This website! This is my personal website which houses
+      //   my resume, my past work, and information about me!"
+      //       path="https://github.com/WillHord/WillHord.org"
+      //       fadeIn={1400}
+      //     />
 
-          <Box
-            title="iMessage Bot"
-            summary="A framework for an iMessage chat bot which uses python and sql to detect new messages
-        received and uses AppleScript to reply to commands given by the user."
-            path="https://github.com/WillHord/iMessageBot"
-            fadeIn={1600}
-            endBox={true}
-          />
-        </>
-      );
+      //     <Box
+      //       title="Discord Bot"
+      //       summary="A bot written in python which uses the discord api to play music, games, and give
+      //    information on stocks all in discord."
+      //       path="https://github.com/WillHord/DiscordBot"
+      //       fadeIn={1500}
+      //     />
+
+      //     <Box
+      //       title="iMessage Bot"
+      //       summary="A framework for an iMessage chat bot which uses python and sql to detect new messages
+      //   received and uses AppleScript to reply to commands given by the user."
+      //       path="https://github.com/WillHord/iMessageBot"
+      //       fadeIn={1600}
+      //       endBox={true}
+      //     />
+      //   </>
+      // );
       img1 = (
         <>
           <section id="img1Container">
@@ -242,16 +235,37 @@ class Homepage extends React.Component {
                 <div className="minimizeWindowIcon" />
                 <div className="expandWindowIcon" />
               </div>
-              <ul>{this.state.Items}</ul>
+              {this.state.APIresponse === true && <>
+                <Terminal className='Terminal' style={terminalStyle} prefix={'>'} typingSpeed={50}>
+                {Object.keys(this.state.TerminalText).map((line, index) =>{
+                  return <TerminalItem key={index} 
+                  shouldDelete={this.state.TerminalText[index].shouldDelete}
+                  newLine={this.state.TerminalText[index].newLine}
+                  >{this.state.TerminalText[index].description}</TerminalItem>
+                })}
+                <TerminalSkip>Skip &#9654;</TerminalSkip>
+              </Terminal>
+              </>
+              }
+              {/* <Waypoint onEnter={this.TerminalAnimation} /> */}
             </div>
           </div>
-          <Waypoint onEnter={this.TerminalAnimation} />
         </section>
         {img1}
         <section className="projects">
           <div className="innerHomepageContent">
             <h4>Recent Projects</h4>
-            <div className="boxContainer">{projectBoxes}</div>
+            <div className="boxContainer">{
+            this.state.SmallBoxResponse && this.state.SmallProjectBoxData.splice(0, isDesktop ? 3 : 2).map((box) =>{
+                return <Box
+                    key={box.pk}
+                    title={box.name}
+                    summary={box.description}
+                    path={box.link}
+                    fadeIn={1400}
+                />
+              })
+            }</div>
             <button
               className="homepageButton"
               onClick={() => {

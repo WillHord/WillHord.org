@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faFacebook,
+  // faFacebook,
   faLinkedin,
   faGithub,
-  faYoutube,
+  // faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
@@ -126,6 +126,7 @@ class BottomMenu extends React.Component {
                 target="_blank"
                 href="https://www.linkedin.com/in/willhord/"
                 style={loginLink}
+                rel="noopener noreferrer"
               >
                 <FontAwesomeIcon icon={faLinkedin} size="2x" />
               </a>
@@ -133,6 +134,7 @@ class BottomMenu extends React.Component {
                 target="_blank"
                 href="https://github.com/WillHord"
                 style={loginLink}
+                rel="noopener noreferrer"
               >
                 <FontAwesomeIcon icon={faGithub} size="2x" />
               </a>

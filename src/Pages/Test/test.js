@@ -8,6 +8,8 @@ import "./test.css";
 // import TopMenu from './components/topMenu/Menu'
 // import BurgerIcon from './components/topMenu/BurgerIcon'
 
+
+
 class test extends React.Component {
   componentDidMount() {
     document.getElementsByTagName("body")[0].className = "testBody";
@@ -19,28 +21,50 @@ class test extends React.Component {
   render() {
     return (
       <>
-        <div className="monitorContainer">
-          <div className="monitorFrame">
-            <div className="monitorOutline">
-              <div className="monitorScreen">
-                <div className="ComputerIcons">
-                  <div id="TrashCanIcon" />
-                </div>
-                <div className="terminalContainer">
-                  <div className="HomepageTerminal1">
-                    <div className="TerminalTop1">
-                      <div className="closeWindowIcon1" />
-                      <div className="minimizeWindowIcon1" />
-                      <div className="expandWindowIcon1" />
-                    </div>
-                  </div>
-                </div>
+        <div className="monitorContainer" style={{backgroundColor:'red'}}>
+          <div style={{
+            minHeight:'400px',
+            width:'45%',
+            backgroundColor:'green',
+            display:'flex',
+            flexDirection:'column'
+          }}>
+            <div style={{
+              flex:'1',
+              backgroundColor:'blue'
+            }}></div>
+            <div style={{
+              flex:'1',
+              backgroundColor:'pink',
+              display:'flex',
+              flexDirection:'column'
+            }}>
+              <div style={{
+                flex:'3',
+                backgroundColor:'purple',
+                margin: "1% 1% 1% 1%",
+              }}></div>
+              <div style={{
+                flex:'1',
+                backgroundColor:'orange',
+                margin: "1% 1% 1% 1%",
+                display:'flex',
+                flexDirection:'row'
+              }}>
+                <div style={{
+                  flex:'3',
+                  backgroundColor:'yellow',
+                }}></div>
+                <div style={{
+                  flex:'1',
+                  backgroundColor:'blue'
+                }}></div>
+
               </div>
+
             </div>
-            <div className="Logo"></div>
+
           </div>
-          <div className="monitorNeck"></div>
-          <div className="monitorBase"></div>
         </div>
       </>
     );

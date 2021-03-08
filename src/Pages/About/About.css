@@ -14,7 +14,7 @@
 }
 
 #FunFactsAboutMe {
-    height: 110vh;
+    min-height: 110vh;
     width: 100%;
     background-color: #f0f0f0;
     display: flex;

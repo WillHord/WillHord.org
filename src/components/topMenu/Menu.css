@@ -59,7 +59,7 @@
     z-index: 1000;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 705px) {
     .top-menu {
         padding: 40px 20px 20px 20px;
         max-height: 0;
@@ -75,7 +75,7 @@
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 705px) {
     .top-menu.toggled {
         padding: 0 0 0 0;
         max-height: 1500px;

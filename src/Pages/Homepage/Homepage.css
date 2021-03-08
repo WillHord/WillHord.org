@@ -42,25 +42,34 @@
 }
 
 .innerHomepageContent {
-  width: 800px;
-  max-width: 1024px;
+  /* width: 800px;
+  max-width: 1024px; */
+  width: 70vw;
   min-height: 75vh;
   color: black;
   display: inline-block;
   text-align: center;
   margin: 0 auto;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   scrollbar-width: none;
 }
 
 .boxContainer {
   padding-top: 2%;
   padding-bottom: 5%;
-  width: 100%;
+  width: 90%;
   display: flex;
+  margin: 0 auto;
+  /* display: -webkit-box; */
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  /* overflow: hidden; */
 }
 
 .homepageButton {
@@ -120,19 +129,21 @@
 }
 
 .HomepageTerminal {
-  width: 700px;
-  max-width: 1024px;
+  width: 60%;
+  /* max-width: 1024px; */
   min-height: 80vh;
   background-color: black;
   color: black;
-  display: inline-block;
+  /* display: inline-block; */
+  display: flex;
+  flex-direction: column;
   text-align: left;
   overflow-x: hidden;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-
+  position: relative;
 
 }
 
@@ -173,7 +184,9 @@
   .HomepageTerminal {
     width: 85%;
   }
+}
 
+@media screen and (max-width: 500px){
   .boxContainer {
     flex-direction: column;
   }

@@ -6,6 +6,9 @@ import BottomMenu from "../../components/BottomMenu/BottomMenu";
 import ProjectBox from "../../components/LargeProjectBox/ProjectBox";
 import Sort from "../../components/LargeProjectBox/Sort";
 
+import axios from 'axios';
+import ComponentAPI from '../../api/ComponentAPI';
+
 import "./Projects.css";
 
 class Projects extends React.Component {
@@ -14,12 +17,37 @@ class Projects extends React.Component {
     this.state = {
       isDesktop: false,
       sortBy: "title",
+      projects: [],
+      HeaderImage: null,
     };
     this.SizeUpdate = this.SizeUpdate.bind(this);
     this.changeSort = this.changeSort.bind(this);
+    this.getProjects = this.getProjects.bind(this);
+    this.getHeaderImage = this.getHeaderImage.bind(this);
+  }
+
+  async getHeaderImage(){
+    try{
+      const response = await ComponentAPI.get('/Files/HeaderImage/Projects/');
+      this.setState({headerImage: response.data.image.full_size});
+      // console.log(response.data.image.full_size)
+    } catch (error){
+      throw error;
+    }
+  }
+
+  async getProjects(){
+    try{
+      const response = await ComponentAPI.get('/Components/LargeProjectBoxViewSet/?expand=~all');
+      this.setState({projects: response.data})
+    } catch (error){
+      throw error;
+    }
   }
 
   componentDidMount() {
+    this.getHeaderImage();
+    this.getProjects();
     this.SizeUpdate();
     window.addEventListener("resize", this.SizeUpdate);
     document.getElementsByTagName("body")[0].className = "projectBody";
@@ -39,43 +67,6 @@ class Projects extends React.Component {
   }
 
   render() {
-    const projects = [
-      {
-        title: "WillHord.org",
-        description: `This website! This is my personal website which houses
-                my resume, my past work, and information about me, along with the professional side
-                of this website I made it so that I can use it as a place to interface with any future projects which
-                can be connected to the internet.`,
-        programmingLanguages: ["React JS", "HTML", "CSS", "PHP"],
-        image: "/Images/WillHordorg.jpg",
-        github: "https://github.com/WillHord/WillHord.org",
-      },
-      {
-        title: "Discord Bot",
-        description: `A bot written in python which uses the discord api to play music, games, and give 
-                information on stocks all in discord.`,
-        programmingLanguages: ["python"],
-        image: "/Images/TempProjectPic.jpg",
-        github: "https://github.com/WillHord/DiscordBot",
-      },
-      {
-        title: "iMessage Bot",
-        description: `A framework for an iMessage chat bot which uses python and sql to detect new messages
-                received and uses AppleScript to reply to commands given by the user. The bot must be run
-                on MacOS and is still being worked on.`,
-        programmingLanguages: ["python", "sql"],
-        image: "/Images/TempProjectPic.jpg",
-        github: "https://github.com/WillHord/iMessageBot",
-      },
-      {
-        title: "Mat2Csv",
-        description: `A script used to clean up and convert MAT files containing csv style data
-                into CSV files.`,
-        programmingLanguages: ["python"],
-        image: "/Images/TempProjectPic.jpg",
-        github: "https://github.com/WillHord/Mat2Csv",
-      },
-    ];
     return (
       <>
         <TopMenu
@@ -84,25 +75,25 @@ class Projects extends React.Component {
           backgroundColor={"#1a1a1a"}
           burgerColor={"white"}
         />
-        <div className="ProjectTopImg" />
+        <div className="ProjectTopImg" style={{backgroundImage: 'url(' + this.state.headerImage + ')'}}/>
 
         <div className="outerContentProjects">
           <div className="innerContentProjects">
-            <div className="ProjectTitle">
-              <h3>Projects</h3>
+            <div>
+              <h3 style={{}}>Projects</h3>
             </div>
             <hr className="TitleDivider" />
             <br />
 
             <Sort by={this.state.sortBy}>
-              {projects.map((attributes, index) => (
+              {this.state.projects.map((project) => (
                 <ProjectBox
-                  key={index}
-                  title={attributes.title}
-                  description={attributes.description}
-                  programmingLanguages={attributes.programmingLanguages}
-                  image={attributes.image}
-                  github={attributes.github}
+                  key={project.pk}
+                  title={project.name}
+                  description={project.description}
+                  programmingLanguages={project.languages}
+                  image={project.img.image.full_size}
+                  github={project.link}
                   changeSort={this.changeSort}
                 />
               ))}

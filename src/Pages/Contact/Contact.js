@@ -16,8 +16,6 @@ const LoginSchema = Yup.object().shape({
   message: Yup.string().required("Message is required"),
 });
 
-const API_PATH = "/api/Contact/Contact.php";
-
 class Contact extends React.Component {
   constructor(props) {
     super(props);
@@ -39,24 +37,20 @@ class Contact extends React.Component {
     document.getElementsByTagName("body")[0].className = "";
   }
 
-  handleSubmit(values) {
-    this.setState({ name: values.name });
-    this.setState({ email: values.email });
-    this.setState({ message: values.message });
-
-    // event.preventDefault();
+  handleSubmit = e => {
     axios({
       method: "post",
-      url: `${API_PATH}`,
+      url: 'https://test.willhord.org/api/Contact/',
       headers: { "content-type": "application/json" },
       data: this.state,
     })
       .then((result) => {
         this.setState({
           mailSent: result.data.sent,
-        });
+        })
+        console.log("Form Sent!")
       })
-      .catch((error) => this.setState({ error: error.message }));
+      .catch((error) => {this.setState({ error: error.message })});
   }
 
   render() {
@@ -77,12 +71,18 @@ class Contact extends React.Component {
             <Formik
               initialValues={{ name: "", email: "", message: "" }}
               validationSchema={LoginSchema}
-              onSubmit={(values, { setSubmitting }) => {
-                this.handleSubmit(values);
+              onSubmit={(values, { setSubmitting, resetForm }) => {
+                
+                this.setState({ name: values.name });
+                this.setState({ email: values.email });
+                this.setState({ message: values.message });
+
+                this.handleSubmit();
+                resetForm({values: ''});
                 setSubmitting(false);
               }}
             >
-              {({ values, touched, errors, isSubmitting }) => (
+              {({ touched, errors, isSubmitting }) => (
                 <Form className="ContactForm">
                   <div className="form-group form-control-inline">
                     <label htmlFor="name">Name</label>
@@ -141,7 +141,6 @@ class Contact extends React.Component {
                     type="submit"
                     className="btn btn-primary btn-block"
                     disabled={isSubmitting}
-                    // onClick={() => console.log(values.name)}
                   >
                     {isSubmitting ? "Please wait..." : "Submit"}
                   </button>

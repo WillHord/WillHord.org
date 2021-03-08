@@ -55,8 +55,9 @@ class About extends React.Component {
           </figcaption>
           <div className="SidePicture">
             <img
-              src="/Images/WillHordAboutPic2-cropped.jpg"
+              src="/static/WillHordAboutPic2-cropped.jpg"
               style={{ width: "100%" }}
+              alt=""
             />
           </div>
         </>
@@ -66,8 +67,9 @@ class About extends React.Component {
         <>
           <div className="SidePicture">
             <img
-              src="/Images/WillHordAboutPic2-cropped.jpg"
+              src="/static/WillHordAboutPic2-cropped.jpg"
               style={{ width: "100%" }}
+              alt=""
             />
           </div>
           <figcaption style={{ marginTop: "15px" }}>
@@ -80,8 +82,8 @@ class About extends React.Component {
 
     const TopPictureStyle = {
       backgroundImage: isDesktop
-        ? "url(/Images/WillHordTractor.jpg)"
-        : "url(/Images/WillHordTractorMobile.jpg)",
+        ? "url(/static/WillHordTractor.jpg)"
+        : "url(/static/WillHordTractorMobile.jpg)",
       backgroundPosition: isDesktop ? "initial" : "50% 25%",
     };
 
@@ -105,8 +107,9 @@ class About extends React.Component {
                 }}
               >
                 <img
-                  src="/Images/WillHordLaidBack.JPG"
+                  src="/static/WillHordLaidBack.jpg"
                   style={{ width: "100%" }}
+                  alt=""
                 />
               </div>
               <figcaption style={{ marginTop: isDesktop ? "0" : "10%" }}>

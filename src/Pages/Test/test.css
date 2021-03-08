@@ -81,7 +81,7 @@
 }
 
 #TrashCanIcon{
-    background-image: url('/TrashCan.png');
+    /* background-image: url('/TrashCan.png'); */
     width: 100%;
     min-height: 18%;
     background-size: cover;
@@ -90,7 +90,7 @@
 }
 
 #chromeIcon{
-    background-image: url('/chromeIcon.webp');
+    /* background-image: url('/chromeIcon.webp'); */
     width: 100%;
     min-height: 20%;
     background-size: cover;

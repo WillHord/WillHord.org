@@ -53,8 +53,8 @@ class Resume extends React.Component {
 
     const TopPictureStyle = {
       backgroundImage: isDesktop
-        ? "url(/Images/WillHordIBM.jpg)"
-        : "url(/Images/WillHordIBMMobile.jpg)",
+        ? "url(/static/WillHordIBM.jpg)"
+        : "url(/static/WillHordIBMMobile.jpg)",
       backgroundSize: "cover",
       backgroundPosition: isDesktop ? "50% 25%" : "initial",
     };
@@ -85,7 +85,7 @@ class Resume extends React.Component {
               >
                 <img
                   className="LargeIcon"
-                  src={"/Images/UCSantaCruzLogo.jpg"}
+                  src={"/static/UCSantaCruzLogo.jpg"}
                   alt=""
                 />
               </a>
@@ -118,7 +118,7 @@ class Resume extends React.Component {
               >
                 <img
                   className="LargeIcon"
-                  src={"/Images/DobbsFerryHighSchoolLogo.jpg"}
+                  src={"/static/DobbsFerryHighSchoolLogo.jpg"}
                   alt=""
                 />
               </a>
@@ -141,7 +141,7 @@ class Resume extends React.Component {
                 rel="noopener noreferrer"
                 href="http://www.research.ibm.com/labs/watson/"
               >
-                <img className="LargeIcon" src={"/Images/IBMLogo.jpg"} alt="" />
+                <img className="LargeIcon" src={"/static/IBMLogo.jpg"} alt="" />
               </a>
               <b>IBM Thomas J. Watson Research Center</b>
               <span className="alignRight">2018-2019</span>
@@ -177,7 +177,7 @@ class Resume extends React.Component {
               >
                 <img
                   className="LargeIcon"
-                  src={"/Images/PelhamScoolsLogo.jpg"}
+                  src={"/static/PelhamScoolsLogo.jpg"}
                   alt=""
                 />
               </a>

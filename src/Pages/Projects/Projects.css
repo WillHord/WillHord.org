@@ -1,14 +1,15 @@
 .projectBody {
     background-color: #292a2c;
     color: white;
-    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Montserrat', sans-serif; */
+    font-family: 'Open Sans', sans-serif;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: auto;
 }
 
 .ProjectTopImg {
-    background-image: url('/Images/WillHordMicrosoft.jpg');
+    /* background-image: url('/static/WillHordMicrosoft.jpg'); */
     background-size: cover;
     height: 80vh;
     width: 100%;
