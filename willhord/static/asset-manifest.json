@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4291185a.chunk.css",
+    "main.js": "/static/js/main.964313f5.chunk.js",
+    "main.js.map": "/static/js/main.964313f5.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.3bbd7d2d.js",
+    "runtime-main.js.map": "/static/js/runtime-main.3bbd7d2d.js.map",
+    "static/css/2.df84d89f.chunk.css": "/static/css/2.df84d89f.chunk.css",
+    "static/js/2.f19a6361.chunk.js": "/static/js/2.f19a6361.chunk.js",
+    "static/js/2.f19a6361.chunk.js.map": "/static/js/2.f19a6361.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.70125c3e281517378bc1263c564e1329.js": "/precache-manifest.70125c3e281517378bc1263c564e1329.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.df84d89f.chunk.css.map": "/static/css/2.df84d89f.chunk.css.map",
+    "static/css/main.4291185a.chunk.css.map": "/static/css/main.4291185a.chunk.css.map",
+    "static/js/2.f19a6361.chunk.js.LICENSE.txt": "/static/js/2.f19a6361.chunk.js.LICENSE.txt",
+    "static/media/SolarSystem.css": "/static/media/sun.47e73fae.jpg",
+    "static/media/customFonts.css": "/static/media/orion_bold-webfont.f44cc399.otf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3bbd7d2d.js",
+    "static/css/2.df84d89f.chunk.css",
+    "static/js/2.f19a6361.chunk.js",
+    "static/css/main.4291185a.chunk.css",
+    "static/js/main.964313f5.chunk.js"
+  ]
+}
