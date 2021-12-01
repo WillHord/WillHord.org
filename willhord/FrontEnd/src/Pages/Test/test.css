@@ -1,0 +1,177 @@
+.testBody{
+    background-color: blue;
+    overflow: visible;
+}
+
+.monitorContainer{
+    width: 900px;
+    height: 700px;
+    background-color: transparent;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.monitorFrame{
+    width: 100%;
+    height: 85%;
+    background-color: rgb(175, 175, 175);
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    margin: 0 auto;
+    /* margin-top: 5%; */
+    border-radius: 15px;
+    position: relative;
+}
+
+.monitorOutline{
+    width:98%;
+    height: 85%;
+    margin-top: 1%;
+    background-color: black;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin: 0 auto; */
+}
+
+.monitorScreen{
+    width: 94%;
+    height: 90%;
+    background-color: rgb(143, 191, 255);
+    display: flex;
+    /* display: inline; */
+}
+
+.Logo{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: rgb(129, 129, 129);
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+.monitorNeck{
+    width: 10%;
+    height: 10%;
+    background-color: rgb(158, 158, 158);
+    margin: 0 auto;
+}
+
+
+.monitorBase{
+    width: 20%;
+    height: 3%;
+    background-color: rgb(175, 175, 175);
+    margin: 0 auto;
+    border-radius: 20px;
+}
+
+
+.ComputerIcons{
+    height: 100%;
+    width: 10%;
+    /* background-color: violet; */
+    text-align: center;
+}
+
+#TrashCanIcon{
+    /* background-image: url('/TrashCan.png'); */
+    width: 100%;
+    min-height: 18%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transform: scale(0.5);
+}
+
+#chromeIcon{
+    /* background-image: url('/chromeIcon.webp'); */
+    width: 100%;
+    min-height: 20%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transform: scale(0.5);
+}
+
+
+.terminalContainer{
+    width: 60%;
+    height: 95%;
+    margin-top: 7px;
+    margin-left: 10%;
+}
+
+
+
+
+/*  */
+
+
+.closeWindowIcon1{
+    width: 15px;
+    height: 15px;
+    background-color:#FF605C;
+    border-radius: 50%;
+    margin-left: 10px;
+  }
+  
+  .minimizeWindowIcon1{
+    width: 15px;
+    height: 15px;
+    background-color: #FFBD44;
+    border-radius: 50%;
+    margin-left: 10px;
+  }
+  
+  .expandWindowIcon1{
+    width: 15px;
+    height: 15px;
+    background-color: #00CA4E;
+    border-radius: 50%;
+    margin-left: 10px;
+  }
+
+  .HomepageTerminal1{
+    width: 600px;
+    /* max-width: 1024px; */
+    min-height: 90%;
+    background-color: black;
+    color: black;
+    display: inline-block;
+    text-align: left;
+    margin: 0 auto;
+    overflow-x: hidden;
+    /* margin-top: 0;
+    margin-top: 4%; */
+
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    /* border-top: gray; */
+    /* border-top-width: 20px;
+    border-top-style: solid;
+    border-top-left-radius: 5px; */
+  }
+
+
+  .TerminalTop1{
+    /* margin-top: 4%; */
+    width: 100%;
+    height: 30px;
+    background-color: grey;
+  
+    /* display: inline-block; */
+    text-align: left;
+    margin-bottom: 0;
+    /* border-top-left-radius: 10px;
+    border-top-right-radius: 10px; */
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }

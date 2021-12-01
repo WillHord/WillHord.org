@@ -1,0 +1,136 @@
+.AboutBody {
+    width: 100%;
+    color: black;
+    background-color: #292a2c;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: auto;
+}
+
+.AboutTopPicture {
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+}
+
+#FunFactsAboutMe {
+    min-height: 110vh;
+    width: 100%;
+    background-color: #f0f0f0;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.aboutInnerContent {
+    width: 800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+#FactsAboutMeFigure {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.SidePicture {
+    width: 600px;
+    background-color: transparent;
+    margin-left: 10%;
+}
+
+#AboutMe {
+    min-height: 90vh;
+    width: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    color: white;
+}
+
+#AboutMeFigure {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.aboutCenteredContent {
+    text-align: center;
+    display: inline;
+}
+
+#MoreAboutMe {
+    height: 75vh;
+    width: 100%;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+}
+
+.MoreAboutMeButton {
+    margin-top: 10px;
+    text-align: center;
+    width: 150px;
+    height: 60px;
+    border-color: #1a1a1a;
+    border-width: 1px;
+    border-style: solid;
+    background-color: transparent;
+    color: #1a1a1a;
+    transition: .5s;
+}
+
+.MoreAboutMeButton:hover {
+    border-color: #1a1a1a;
+    background-color: #1a1a1a;
+    color: white;
+}
+
+.MoreAboutMeButton:focus {
+    outline: none;
+}
+
+#aboutButtonDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+@media screen and (max-width: 725px) {
+    .aboutInnerContent {
+        flex-direction: column;
+    }
+
+    #AboutMeFigure {
+        flex-direction: column;
+    }
+
+
+    #FactsAboutMeFigure {
+        flex-direction: column;
+    }
+
+
+    .SideText {
+        align-self: flex-end;
+    }
+
+    .SidePicture {
+        width: 85%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width:350px) {
+    #aboutButtonDiv {
+        flex-direction: column;
+        padding-left: 80px;
+    }
+}
