@@ -1,6 +1,6 @@
 .BottomMenu {
     position: absolute;
-    width: 100vw;
+    width: 100%;
     color: #ddd;
     background-color: #1a1a1a;
     text-align: center;
@@ -15,7 +15,7 @@
     margin-top: 30px;
     position: relative;
     text-align: center;
-    overflow-x: scroll;
+    overflow-x: hidden;
     width: 60%;
 }
 

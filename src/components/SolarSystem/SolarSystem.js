@@ -9,25 +9,16 @@ class SolarSystem extends React.Component {
       active: false,
       isDesktop: false,
     };
-    this.nameAnimationDelay = this.nameAnimationDelay.bind(this);
     this.SizeUpdate = this.SizeUpdate.bind(this);
   }
 
-  nameAnimationDelay() {
-    this.setState({ active: true });
-  }
-
   componentDidMount() {
-    setTimeout(this.nameAnimationDelay, 2000);
     this.SizeUpdate();
     window.addEventListener("resize", this.SizeUpdate);
   }
 
   componentWillUnmount() {
     window.removeEventListener("resize", this.SizeUpdate);
-    this.setState = (state, callback) => {
-      return;
-    };
   }
 
   SizeUpdate() {
@@ -43,7 +34,7 @@ class SolarSystem extends React.Component {
     };
 
     if (isDesktop) {
-      Title = <p>Will Hord</p>;
+      Title = <p style={{wordSpacing:'25px'}}>Will Hord</p>;
     } else {
       Title = (
         <>
@@ -60,7 +51,9 @@ class SolarSystem extends React.Component {
         <div className="solarSystem">
           <div className="stars"></div>
           <div className="sun" />
-          <div className={this.state.active ? "name" : null} style={NameStyle}>
+          <div 
+          className='name'
+          style={NameStyle}>
             {Title}
           </div>
           <div className="planet1Orbit">

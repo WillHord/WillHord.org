@@ -8,7 +8,7 @@
     letter-spacing: .1em;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 705px) {
     .top-menu-lead {
         position: absolute;
         top: 10px;

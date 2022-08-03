@@ -15,7 +15,7 @@ class UnderConstruction extends React.Component {
           }}
         >
           <h1>Under Construction</h1>
-          <img src="/Images/under-construction.gif" alt="under construction" />
+          <img src="/static/under-construction.gif" alt="under construction" />
 
           <h1>Coming Christmas 2002!</h1>
         </center>

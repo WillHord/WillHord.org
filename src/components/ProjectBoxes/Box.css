@@ -1,6 +1,5 @@
 .box {
-    height: 40vh;
-    width: 32vh;
+    min-height: 40vh;
     background-color: white;
     border-radius: 3px;
     color: black;
@@ -30,6 +29,7 @@
     padding-left: 10%;
     font-size: 2vh;
     margin-right: 10px;
+    min-height: 20vh;
 }
 
 .LinkDiv {
@@ -44,10 +44,11 @@
     border-color: black;
     width: 90%;
     border-radius: 10px;
+    margin-bottom: 3%;
 }
 
 .linkToProject {
     position: relative;
-    padding-left: 15%;
+    /* padding-left: 15%; */
     font-size: 2vh;
 }
