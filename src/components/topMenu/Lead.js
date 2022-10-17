@@ -15,7 +15,7 @@ class Lead extends Component {
     };
     return (
       <div className="top-menu-lead" style={colorStyle}>
-        {this.text}
+        <a href="/" className="top-menu-lead-link">{this.text}</a>
       </div>
     );
   }

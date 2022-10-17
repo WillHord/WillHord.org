@@ -73,7 +73,7 @@ class BottomMenu extends React.Component {
 							this.setState({ LinkHover: false });
 						}}
 					>
-						<BottomMenuItem text="About" path="/About" hoverStyle={LinkHover} />
+						{/* <BottomMenuItem text="About" path="/About" hoverStyle={LinkHover} /> */}
 						<BottomMenuItem
 							text="Contact"
 							path="/Contact"
@@ -104,7 +104,7 @@ class BottomMenu extends React.Component {
 							path="/Projects"
 							hoverStyle={LinkHover}
 						/>
-						<BottomMenuItem text="About" path="/About" hoverStyle={LinkHover} />
+						{/* <BottomMenuItem text="About" path="/About" hoverStyle={LinkHover} /> */}
 						<BottomMenuItem
 							text="Contact"
 							path="/Contact"

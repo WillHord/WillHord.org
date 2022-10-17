@@ -63,6 +63,7 @@ class Contact extends React.Component {
 					lead={true}
 					backgroundColor={"#292a2c"}
 					burgerColor={"white"}
+					
 				/>
 				<div className="contactFormBody">
 					<div className="contactForm">

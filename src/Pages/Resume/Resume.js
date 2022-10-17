@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 import TopMenu from "../../components/topMenu/Menu";
 import BottomMenu from "../../components/BottomMenu/BottomMenu";
@@ -17,6 +18,8 @@ const Resume = (props) => {
 	const [resume, setresume] = useState([]);
 	const [techExperience, setTechExperience] = useState([]);
 	const [techExperienceReturned, setTechExperienceReturned] = useState(false);
+
+	const [isExpanded, setIsExpanded] = useState(false);
 
 	const isDesktop = GetDesktop();
 
@@ -132,9 +135,25 @@ const Resume = (props) => {
 											<br />
 											<br />
 											<ul className="Coursework">
-												{item.coursework.map((course, key) => {
-													return <li key={key}>{course.name}</li>;
+												{item.coursework.slice(0, 3).map((item, index) => {
+													return <li key={index}>{item.name}</li>;
 												})}
+												{item.coursework.length > 3 ? (
+													isExpanded ? (
+														<>
+															{item.coursework.slice(3).map((item, index) => {
+																return <li key={index}>{item.name}</li>;
+															})}
+															<div className="arrow-container">
+																<div className="triangle_up" onClick={() => setIsExpanded(false)}/>
+															</div>
+															</>
+														) : (
+															<div className="arrow-container">
+																<div className="triangle_down" onClick={() => setIsExpanded(true)}/>
+															</div>
+														)
+												) : null}
 											</ul>
 											<br />
 											<br />

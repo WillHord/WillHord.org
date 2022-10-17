@@ -90,7 +90,7 @@ class TopMenu extends Component {
 						color={color}
 						shadow={shadow}
 					/>
-					<Item text="About" path="/About" color={color} shadow={shadow} />
+					{/* <Item text="About" path="/About" color={color} shadow={shadow} /> */}
 					<Item text="Contact" path="/Contact" color={color} shadow={shadow} />
 				</div>
 				<BurgerIcon
