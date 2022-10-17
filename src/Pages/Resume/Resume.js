@@ -123,17 +123,17 @@ const Resume = (props) => {
 										/>
 									</a>
 									<b className="wrap">{item.school}</b>
-									<span className="alignRight">{item.dates}</span>
+									<b className="alignRight">{item.location}</b>
 									<br />
-									<b className="wrap">{item.degree}</b>
-									<span className="alignRight">{item.location}</span>
+									<i className="wrap">{item.degree}</i>
+									<span className="alignRight">{item.dates}</span>
 									<br />
 									<br />
 									{item.coursework.length > 0 ? (
 										<>
 											<span>Relevant Coursework:</span>
 											<br />
-											<br />
+											
 											<ul className="Coursework">
 												{item.coursework.slice(0, 3).map((item, index) => {
 													return <li key={index}>{item.name}</li>;
@@ -186,11 +186,10 @@ const Resume = (props) => {
 										/>
 									</a>
 									<b>{item.title}</b>
-									<span className="alignRight">{item.dates}</span>
+									<b className="alignRight">{item.location}</b>
 									<br />
-									<b>{item.position}</b>
-									<span className="alignRight">{item.location}</span>
-									<br />
+									<i>{item.position}</i>
+									<i className="alignRight">{item.dates}</i>
 									<br />
 									<br />
 									<p>{item.description}</p>
