@@ -98,6 +98,10 @@
     margin: 0 auto;
 }
 
+.alignCenter::-webkit-scrollbar {
+    display: none;
+}
+
 .sideBySide {
     padding-right: 5%;
     margin-left: 40px;

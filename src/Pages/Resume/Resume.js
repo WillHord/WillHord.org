@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 import TopMenu from "../../components/topMenu/Menu";
 import BottomMenu from "../../components/BottomMenu/BottomMenu";
@@ -192,12 +191,13 @@ const Resume = (props) => {
 									<i className="alignRight">{item.dates}</i>
 									<br />
 									<br />
-									<p>{item.description}</p>
+									<div dangerouslySetInnerHTML={{__html: item.description}}/>
 									{item.optionalFile !== null ? (
 										<div
+											className="OptionalFile"
 											style={{
-												float: isDesktop ? "right" : "none",
-												textAlign: isDesktop ? "inherit" : "center",
+												display: "flex",
+												justifyContent: isDesktop ? "right" : "center",
 											}}
 										>
 											<button
@@ -212,8 +212,6 @@ const Resume = (props) => {
 									) : (
 										<></>
 									)}
-									<br />
-									<br />
 								</div>
 							);
 						})}
@@ -267,6 +265,8 @@ const Resume = (props) => {
 							style={{
 								overflowX: "scroll",
 								paddingBottom: "10px",
+								"msOverflowStyle": "none",
+								"scrollbarWidth": "none",
 							}}
 						>
 							{techExperienceReturned &&
