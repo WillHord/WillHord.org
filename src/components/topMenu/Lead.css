@@ -1,0 +1,28 @@
+.top-menu-lead {
+    padding: 10px;
+    display: inline-block;
+    float: left;
+    font-size: 25px;
+    padding-left: 7%;
+    font-family: Moon;
+    letter-spacing: .1em;
+}
+
+.top-menu-lead-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.top-menu-lead-link:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 705px) {
+    .top-menu-lead {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        float: none;
+    }
+}
