@@ -3,6 +3,13 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 
+import { Canvas } from '@react-three/fiber'
+// import Stars from './stars'
+import StarField from './StarField'
+
+import { OrbitControls } from '@react-three/drei'
+import React from 'react';
+
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -15,7 +22,20 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <div className={styles.description}>
+
+        <Canvas
+          style={{ height: '80vh', width: '80vw' }}
+          camera={{ position: [1, 2, 3], fov: 75 }}
+          >
+            <OrbitControls />
+            <axesHelper args={[5]} />
+            <gridHelper/>
+            <StarField/>
+          </Canvas>
+          {/* <React.Fragment>
+            <StarField></StarField>
+          </React.Fragment> */}
+        {/* <div className={styles.description}>
           <p>
             Get started by editing&nbsp;
             <code className={styles.code}>pages/index.js</code>
@@ -116,7 +136,7 @@ export default function Home() {
               with&nbsp;Vercel.
             </p>
           </a>
-        </div>
+        </div> */}
       </main>
     </>
   )
