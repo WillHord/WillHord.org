@@ -18,6 +18,8 @@ const Resume = (props) => {
 	const [techExperience, setTechExperience] = useState([]);
 	const [techExperienceReturned, setTechExperienceReturned] = useState(false);
 
+	const [isExpanded, setIsExpanded] = useState(false);
+
 	const isDesktop = GetDesktop();
 
 	useEffect(() => {
@@ -120,21 +122,37 @@ const Resume = (props) => {
 										/>
 									</a>
 									<b className="wrap">{item.school}</b>
-									<span className="alignRight">{item.dates}</span>
+									<b className="alignRight">{item.location}</b>
 									<br />
-									<b className="wrap">{item.degree}</b>
-									<span className="alignRight">{item.location}</span>
+									<i className="wrap">{item.degree}</i>
+									<span className="alignRight">{item.dates}</span>
 									<br />
 									<br />
 									{item.coursework.length > 0 ? (
 										<>
 											<span>Relevant Coursework:</span>
 											<br />
-											<br />
+											
 											<ul className="Coursework">
-												{item.coursework.map((course, key) => {
-													return <li key={key}>{course.name}</li>;
+												{item.coursework.slice(0, 3).map((item, index) => {
+													return <li key={index}>{item.name}</li>;
 												})}
+												{item.coursework.length > 3 ? (
+													isExpanded ? (
+														<>
+															{item.coursework.slice(3).map((item, index) => {
+																return <li key={index}>{item.name}</li>;
+															})}
+															<div className="arrow-container">
+																<div className="triangle_up" onClick={() => setIsExpanded(false)}/>
+															</div>
+															</>
+														) : (
+															<div className="arrow-container">
+																<div className="triangle_down" onClick={() => setIsExpanded(true)}/>
+															</div>
+														)
+												) : null}
 											</ul>
 											<br />
 											<br />
@@ -167,19 +185,19 @@ const Resume = (props) => {
 										/>
 									</a>
 									<b>{item.title}</b>
-									<span className="alignRight">{item.dates}</span>
+									<b className="alignRight">{item.location}</b>
 									<br />
-									<b>{item.position}</b>
-									<span className="alignRight">{item.location}</span>
+									<i>{item.position}</i>
+									<i className="alignRight">{item.dates}</i>
 									<br />
 									<br />
-									<br />
-									<p>{item.description}</p>
+									<div dangerouslySetInnerHTML={{__html: item.description}}/>
 									{item.optionalFile !== null ? (
 										<div
+											className="OptionalFile"
 											style={{
-												float: isDesktop ? "right" : "none",
-												textAlign: isDesktop ? "inherit" : "center",
+												display: "flex",
+												justifyContent: isDesktop ? "right" : "center",
 											}}
 										>
 											<button
@@ -194,8 +212,6 @@ const Resume = (props) => {
 									) : (
 										<></>
 									)}
-									<br />
-									<br />
 								</div>
 							);
 						})}
@@ -249,6 +265,8 @@ const Resume = (props) => {
 							style={{
 								overflowX: "scroll",
 								paddingBottom: "10px",
+								"msOverflowStyle": "none",
+								"scrollbarWidth": "none",
 							}}
 						>
 							{techExperienceReturned &&

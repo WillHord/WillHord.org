@@ -21,7 +21,7 @@ const Projects = (props) => {
 			Promise.all([
 				await ComponentAPI.get("/Files/HeaderImage/Projects/"),
 				await ComponentAPI.get(
-					"/Components/LargeProjectBoxViewSet/?expand=~all"
+					"/Components/Project/?expand=~all"
 				),
 			])
 				.then((res) => {
@@ -75,7 +75,9 @@ const Projects = (props) => {
 						}}
 					>
 						<Sort by={sortBy}>
-							{projectBoxes.map((project) => (
+							{projectBoxes
+								.filter((item) => item.displayed)
+								.map((project) => (
 								<ProjectBox
 									key={project.pk}
 									title={project.name}

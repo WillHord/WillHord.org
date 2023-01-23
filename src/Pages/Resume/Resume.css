@@ -98,6 +98,10 @@
     margin: 0 auto;
 }
 
+.alignCenter::-webkit-scrollbar {
+    display: none;
+}
+
 .sideBySide {
     padding-right: 5%;
     margin-left: 40px;
@@ -171,4 +175,47 @@
 
 .PaperButton:focus {
     outline: none;
+}
+
+.triangle_down {
+    /* position: relative; */
+    top: -5px;
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-right: 0.2em solid white;
+    border-top: 0.2em solid white;
+    transform: rotate(135deg);
+    margin-right: 0.5em;
+    margin-left: 1.0em;
+}
+
+.triangle_down:hover {
+    cursor: pointer;
+}
+
+.triangle_up:hover {
+    cursor: pointer;
+}
+
+.arrow-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Triangle up */
+.triangle_up {
+    top: -5px;
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-right: 0.2em solid white;
+    border-top: 0.2em solid white;
+    transform: rotate(-45deg);
+    margin-right: 0.5em;
+    margin-left: 1.0em;
 }
