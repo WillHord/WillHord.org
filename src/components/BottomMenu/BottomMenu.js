@@ -144,11 +144,11 @@ class BottomMenu extends React.Component {
 							</a>
 						</ul>
 					</div>
-					<div className="login">
+					{/* <div className="login">
 						<Link className="loginLink" to="/Login">
 							Login
 						</Link>
-					</div>
+					</div> */}
 					<div className="license">
 						<p>Website Created and Hosted by Will Hord using React JS</p>
 					</div>
