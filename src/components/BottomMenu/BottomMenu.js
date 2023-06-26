@@ -107,7 +107,7 @@ class BottomMenu extends React.Component {
 						{/* <BottomMenuItem text="About" path="/About" hoverStyle={LinkHover} /> */}
 						<BottomMenuItem
 							text="Contact"
-							path="/Contact"
+							path="mailto:contact@willhord.org"
 							hoverStyle={LinkHover}
 						/>
 					</ul>
