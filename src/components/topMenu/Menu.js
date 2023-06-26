@@ -93,7 +93,7 @@ class TopMenu extends Component {
           {/* <Item text="About" path="/About" color={color} shadow={shadow} /> */}
           <Item
             text="Contact"
-            path="mailto:contact@willhord.org"
+            path="mailto:contact@willhord.dev"
             color={color}
             shadow={shadow}
           />

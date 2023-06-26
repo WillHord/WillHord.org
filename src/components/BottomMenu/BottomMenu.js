@@ -107,7 +107,7 @@ class BottomMenu extends React.Component {
             {/* <BottomMenuItem text="About" path="/About" hoverStyle={LinkHover} /> */}
             <BottomMenuItem
               text="Contact"
-              path="mailto:contact@willhord.org"
+              path="mailto:contact@willhord.dev"
               hoverStyle={LinkHover}
             />
           </ul>
@@ -140,7 +140,7 @@ class BottomMenu extends React.Component {
               </a>
               {/* <a href='/' style={loginLink}><FontAwesomeIcon icon={faYoutube} size='2x'/></a> */}
               <a
-                href="mailto:contact@willhord.org"
+                href="mailto:contact@willhord.dev"
                 style={loginLink}
                 rel="noopener noreferrer"
                 target="_blank"
