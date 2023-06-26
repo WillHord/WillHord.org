@@ -40,7 +40,7 @@ export const resumeData = {
         name: "SPIE_2019_paper",
         description:
           "My research paper, Predicting Conversion to Psychosis in Clinical High Risk Patients using Resting-State Functional MRI Features",
-        fileupload: "/files/SPIE_2019_paper.pdf",
+        fileupload: "../files/SPIE_2019_paper.pdf",
       },
       image: {
         pk: 3,

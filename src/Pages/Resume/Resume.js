@@ -156,7 +156,7 @@ const Resume = (props) => {
                       className="PaperButton"
                       target="_blank"
                       rel="noopener noreferrer"
-                      href="/SPIE_2019_paper.pdf"
+                      href="../files/SPIE_2019_paper.pdf"
                     >
                       {item.fileText}
                     </a>
@@ -269,7 +269,7 @@ const Resume = (props) => {
               className="FullResumeButton"
               target="_blank"
               rel="noopener noreferrer"
-              href="/files/Will_Hord-Resume.pdf"
+              href="../files/Will_Hord-Resume.pdf"
             >
               Full Resume
             </a>
