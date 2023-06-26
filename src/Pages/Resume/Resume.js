@@ -269,7 +269,7 @@ const Resume = (props) => {
               className="FullResumeButton"
               target="_blank"
               rel="noopener noreferrer"
-              href="/Will_Hord-Resume.pdf"
+              href="/files/Will_Hord-Resume.pdf"
             >
               Full Resume
             </a>

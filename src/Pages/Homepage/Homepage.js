@@ -14,7 +14,6 @@ import Terminal from "../../components/Terminal/Terminal";
 import TerminalItem from "../../components/Terminal/TerminalItem";
 import TerminalSkip from "../../components/Terminal/TerminalSkip";
 
-
 import { terminalText } from "../../data/homepageData";
 import { headerImages } from "../../data/headerImages";
 import { projectData } from "../../data/projectData";
