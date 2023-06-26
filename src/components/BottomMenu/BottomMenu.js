@@ -139,7 +139,10 @@ class BottomMenu extends React.Component {
 								<FontAwesomeIcon icon={faGithub} size="2x" />
 							</a>
 							{/* <a href='/' style={loginLink}><FontAwesomeIcon icon={faYoutube} size='2x'/></a> */}
-							<a href="mailto:contact@willhord.org" style={loginLink}>
+							<a href="mailto:contact@willhord.org" style={loginLink}
+								rel="noopener noreferrer"
+								target="_blank"
+							>
 								<FontAwesomeIcon icon={faEnvelope} size="2x" />
 							</a>
 						</ul>
