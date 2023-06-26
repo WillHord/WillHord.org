@@ -20,6 +20,19 @@ class Item extends Component {
       fontSize: "17px",
       textShadow: shadow,
     };
+    // if this.path contains mailto then it is an email link
+    if (this.path.includes("mailto")) {
+      return (
+        <div className="top-menu-item">
+          <a 
+          rel="noopener noreferrer"
+          target="_blank"
+          href={this.path} style={itemStyle}>
+            {this.text}
+          </a>
+        </div>
+      );
+    }
     return (
       <div className="top-menu-item">
         <Link style={itemStyle} to={this.path}>

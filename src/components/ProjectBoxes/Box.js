@@ -33,6 +33,7 @@ const Box = (props) => {
 							flexDirection: "column",
 							transition: "transform .3s",
 							transform: hovered ? "scale(1.1)" : "scale(1)",
+							alignItems: "center",
 						}}
 						onMouseEnter={() => setHovered(true)}
 						onMouseLeave={() => setHovered(false)}
@@ -41,6 +42,7 @@ const Box = (props) => {
 							style={{
 								flex: "1 0 1",
 								margin: "5% 1% 1% 1%",
+								width: "90%",
 							}}
 						>
 							<div>{title}</div>
@@ -49,9 +51,9 @@ const Box = (props) => {
 						<div
 							style={{
 								flex: "3",
-								margin: "1% 1% 1% 5%",
-								textAlign: "left",
-								fontSize: "2vh",
+								margin: "1% 5% 1% 5%",
+								textAlign: "center",
+								fontSize: "17px",
 							}}
 						>
 							{summary}
@@ -60,6 +62,7 @@ const Box = (props) => {
 							style={{
 								flex: "1",
 								margin: "1% 1% 1% 1%",
+								width: "90%",
 							}}
 						>
 							<hr className="dividerBottom" />

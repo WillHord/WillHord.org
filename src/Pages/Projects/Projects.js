@@ -7,39 +7,13 @@ import Sort from "../../components/LargeProjectBox/Sort";
 
 import ComponentAPI from "../../api/ComponentAPI";
 
+import { headerImages } from "../../data/headerImages";
+import { projectData } from "../../data/projectData";
+
 import "./Projects.css";
 
 const Projects = (props) => {
 	const [sortBy, setSortBy] = useState("title");
-	const [headerImage, setHeaderImage] = useState(null);
-	const [HeaderImageLoaded, setHeaderImageLoaded] = useState(false);
-	const [projectBoxes, setProjectBoxes] = useState([]);
-
-	useEffect(() => {
-		let isMounted = true;
-		const getData = async () => {
-			Promise.all([
-				await ComponentAPI.get("/Files/HeaderImage/Projects/"),
-				await ComponentAPI.get(
-					"/Components/Project/?expand=~all"
-				),
-			])
-				.then((res) => {
-					isMounted && setHeaderImage(res[0].data.image.full_size);
-					isMounted && setHeaderImageLoaded(true);
-					isMounted && setProjectBoxes(res[1].data);
-				})
-				.catch((err) => {
-					throw err;
-				});
-		};
-		getData();
-		document.getElementsByTagName("body")[0].className = "projectBody";
-
-		return () => {
-			isMounted = false;
-		};
-	}, []);
 
 	return (
 		<>
@@ -52,9 +26,7 @@ const Projects = (props) => {
 			<div
 				className="ProjectTopImg"
 				style={{
-					backgroundImage: HeaderImageLoaded
-						? "url(" + headerImage + ")"
-						: "none",
+					backgroundImage: "url(" + headerImages.Projects + ")",
 				}}
 			/>
 
@@ -75,7 +47,7 @@ const Projects = (props) => {
 						}}
 					>
 						<Sort by={sortBy}>
-							{projectBoxes
+							{projectData
 								.filter((item) => item.displayed)
 								.map((project) => (
 								<ProjectBox

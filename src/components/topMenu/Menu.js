@@ -91,7 +91,7 @@ class TopMenu extends Component {
 						shadow={shadow}
 					/>
 					{/* <Item text="About" path="/About" color={color} shadow={shadow} /> */}
-					<Item text="Contact" path="/Contact" color={color} shadow={shadow} />
+					<Item text="Contact" path="mailto:contact@willhord.org" color={color} shadow={shadow} />
 				</div>
 				<BurgerIcon
 					onClick={this.setToggleTopMenuClass}
