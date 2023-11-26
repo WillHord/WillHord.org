@@ -4,14 +4,14 @@ export const resumeData = {
       index: 1,
       title:
         "University of California Santa Cruz - School of Engineering IT Department",
-      position: "Software Engineering Assistant Developer",
+      position: "Software Engineer",
       location: "Santa Cruz, CA",
-      dates: "June 2021 - June 2023",
+      dates: "June 2021 - July 2023",
       description: [
-        "Built more than 20 and maintaining over 150 websites - managing content, users, and design",
-        "Streamlining website maintenance and development processes, including upgrading more than a dozen Drupal sites and generating PHP skeleton code for custom web modules",
-        "Designing custom Python, JavaScript, and Bash scripts to enhance user experience",
-        "Developed methods on upgrading and migrating sites to newer versions of Drupal and presented to software developers from multiple campuses across the University of California system",
+        "Sole engineer responsible for the development and maintenance of 50+ websites.",
+        "Leveraged Python, JavaScript, and Bash scripting for site creation to reduce development time and cost by more than 25%.",
+        "Upgraded and optimized more than a dozen Drupal sites and generated reusable PHP skeleton code for custom web modules, improving site performance and scalability.",
+        "Developed new methods for upgrades and migrations to newer Drupal versions, presented solutions to software developers across the University of California system, improved cross-campus collaboration and efficiency.",
       ],
       image: {
         name: "UC Santa Cruz Logo",
@@ -30,9 +30,10 @@ export const resumeData = {
       location: "Yorktown Heights, NY",
       dates: "June 2018 - February 2019",
       description: [
-        "Conducted independent machine learning research projects - published in a scientific research paper presented at the February 2019 SPIE medical imaging conference",
-        "Developed program to test multiple classification and regression models efficiently on a given dataset using Python, TensorFlow, and Scikit-learn",
-        "Engineered tools to clean and format datasets to optimize machine learning model accuracy",
+        "Led two machine learning medical detection research projects for high-risk patients, improving prediction accuracy for psychosis and drug abuse.",
+        "Research peer reviewed, published, and presented at the February 2019 SPIE medical imaging conference.",
+        "Designed and implemented a Python-based program with TensorFlow and Scikit-learn to efficiently assess and compare multiple classification and regression models on large datasets, reducing model selection time and improving overall model accuracy by over 15%.",
+        "Engineered data cleaning and formatting tools that enhanced machine learning model accuracy by 20% through streamlined preprocessing, ensuring more reliable and consistent results."
       ],
       fileText: "Go To My Paper",
       optionalFile: {
@@ -59,8 +60,7 @@ export const resumeData = {
       location: "Pelham, NY",
       dates: "May - June 2019",
       description: [
-        "Provided hardware, software, and networking consultation for the district",
-        "Coordinated technical logistics for district-wide virtual STEM conference",
+        "Coordinated technical logistics for district-wide virtual STEM conference attended by over 2000 students and educators.",
       ],
       fileText: null,
       optionalFile: null,
@@ -80,7 +80,7 @@ export const resumeData = {
       index: 1,
       school: "University Of California Santa Cruz",
       degree: "Computer Science B.S.",
-      dates: "2019-Current",
+      dates: "2019-2023",
       location: "Santa Cruz, CA",
       coursework: [
         "Data structures and Algorithms",
