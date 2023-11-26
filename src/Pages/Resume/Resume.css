@@ -79,7 +79,7 @@
 }
 
 .TechnicalSection {
-    padding-top: 40px;
+    padding-top: 10px;
     min-height: 200px;
 }
 
@@ -145,6 +145,11 @@
     background-color: transparent;
     color: white;
     transition: .5s;
+    padding: 1px 6px 1px 6px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .FullResumeButton:hover {
@@ -166,6 +171,12 @@
     background-color: transparent;
     color: white;
     transition: .5s;
+    text-decoration: none;
+    text-transform: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1px 6px 1px 6px;
 }
 
 .PaperButton:hover {

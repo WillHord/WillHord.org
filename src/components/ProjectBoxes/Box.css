@@ -21,7 +21,6 @@
     border-color: black;
     padding-left: 10%;
     padding-right: 10%;
-    width: 70%;
     border-radius: 10px;
 }
 
@@ -42,9 +41,9 @@
     overflow: hidden;
     opacity: .7;
     border-color: black;
-    width: 90%;
+    padding-left: 10%;
+    padding-right: 10%;
     border-radius: 10px;
-    margin-bottom: 3%;
 }
 
 .linkToProject {
