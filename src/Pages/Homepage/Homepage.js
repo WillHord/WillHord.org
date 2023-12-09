@@ -18,6 +18,8 @@ import { terminalText } from "../../data/homepageData";
 import { headerImages } from "../../data/headerImages";
 import { projectData } from "../../data/projectData";
 
+import Gallery from "../../components/Gallery/gallery";
+
 import { Link } from "react-router-dom";
 
 function Homepage(props) {
@@ -95,34 +97,12 @@ function Homepage(props) {
             width: "100%",
           }}
         >
-          <h4>Recent Projects</h4>
-          <div className="boxContainer" style={{ padding: "5px" }}>
-            {isDesktop
-              ? projectData.slice(0, 3).map((box) => {
-                  return (
-                    <Box
-                      key={box.pk}
-                      title={box.name}
-                      summary={box.description}
-                      path={box.link}
-                      fadeIn={1400}
-                    />
-                  );
-                })
-              : projectData.slice(0, 2).map((box) => {
-                  return (
-                    <Box
-                      key={box.pk}
-                      title={box.name}
-                      summary={box.description}
-                      path={box.link}
-                      fadeIn={1400}
-                    />
-                  );
-                })}
+          <h2 className="text-white text-2xl">Recent Projects</h2>
+          <div className="mx-20 my-10 lg:mx-60">
+            <Gallery max={isDesktop ? 8 : 4} />
           </div>
           <Link to="/Projects">
-            <button className="homepageButton" type="button">
+            <button className="homepageButton mb-10" type="button">
               More Projects
             </button>
           </Link>

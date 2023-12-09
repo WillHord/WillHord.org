@@ -1,0 +1,21 @@
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    /* Start with items hidden */
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+.language {
+    color: black;
+    margin-left: 3px;
+    margin-right: 3px;
+}

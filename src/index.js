@@ -8,16 +8,12 @@ import ScrollToTop from "./helpers/ScrollToTop";
 import Homepage from "./Pages/Homepage/Homepage";
 import Resume from "./Pages/Resume/Resume";
 import Projects from "./Pages/Projects/Projects";
-import About from "./Pages/About/About";
-import Contact from "./Pages/Contact/Contact";
-import Login from "./Pages/Login/Login";
 
 // Font Import
 import "./Fonts/customFonts.css";
 import "./index.css";
 
 import UnderConstruction from "./Pages/UnderConstruction/UnderConstruction";
-import test from "./Pages/Test/test";
 
 function Website() {
   return (
@@ -31,8 +27,7 @@ function Website() {
         <Route path="/Projects" element={<Projects />} />
         {/* <Route path="/About" element={<About/>} /> */}
         {/* <Route path="/Contact" element={<Contact/>} /> */}
-        {/* <Route path="/Login" element={<Login />} /> */}
-        {/* <Route path="/test" element={<test />} /> */}
+
         <Route path="/UnderConstruction" component={<UnderConstruction />} />
       </Routes>
       {/* </Analytics> */}

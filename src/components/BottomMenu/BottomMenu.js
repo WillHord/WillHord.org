@@ -117,7 +117,7 @@ class BottomMenu extends React.Component {
 
     return (
       <>
-        <div className="BottomMenu">
+        <div className="BottomMenu min-h-[10vh]">
           <div className="Links">{bottomLinks}</div>
           <div className="social-icons">
             <ul>
@@ -154,7 +154,7 @@ class BottomMenu extends React.Component {
 							Login
 						</Link>
 					</div> */}
-          <div className="license">
+          <div className="license mt-[20px] mb-8">
             <p>Website Created and Hosted by Will Hord using React JS</p>
           </div>
         </div>
