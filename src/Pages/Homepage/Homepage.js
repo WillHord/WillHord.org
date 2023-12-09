@@ -4,7 +4,7 @@ import "./Homepage.css";
 
 import TopMenu from "../../components/topMenu/Menu";
 import SolarSystem from "../../components/SolarSystem/SolarSystem";
-import GetDesktop from "../../components/isDesktop";
+import GetDesktop from "../../helpers/isDesktop";
 
 import Terminal from "../../components/Terminal/Terminal";
 import TerminalItem from "../../components/Terminal/TerminalItem";

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import TopMenu from "../../components/topMenu/Menu";
-import GetDesktop from "../../components/isDesktop";
+import GetDesktop from "../../helpers/isDesktop";
 
 import { resumeData } from "../../data/resumeData";
 import { headerImages } from "../../data/headerImages";
