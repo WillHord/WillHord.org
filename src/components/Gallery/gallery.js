@@ -70,15 +70,18 @@ const CardModal = ({ isOpen, project, onClose }) => {
                   <b>{project.name}</b>
                 </u>
               </span>
-            {project.description}
+              {project.description}
             </p>
           </div>
 
           <div className="flex justify-between items-center mt-4">
             <div className="flex flex-1">
               {project.languages.map((language) => (
-                <div key={language.pk} className="min-w-16 h-8 border-black border-solid rounded border-2 mr-4 text-center">
-                    <span className="language">{language.name}</span>
+                <div
+                  key={language.pk}
+                  className="min-w-16 h-8 border-black border-solid rounded border-2 mr-4 text-center"
+                >
+                  <span className="language">{language.name}</span>
                 </div>
               ))}
             </div>

@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import TopMenu from "../../components/topMenu/Menu";
-import BottomMenu from "../../components/BottomMenu/BottomMenu";
-import ComponentAPI from "../../api/ComponentAPI";
 import GetDesktop from "../../components/isDesktop";
 
 import { resumeData } from "../../data/resumeData";
@@ -276,7 +274,6 @@ const Resume = (props) => {
           </div>
         </div>
       </div>
-      <BottomMenu />
     </>
   );
 };

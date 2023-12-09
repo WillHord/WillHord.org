@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import "./Homepage.css";
 
 import TopMenu from "../../components/topMenu/Menu";
 import SolarSystem from "../../components/SolarSystem/SolarSystem";
-import BottomBar from "../../components/BottomMenu/BottomMenu";
 import GetDesktop from "../../components/isDesktop";
 
 import Terminal from "../../components/Terminal/Terminal";
@@ -23,11 +22,6 @@ function Homepage(props) {
   const HeaderImages = headerImages;
 
   const isDesktop = GetDesktop();
-
-  const redirectToProjects = (e) => {
-    let destUrlEdit = `/Projects/`;
-    props.history.push(destUrlEdit);
-  };
 
   return (
     <>
@@ -94,7 +88,7 @@ function Homepage(props) {
           }}
         >
           <h2 className="text-white text-2xl mt-10">Recent Projects</h2>
-          <div className="mx-20 my-10 lg:mx-60 text-left">
+          <div className="mx-20 my-10 lg:mx-54 text-left">
             <Gallery max={isDesktop ? 8 : 4} />
           </div>
           <Link to="/Projects">
@@ -120,7 +114,7 @@ function Homepage(props) {
           }}
         />
       </section>
-      <BottomBar />
+      {/* <BottomMenu /> */}
     </>
   );
 }
