@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 
 import "./Homepage.css";
 
-import TopMenu from "../../components/topMenu/Menu";
 import SolarSystem from "../../components/SolarSystem/SolarSystem";
 import GetDesktop from "../../helpers/isDesktop";
 
@@ -17,15 +16,24 @@ import Gallery from "../../components/Gallery/gallery";
 
 import { Link } from "react-router-dom";
 
+import HeaderContext from "../../context";
+
 function Homepage(props) {
+  const { setHeaderProps } = useContext(HeaderContext);
+
   const TerminalText = terminalText;
   const HeaderImages = headerImages;
 
   const isDesktop = GetDesktop();
 
+  useEffect(() => {
+    setHeaderProps({ lead: false, background: 'bg-transparent' });
+
+    return () => setHeaderProps({});
+  }, [setHeaderProps]);
+
   return (
     <>
-      <TopMenu />
       <SolarSystem />
       <section id="whoAmI">
         <div id="whoAmIInnerContent">
@@ -114,7 +122,6 @@ function Homepage(props) {
           }}
         />
       </section>
-      {/* <BottomMenu /> */}
     </>
   );
 }

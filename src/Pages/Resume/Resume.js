@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-import TopMenu from "../../components/topMenu/Menu";
 import GetDesktop from "../../helpers/isDesktop";
 
 import { resumeData } from "../../data/resumeData";
@@ -23,12 +22,6 @@ const Resume = (props) => {
 
   return (
     <>
-      <TopMenu
-        color="white"
-        lead={true}
-        backgroundColor={"#1a1a1a"}
-        burgerColor={"black"}
-      />
       <div
         className="TopPicture"
         style={{

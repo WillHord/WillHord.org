@@ -3,17 +3,10 @@ import React from "react";
 import Gallery from "../../components/Gallery/gallery";
 
 import { headerImages } from "../../data/headerImages";
-import TopMenu from "../../components/topMenu/Menu";
 
 const Projects = () => {
   return (
     <>
-      <TopMenu
-        color="white"
-        lead={true}
-        backgroundColor={"#1a1a1a"}
-        burgerColor={"white"}
-      />
       <div
         className="h-[80vh] bg-cover w-full"
         style={{
