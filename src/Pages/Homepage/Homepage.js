@@ -97,8 +97,8 @@ function Homepage(props) {
             width: "100%",
           }}
         >
-          <h2 className="text-white text-2xl">Recent Projects</h2>
-          <div className="mx-20 my-10 lg:mx-60">
+          <h2 className="text-white text-2xl mt-10">Recent Projects</h2>
+          <div className="mx-20 my-10 lg:mx-60 text-left">
             <Gallery max={isDesktop ? 8 : 4} />
           </div>
           <Link to="/Projects">

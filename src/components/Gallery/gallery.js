@@ -41,7 +41,7 @@ const CardModal = ({ isOpen, project, onClose }) => {
 
   return (
     <div
-      className="fixed inset-0 bg-black text-black bg-opacity-50 flex justify-center items-center z-50"
+      className="fixed inset-0 bg-black text-black bg-opacity-50 flex justify-center items-center z-50 fade-in-modal"
       onClick={onClose}
     >
       <div
@@ -109,7 +109,7 @@ const CardModal = ({ isOpen, project, onClose }) => {
 
 const Gallery = ({ max = NaN }) => {
   const [selectedProject, setSelectedProject] = useState(null);
-  const [columns, setColumns] = useState(4); // Default to 4, or another sensible default
+  const [columns, setColumns] = useState(4);
   const galleryRef = useRef(null);
 
   const openModal = (project) => setSelectedProject(project);
@@ -121,7 +121,7 @@ const Gallery = ({ max = NaN }) => {
     const updateColumns = () => {
       if (galleryRef.current) {
         const containerWidth = galleryRef.current.offsetWidth;
-        const itemWidth = 200; // Replace with the actual width of an item (including margins/gaps)
+        const itemWidth = 210;
         setColumns(Math.floor(containerWidth / itemWidth));
       }
     };

@@ -10,9 +10,12 @@
 
 .fade-in {
     opacity: 0;
-    /* Start with items hidden */
     animation: fadeIn 1.5s ease-out forwards;
 }
+
+.fade-in-modal {
+    animation: fadeIn 0.5s ease-in-out;
+  }
 
 .language {
     color: black;
