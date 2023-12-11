@@ -43,7 +43,7 @@ function Homepage(props) {
               <div className="minimizeWindowIcon" />
               <div className="expandWindowIcon" />
             </div>
-
+            
             <Terminal
               className="Terminal"
               style={{ color: "white" }}
