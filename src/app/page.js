@@ -1,22 +1,23 @@
+'use client'
 import React, { useContext, useEffect } from "react";
 
 import "./Homepage.css";
 
-import SolarSystem from "../../components/SolarSystem/SolarSystem";
-import GetDesktop from "../../helpers/isDesktop";
+import SolarSystem from "../components/SolarSystem/SolarSystem";
+import GetDesktop from "../helpers/isDesktop";
 
-import Terminal from "../../components/Terminal/Terminal";
-import TerminalItem from "../../components/Terminal/TerminalItem";
-import TerminalSkip from "../../components/Terminal/TerminalSkip";
+import Terminal from "../components/Terminal/Terminal";
+import TerminalItem from "../components/Terminal/TerminalItem";
+import TerminalSkip from "../components/Terminal/TerminalSkip";
 
-import { terminalText } from "../../data/homepageData";
-import { headerImages } from "../../data/headerImages";
+import { terminalText } from "../data/homepageData";
+import { headerImages } from "../data/headerImages";
 
-import Gallery from "../../components/Gallery/gallery";
+import Gallery from "../components/Gallery/gallery";
 
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
-import HeaderContext from "../../context";
+import HeaderContext from "./context";
 
 function Homepage(props) {
   const { setHeaderProps } = useContext(HeaderContext);
@@ -43,7 +44,7 @@ function Homepage(props) {
               <div className="minimizeWindowIcon" />
               <div className="expandWindowIcon" />
             </div>
-            
+
             <Terminal
               className="Terminal"
               style={{ color: "white" }}
@@ -99,7 +100,7 @@ function Homepage(props) {
           <div className="mx-20 my-10 lg:mx-54 text-left">
             <Gallery max={isDesktop ? 8 : 4} />
           </div>
-          <Link to="/Projects">
+          <Link href="/Projects">
             <button className="homepageButton mb-10" type="button">
               More Projects
             </button>

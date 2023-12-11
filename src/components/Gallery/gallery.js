@@ -1,24 +1,30 @@
+'use client'
+import Image from "next/image";
+
 import React, { useState, useEffect, useRef } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 import { projectData } from "../../data/projectData";
-import "./gallery.css";
 
 const GalleryItem = ({ project, onClick }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div
-      className="fade-in-diagonal relative h-40 w-52 sm:w-80  bg-white shadow transform transition duration-300 cursor-pointer overflow-hidden"
+      className="relative h-40 w-52 sm:w-80  bg-white shadow transform transition duration-300 cursor-pointer overflow-hidden"
       onClick={() => onClick(project)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <img
+      <Image
         src={project.img.image.full_size}
         alt="Gallery Item"
+        layout="fill"
+        objectFit="cover"
+        quality={50}
+        // placeholder="blur"
         className={`h-full w-full object-cover transition duration-300 ${
           isHovered ? "brightness-40" : ""
         }`}
@@ -41,11 +47,11 @@ const CardModal = ({ isOpen, project, onClose }) => {
 
   return (
     <div
-      className="fixed inset-0 bg-black text-black bg-opacity-50 flex justify-center items-center z-50 fade-in-modal"
+      className="fixed inset-0 bg-black text-black bg-opacity-50 flex justify-center items-center z-50 animate-fade-in"
       onClick={onClose}
     >
       <div
-        className="bg-white p-3 rounded shadow-lg w-full max-w-xl min-h-96 relative"
+        className="bg-white p-3 rounded shadow-lg w-full max-w-xl min-h-96 "
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -55,12 +61,16 @@ const CardModal = ({ isOpen, project, onClose }) => {
           ✕
         </button>
         <div className="text-center">
-          <img
-            src={project.img.image.full_size}
-            alt="Project"
-            className="mx-auto"
-            style={{ width: "80%", height: "auto", objectFit: "cover" }}
-          />
+          <div className="inline-block w-4/5 relative"> {/* Adjusted container for responsive image sizing */}
+            <Image
+              src={project.img.image.full_size}
+              alt="Project"
+              layout="responsive"
+              width={400} // Set the intrinsic width
+              height={225} // Set the intrinsic height, maintaining aspect ratio
+              objectFit="cover"
+            />
+          </div>
         </div>
         <div className="mt-2 mx-8">
           <div>
@@ -150,7 +160,7 @@ const Gallery = ({ max = NaN }) => {
               <div
                 key={project.pk}
                 style={{ animationDelay: `${delay}ms` }}
-                className="fade-in"
+                className="animate-fade-in-long opacity-0"
               >
                 <GalleryItem project={project} onClick={openModal} />
               </div>

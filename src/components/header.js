@@ -1,11 +1,12 @@
-import React, { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+'use client'
 
+import React, { useState, useRef, useEffect } from "react";
+import Link from "next/link";
 const LinkItem = ({ text, path, target = "", onHover, isNotHovered }) => {
   return (
     <div className="flex flex-col items-center">
       <Link
-        to={path}
+        href={path}
         className={`text-white text-lg transition-opacity ${
           isNotHovered ? "opacity-30" : "opacity-100"
         }`}
@@ -85,7 +86,7 @@ export default function Header({ lead = true, background = "bg-[#1a1a1a]" }) {
         <div className="grow">
           {lead && (
             <Link
-              to="/"
+              href="/"
               className="text-2xl hover:opacity-50 transition-opacity"
             >
               Will Hord
@@ -101,13 +102,13 @@ export default function Header({ lead = true, background = "bg-[#1a1a1a]" }) {
           />
           <LinkItem
             text="Resume"
-            path="/Resume"
+            path="/resume"
             onHover={() => handleHover("Resume")}
             isNotHovered={hoveredItem && hoveredItem !== "Resume"}
           />
           <LinkItem
             text="Projects"
-            path="/Projects"
+            path="/projects"
             onHover={() => handleHover("Projects")}
             isNotHovered={hoveredItem && hoveredItem !== "Projects"}
           />
@@ -128,8 +129,8 @@ export default function Header({ lead = true, background = "bg-[#1a1a1a]" }) {
         {open && (
           <div className="absolute w-full top-0 flex flex-col space-y-4 items-center bg-[#1a1a1a] text-white p-4 z-10 animate-fade-in-top">
             <LinkItem text="Home" path="/" />
-            <LinkItem text="Resume" path="/Resume" />
-            <LinkItem text="Projects" path="/Projects" />
+            <LinkItem text="Resume" path="/resume" />
+            <LinkItem text="Projects" path="/projects" />
             <LinkItem
               text="Contact"
               path="mailto:contact@willhord.dev"
