@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
-import TopMenu from "../../components/topMenu/Menu";
-import BottomMenu from "../../components/BottomMenu/BottomMenu";
-import ComponentAPI from "../../api/ComponentAPI";
-import GetDesktop from "../../components/isDesktop";
+import GetDesktop from "../../helpers/isDesktop";
 
 import { resumeData } from "../../data/resumeData";
 import { headerImages } from "../../data/headerImages";
@@ -25,12 +22,6 @@ const Resume = (props) => {
 
   return (
     <>
-      <TopMenu
-        color="white"
-        lead={true}
-        backgroundColor={"#1a1a1a"}
-        burgerColor={"black"}
-      />
       <div
         className="TopPicture"
         style={{
@@ -276,7 +267,6 @@ const Resume = (props) => {
           </div>
         </div>
       </div>
-      <BottomMenu />
     </>
   );
 };

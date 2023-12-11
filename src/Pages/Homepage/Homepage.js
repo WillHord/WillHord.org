@@ -1,14 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 
 import "./Homepage.css";
 
-import TopMenu from "../../components/topMenu/Menu";
 import SolarSystem from "../../components/SolarSystem/SolarSystem";
-import BottomBar from "../../components/BottomMenu/BottomMenu";
-import Box from "../../components/ProjectBoxes/Box";
-import GetDesktop from "../../components/isDesktop";
-
-import ComponentAPI from "../../api/ComponentAPI";
+import GetDesktop from "../../helpers/isDesktop";
 
 import Terminal from "../../components/Terminal/Terminal";
 import TerminalItem from "../../components/Terminal/TerminalItem";
@@ -16,24 +11,29 @@ import TerminalSkip from "../../components/Terminal/TerminalSkip";
 
 import { terminalText } from "../../data/homepageData";
 import { headerImages } from "../../data/headerImages";
-import { projectData } from "../../data/projectData";
+
+import Gallery from "../../components/Gallery/gallery";
 
 import { Link } from "react-router-dom";
 
+import HeaderContext from "../../context";
+
 function Homepage(props) {
+  const { setHeaderProps } = useContext(HeaderContext);
+
   const TerminalText = terminalText;
   const HeaderImages = headerImages;
 
   const isDesktop = GetDesktop();
 
-  const redirectToProjects = (e) => {
-    let destUrlEdit = `/Projects/`;
-    props.history.push(destUrlEdit);
-  };
+  useEffect(() => {
+    setHeaderProps({ lead: false, background: 'bg-transparent' });
+
+    return () => setHeaderProps({});
+  }, [setHeaderProps]);
 
   return (
     <>
-      <TopMenu />
       <SolarSystem />
       <section id="whoAmI">
         <div id="whoAmIInnerContent">
@@ -43,7 +43,7 @@ function Homepage(props) {
               <div className="minimizeWindowIcon" />
               <div className="expandWindowIcon" />
             </div>
-
+            
             <Terminal
               className="Terminal"
               style={{ color: "white" }}
@@ -95,34 +95,12 @@ function Homepage(props) {
             width: "100%",
           }}
         >
-          <h4>Recent Projects</h4>
-          <div className="boxContainer" style={{ padding: "5px" }}>
-            {isDesktop
-              ? projectData.slice(0, 3).map((box) => {
-                  return (
-                    <Box
-                      key={box.pk}
-                      title={box.name}
-                      summary={box.description}
-                      path={box.link}
-                      fadeIn={1400}
-                    />
-                  );
-                })
-              : projectData.slice(0, 2).map((box) => {
-                  return (
-                    <Box
-                      key={box.pk}
-                      title={box.name}
-                      summary={box.description}
-                      path={box.link}
-                      fadeIn={1400}
-                    />
-                  );
-                })}
+          <h2 className="text-white text-2xl mt-10">Recent Projects</h2>
+          <div className="mx-20 my-10 lg:mx-54 text-left">
+            <Gallery max={isDesktop ? 8 : 4} />
           </div>
           <Link to="/Projects">
-            <button className="homepageButton" type="button">
+            <button className="homepageButton mb-10" type="button">
               More Projects
             </button>
           </Link>
@@ -144,7 +122,6 @@ function Homepage(props) {
           }}
         />
       </section>
-      <BottomBar />
     </>
   );
 }
