@@ -1,11 +1,11 @@
 import { Major_Mono_Display } from "next/font/google";
 import "./globals.css";
 
-const majorMonoDisplay = Major_Mono_Display({
-  subsets: ["latin"],
-  weight: 400,
-  style: "normal"
-});
+// const majorMonoDisplay = Major_Mono_Display({
+//   subsets: ["latin"],
+//   weight: 400,
+//   style: "normal"
+// });
 
 
 export const metadata = {
@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body className={majorMonoDisplay.className}>
+      <body className="">
         <header>
             <Header />
         </header>
