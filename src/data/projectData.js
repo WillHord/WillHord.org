@@ -187,8 +187,8 @@ export const projectData = [
     link: "https://github.com/WillHord/MultiThreadedHttpServer",
     displayed: true,
     img: {
-      name: "WordleLogo",
-      content: "The logo for the game Wordle",
+      name: "Multithreaded C HTTP Server",
+      content: "The logo for my Multithreaded C HTTP Server project",
       image: {
         full_size: "/imgs/projectImages/multiThreadedHttpServer.jpg",
       },
@@ -203,8 +203,8 @@ export const projectData = [
     link: "https://github.com/WillHord/ConnectFourAI",
     displayed: true,
     img: {
-      name: "-- INSERT NAME HERE --",
-      content: "-- INSERT DESCRIPTION HERE --",
+      name: "Connect 4 AI",
+      content: "The logo for my Connect 4 AI project",
       image: {
         full_size: "/imgs/projectImages/Connect4AI.png",
       },
@@ -219,8 +219,8 @@ export const projectData = [
     link: "https://github.com/WillHord/WebGL-BlockyFrog",
     displayed: true,
     img: {
-      name: "-- INSERT NAME HERE --",
-      content: "-- INSERT DESCRIPTION HERE --",
+      name: "WebGL Blocky Frog",
+      content: "The logo for my WebGL Blocky Frog project",
       image: {
         full_size: "/imgs/projectImages/blockyFrog.png",
       },
@@ -235,8 +235,8 @@ export const projectData = [
     link: "https://github.com/WillHord/WikiGraph",
     displayed: true,
     img: {
-      name: "-- INSERT NAME HERE --",
-      content: "-- INSERT DESCRIPTION HERE --",
+      name: "Wikipedia Graph Generator",
+      content: "The logo for my Wikipedia Graph Generator project",
       image: {
         full_size: "/imgs/projectImages/wikiGraph.jpg",
       },
@@ -251,8 +251,8 @@ export const projectData = [
     link: "https://github.com/WillHord/CppFilesystem",
     displayed: true,
     img: {
-      name: "-- INSERT NAME HERE --",
-      content: "-- INSERT DESCRIPTION HERE --",
+      name: "C++ File System",
+      content: "The logo for my C++ File System project",
       image: {
         full_size: "/imgs/projectImages/cppFilesystem.jpg",
       },
