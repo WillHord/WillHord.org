@@ -149,10 +149,10 @@ export const projectData = [
   },
   {
     weight: 7,
-    name: "Graph Data Extractor",
+    name: "Deep Learning Graph Reader",
     description:
       "A machine learning program that employs a Large Language Model (BERT) and a Convolutional Neural Network (CNN) to efficiently convert various types of graphs, including bar charts and scatter plots, into structured data tables. This program simplifies the process of extracting data from graphical representations by leveraging BERT's textual understanding and the CNN's graphical interpretation capabilities. It serves as a practical tool for the conversion of complex visual data into organized tables, streamlining the task of converting graphs into usable formats.",
-    link: "https://github.com/WillHord/Graph-Data-Extractor",
+    link: "https://github.com/WillHord/Deep-Learning-Graph-Reader",
     displayed: true,
     img: {
       name: "Graph Data Extractor",
