@@ -190,7 +190,7 @@ export const projectData = [
       name: "WordleLogo",
       content: "The logo for the game Wordle",
       image: {
-        full_size: "/imgs/projectImages/multiThreadedHttpServer.webp",
+        full_size: "/imgs/projectImages/multiThreadedHttpServer.jpg",
       },
     },
     languages: ["C"],
