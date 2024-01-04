@@ -28,7 +28,7 @@ const GalleryItem = ({ project, onClick }) => {
           isHovered ? "opacity-100" : "opacity-0"
         }`}
       >
-        <span className="text-white text-lg font-semibold">{project.name}</span>
+        <span className="text-white text-lg font-semibold text-center">{project.name}</span>
       </div>
     </div>
   );
@@ -76,12 +76,12 @@ const CardModal = ({ isOpen, project, onClose }) => {
 
           <div className="flex justify-between items-center mt-4">
             <div className="flex flex-1">
-              {project.languages.map((language) => (
+              {project.languages.map((language, index) => (
                 <div
-                  key={language.pk}
+                  key={index}
                   className="min-w-16 h-8 border-black border-solid rounded border-2 mr-4 text-center"
                 >
-                  <span className="language">{language.name}</span>
+                  <span className="language">{language}</span>
                 </div>
               ))}
             </div>
@@ -89,7 +89,7 @@ const CardModal = ({ isOpen, project, onClose }) => {
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="."
+                href={project.link}
                 style={{
                   textDecoration: "none",
                   color: "black",
@@ -141,6 +141,7 @@ const Gallery = ({ max = NaN }) => {
         {projectData
           .filter((item) => item.displayed)
           .slice(0, max)
+          .sort((a, b) => a.weight - b.weight)
           .map((project, index) => {
             const row = Math.floor(index / columns);
             const col = index % columns;
@@ -148,7 +149,7 @@ const Gallery = ({ max = NaN }) => {
 
             return (
               <div
-                key={project.pk}
+                key={index}
                 style={{ animationDelay: `${delay}ms` }}
                 className="fade-in"
               >
