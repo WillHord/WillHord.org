@@ -13,7 +13,7 @@ const Projects = () => {
           backgroundImage: "url(" + headerImages.Projects + ")",
         }}
       />
-      <div className="xl:mx-52 lg:mx-30 md:mx-26 sm:mx-10 my-12">
+      <div className="xl:mx-36 lg:mx-30 md:mx-26 sm:mx-10 my-12">
         <div className="my-8">
           <h1 className="text-4xl text-center">Projects</h1>
           <hr className="TitleDivider" />
