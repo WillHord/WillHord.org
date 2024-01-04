@@ -96,7 +96,7 @@ function Homepage(props) {
           }}
         >
           <h2 className="text-white text-2xl mt-10">Recent Projects</h2>
-          <div className="mx-20 my-10 lg:mx-54 text-left">
+          <div className="mx-36 my-10 lg:mx-54 text-left">
             <Gallery max={isDesktop ? 8 : 4} />
           </div>
           <Link to="/Projects">
