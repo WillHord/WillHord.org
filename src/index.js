@@ -10,6 +10,9 @@ import UnderConstruction from "./Pages/UnderConstruction/UnderConstruction";
 
 import Layout from "./layout"; 
 
+import { SpeedInsights } from "@vercel/speed-insights/react"
+import { Analytics } from "@vercel/analytics/react"
+
 // Font and CSS Imports
 import "./Fonts/customFonts.css";
 import "./index.css";
@@ -29,8 +32,12 @@ function Website() {
   ]);
 
   return (
+    <>
     <RouterProvider router={router}>
     </RouterProvider>
+    <SpeedInsights />
+    <Analytics />
+    </>
   );
 }
 
