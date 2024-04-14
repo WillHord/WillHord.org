@@ -1,113 +1,275 @@
+"use client"
+import React, { useState } from "react";
 import Image from "next/image";
+// import GetDesktop from "../../helpers/isDesktop";
 
-export default function Resume() {
+import { resumeData } from "@/config/resumeData";
+import { headerImages } from "@/config/headerImages";
+
+import "./Resume.css";
+
+const Resume = (props) => {
+  const HeaderImage = [
+    headerImages.ResumePageImage,
+    headerImages.ResumePageImageMobile,
+  ];
+
+  const WorkExperience = resumeData.workExperience;
+  const Education = resumeData.education;
+
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const isDesktop = true;
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Resume
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <>
+      <div
+        className="TopPicture"
+        style={{
+          backgroundImage: isDesktop
+            ? `url(${HeaderImage[0]})`
+            : `url(${HeaderImage[1]})`,
+          backgroundSize: "cover",
+          backgroundPosition: isDesktop ? "50% 25%" : "initial",
+        }}
+      />
+      <div className="outerContent">
+        <div className="innerContent">
+          <div className="ResumeTitle">
+            <h5>Resume</h5>
+          </div>
+          <div className="SectionTitle">
+            <h5>Education</h5>
+          </div>
+          <hr className="TitleDivider" />
+          {Education.map((item, index) => {
+            return (
+              <div className="EducationSection" key={index}>
+                {/* <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={item.image.link}
+                >
+                  <img
+                    className="LargeIcon"
+                    src={item.image.image.full_size}
+                    alt={item.image.description}
+                  />
+                </a> */}
+                <b className="wrap">{item.school}</b>
+                <b className="alignRight">{item.location}</b>
+                <br />
+                <i className="wrap">{item.degree}</i>
+                <span className="alignRight">{item.dates}</span>
+                <br />
+                <br />
+                {item.coursework.length > 0 ? (
+                  <>
+                    <span>Relevant Coursework:</span>
+                    <br />
+
+                    <ul className="Coursework">
+                      {item.coursework.slice(0, 3).map((item, index) => {
+                        return <li key={index}>{item}</li>;
+                      })}
+                      {item.coursework.length > 3 ? (
+                        isExpanded ? (
+                          <>
+                            {item.coursework.slice(3).map((item, index) => {
+                              return <li key={index}>{item}</li>;
+                            })}
+                            <div className="arrow-container">
+                              <div
+                                className="triangle_up"
+                                onClick={() => setIsExpanded(false)}
+                              />
+                            </div>
+                          </>
+                        ) : (
+                          <div className="arrow-container">
+                            <div
+                              className="triangle_down"
+                              onClick={() => setIsExpanded(true)}
+                            />
+                          </div>
+                        )
+                      ) : null}
+                    </ul>
+                    <br />
+                    <br />
+                  </>
+                ) : (
+                  <></>
+                )}
+              </div>
+            );
+          })}
+
+          <div className="SectionTitle">
+            <h5>Work Experience</h5>
+          </div>
+          <hr className="TitleDivider" />
+
+          {WorkExperience.map((item, index) => {
+            return (
+              <div key={index} className="WorkSection">
+                {/* <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={item.image.link}
+                >
+                  <img
+                    className="LargeIcon"
+                    src={item.image.image.full_size}
+                    alt={item.image.description}
+                  />
+                </a> */}
+                <b>{item.title}</b>
+                <b className="alignRight">{item.location}</b>
+                <br />
+                <i>{item.position}</i>
+                <i className="alignRight">{item.dates}</i>
+                <br />
+                <br />
+                <ul>
+                  {item.description.map((item, index) => {
+                    return <li key={index}>{item}</li>;
+                  })}
+                </ul>
+                {item.optionalFile !== null ? (
+                  <div
+                    className="OptionalFile"
+                    style={{
+                      display: "flex",
+                      justifyContent: isDesktop ? "right" : "center",
+                    }}
+                  >
+                    <a
+                      className="PaperButton"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href="../files/SPIE_2019_paper.pdf"
+                    >
+                      {item.fileText}
+                    </a>
+                  </div>
+                ) : (
+                  <></>
+                )}
+              </div>
+            );
+          })}
+
+          <div className="SectionTitle">
+            <h5>Technical Skills</h5>
+          </div>
+          <hr className="TitleDivider" />
+          <div className="TechnicalSection">
+            <b>
+              <h6 style={{ display: "inline", textDecoration: "underline" }}>
+                Programming
+              </h6>
+              <span>: </span>
+            </b>
+            {resumeData.technicalSkills.programming.map((skill, index) => {
+              return (
+                <>
+                  <span>{skill}</span>
+                  {index !==
+                  resumeData.technicalSkills.programming.length - 1 ? (
+                    <span>, </span>
+                  ) : null}
+                </>
+              );
+            })}
+            <br />
+            <br />
+            <strong>
+              <h6 style={{ display: "inline", textDecoration: "underline" }}>
+                Software
+              </h6>
+              <span>: </span>
+            </strong>
+            {resumeData.technicalSkills.software.map((skill, index) => {
+              return (
+                <>
+                  <span>{skill}</span>
+                  {index !== resumeData.technicalSkills.software.length - 1 ? (
+                    <span>, </span>
+                  ) : null}
+                </>
+              );
+            })}
+
+            <br />
+            <hr className="TitleDivider" />
+            <br />
+            <b>
+              <h5>Awards & Publications:</h5>
+            </b>
+            <div>
+              {resumeData.publications.map((publication, index) => {
+                return (
+                  <div key={index}>
+                    <span>{publication.title}</span>
+                    <br />
+                  </div>
+                );
+              })}
+            </div>
+            <ul>
+              {resumeData.awards.map((award, index) => {
+                return (
+                  <li key={index}>
+                    <strong>{award.title}</strong> - {award.description}
+                  </li>
+                );
+              })}
+            </ul>
+            <br />
+            <hr className="TitleDivider" />
+            <b>
+              <h5>Memberships:</h5>
+            </b>
+            <ul>
+              {resumeData.memberships.map((membership, index) => {
+                return (
+                  <div key={index}>
+                    <b>{membership.title}</b>
+                    <i className="alignRight">{membership.date}</i>
+                    <br />
+                    <p style={{ textIndent: "50px" }}>
+                      {membership.description}
+                    </p>
+                    <br />
+                  </div>
+                );
+              })}
+            </ul>
+          </div>
+
+          <hr className="TitleDivider" />
+          <div
+            className="alignCenter"
+            style={{
+              paddingBottom: "30px",
+              display: "flex",
+              justifyContent: "center",
+            }}
           >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+            <a
+              className="FullResumeButton"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="../files/Will_Hord-Resume.pdf"
+            >
+              Full Resume
+            </a>
+          </div>
         </div>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </>
   );
-}
+};
+
+export default Resume;
