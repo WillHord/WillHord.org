@@ -31,6 +31,7 @@ export const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
 			opts={{
 				align: "start",
 				loop: true,
+				// direction: "backward"
 			}}
 			className="w-3/4 max-w-1/2"
 		>
