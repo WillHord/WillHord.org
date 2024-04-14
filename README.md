@@ -1,6 +1,6 @@
-# WillHord.org
+# WillHord.dev
 
-This repo contains the source code and documentation powering [WillHord.org](https://WillHord.org/).
+This repo contains the source code and documentation powering [WillHord.dev](https://WillHord.dev/).
 
 ## Getting started
 
