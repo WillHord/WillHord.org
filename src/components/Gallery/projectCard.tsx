@@ -56,7 +56,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 						style={{ ...style }}
 					/>
 				</div>
-				<CardHeader className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-48 text-center text-pretty">
+				<CardHeader className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-48 text-center text-pretty select-none">
 					<CardTitle>{project.name}</CardTitle>
 				</CardHeader>
 			</Card>

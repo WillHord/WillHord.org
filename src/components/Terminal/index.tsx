@@ -82,7 +82,7 @@ const Terminal: React.FC = () => {
 						path="~/Documents/WillHord"
 						command=""
 						text={
-							<div className="w-[10px] h-5 animate-pulse duration-1000 text-xl bg-gray-100" />
+							<span className="w-[10px] h-5 animate-pulse duration-1000 text-xl bg-gray-100" />
 							// <span className="animate-pulse text-xl">&#9646;</span>
 						}
 					/>

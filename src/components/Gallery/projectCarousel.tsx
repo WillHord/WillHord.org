@@ -12,26 +12,30 @@ import {
 	CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import AutoScroll from 'embla-carousel-auto-scroll'
 
 interface ProjectCarouselProps {
 	projects: Project[];
+	direction?: "forward" | "backward";
 }
 
 export const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
 	projects,
+	direction = "forward",
 }) => {
 	return (
 		<Carousel
 			plugins={[
-				Autoplay({
-					delay: 2000,
+				AutoScroll({
+					// delay: 2000,
                     stopOnInteraction: true,
+					speed: 1,
+					direction: direction,
 				}),
 			]}
 			opts={{
 				align: "start",
 				loop: true,
-				// direction: "backward"
 			}}
 			className="w-3/4 max-w-1/2"
 		>

@@ -86,22 +86,6 @@ export const projectData: Project[] = [
       languages: ["Python", "SQL"],
     },
     {
-      weight: 5,
-      name: "Discord Bot",
-      description:
-        "A bot written in python which uses the discord api to play music, games, and give information on stocks all in discord.",
-      link: "https://github.com/WillHord/DiscordBot",
-      displayed: false,
-      img: {
-        name: "DiscordBotImage",
-        content: "Discord Logo",
-        image: {
-          full_size: "/imgs/projectImages/DiscordBotImage.jpg",
-        },
-      },
-      languages: ["Python"],
-    },
-    {
       weight: 6,
       name: "WillHord.org",
       description:

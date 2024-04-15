@@ -1,18 +1,20 @@
 import React, { useContext, useEffect } from "react";
 import Link from "next/link";
 
-import SolarSystem from "@/components/SolarSystem/SolarSystem";
+import { Button } from "@/components/ui/button";
+
+import SolarSystem from "@/components/SolarSystem";
 
 // import Terminal from "@/components/Terminal/Terminal";
 // import TerminalItem from "@/components/Terminal/TerminalItem";
 // import TerminalSkip from "@/components/Terminal/TerminalSkip";
 
-import Terminal from "@/components/Terminal"
+import Terminal from "@/components/Terminal";
 
 import { terminalText } from "@/config/homepageData";
 import { headerImages } from "@/config/headerImages";
 
-import Gallery from "@/components/Gallery/gallery";
+// import Gallery from "@/components/Gallery/gallery";
 
 import { ProjectCard } from "@/components/Gallery/projectCard";
 import { ProjectCarousel } from "@/components/Gallery/projectCarousel";
@@ -36,7 +38,7 @@ export default function Homepage(props) {
 
 	return (
 		<>
-			<SolarSystem />
+			<SolarSystem title="Will Hord" />
 			<section className="w-full min-h-[40vh] py-24">
 				<Terminal />
 			</section>
@@ -58,17 +60,30 @@ export default function Homepage(props) {
 			</section>
 			<section className="w-full min-h-[80vh] text-center flex items-center justify-center">
 				<div className="w-full inline-block text-center m-auto">
-					<h2 className="text-white text-2xl mt-10">Recent Projects</h2>
-					<div className="flex justify-center items-center">
-						<ProjectCarousel projects={projectData} />
+					<h2 className="text-white text-3xl mt-10 pb-4">Recent Projects</h2>
+					<div className="flex flex-col justify-center items-center gap-10 select-none">
+						<ProjectCarousel
+							projects={projectData.slice(
+								0,
+								Math.floor(projectData.length / 2),
+							)}
+							direction="forward"
+						/>
+						<ProjectCarousel
+							projects={projectData.slice(
+								Math.floor(projectData.length / 2),
+								projectData.length,
+							)}
+							direction="backward"
+						/>
 					</div>
 					<Link href="/projects">
-						<button
-							className="mt-3 mb-10 w-36 h-14 border-solid border-2 bg-transparent hover:bg-muted"
-							type="button"
+						<Button
+							variant={"outline"}
+							className="mt-3 mb-10 w-36 h-14 border-white/80 border-solid border-2 bg-transparent hover:bg-muted"
 						>
 							More Projects
-						</button>
+						</Button>
 					</Link>
 				</div>
 			</section>
