@@ -1,4 +1,6 @@
-export const resumeData = {
+import type { Resume as ResumeType } from "@/types/resume";
+
+export const resumeData: ResumeType = {
     workExperience: [
       {
         index: 1,
@@ -158,7 +160,7 @@ export const resumeData = {
         index: 1,
         title: "Westlake Regional Science Fair - 3rd Place",
         description:
-          "– Testing Quantum Encryption Protocols in Real-life Situations Using Secure Quantum Tunnels",
+          "Testing Quantum Encryption Protocols in Real-life Situations Using Secure Quantum Tunnels",
         date: "2018",
       },
       {

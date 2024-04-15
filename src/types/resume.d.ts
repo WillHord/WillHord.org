@@ -1,10 +1,15 @@
 import type { Image } from "./image";
 
+interface ResumeImage extends Image {
+    description: string;
+    link: string;
+}
+
 interface File {
     pk: number;
     name: string;
     description: string;
-    fileUpload: string;
+    fileupload: string;
 }
 
 export interface WorkExperience {
@@ -14,7 +19,7 @@ export interface WorkExperience {
     location: string;
     dates: string;
     description: string[];
-    image: Image;
+    image: ResumeImage;
     optionalFile?: File;
 }
 
@@ -25,7 +30,7 @@ export interface Education {
     dates: string;
     location: string;
     coursework?: string[];
-    image: Image;
+    image: ResumeImage;
 }
 
 export interface TechnicalSkills {
