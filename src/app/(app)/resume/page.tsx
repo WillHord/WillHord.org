@@ -16,11 +16,6 @@ const ResumePage: React.FC = () => {
     headerImages.ResumePageImageMobile,
   ];
 
-  const WorkExperience = resumeData.workExperience;
-  const Education = resumeData.education;
-
-  const [isExpanded, setIsExpanded] = useState(false);
-
   const isDesktop = true;
 
   return (

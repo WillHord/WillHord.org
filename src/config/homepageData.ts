@@ -1,13 +1,13 @@
 export const terminalText = [
-    {
-        pk: 1,
-        index: 1,
-        description: "Hello World",
-        created: "2021-02-24",
-        updated: "2021-02-24",
-        shouldDelete: true,
-        newLine: false
-    },
+    // {
+    //     pk: 1,
+    //     index: 1,
+    //     description: "Hello World",
+    //     created: "2021-02-24",
+    //     updated: "2021-02-24",
+    //     shouldDelete: true,
+    //     newLine: false
+    // },
     {
         pk: 2,
         index: 2,

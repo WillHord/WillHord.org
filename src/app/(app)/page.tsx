@@ -3,9 +3,11 @@ import Link from "next/link";
 
 import SolarSystem from "@/components/SolarSystem/SolarSystem";
 
-import Terminal from "@/components/Terminal/Terminal";
-import TerminalItem from "@/components/Terminal/TerminalItem";
-import TerminalSkip from "@/components/Terminal/TerminalSkip";
+// import Terminal from "@/components/Terminal/Terminal";
+// import TerminalItem from "@/components/Terminal/TerminalItem";
+// import TerminalSkip from "@/components/Terminal/TerminalSkip";
+
+import Terminal from "@/components/Terminal"
 
 import { terminalText } from "@/config/homepageData";
 import { headerImages } from "@/config/headerImages";
@@ -36,41 +38,7 @@ export default function Homepage(props) {
 		<>
 			<SolarSystem />
 			<section className="w-full min-h-[40vh] py-24">
-				<div className="h-full flex flex-row items-center justify-center">
-					<div className="w-3/5 min-h-[80vh] flex overflow-x-hidden rounded-lg bg-black">
-						<div className="w-full h-8 bg-gray-400 flex items-center justify-left gap-2 pl-2">
-							<div className="w-4 h-4 bg-red-500 rounded-full" />
-							<div className="w-4 h-4 bg-yellow-400 rounded-full" />
-							<div className="w-4 h-4 bg-green-400 rounded-full" />
-						</div>
-
-						{/* <Terminal
-              className="Terminal"
-              style={{ color: "white" }}
-              prefix={">"}
-              typingSpeed={50}
-            >
-              {TerminalText.map((line, index) => {
-                return (
-                  <TerminalItem
-                    key={index}
-                    shouldDelete={TerminalText[index].shouldDelete}
-                    newLine={TerminalText[index].newLine}
-                  >
-                    {TerminalText[index].description}
-                  </TerminalItem>
-                );
-              })}
-              <TerminalSkip
-                style={{
-                  paddingTop: "5%",
-                }}
-              >
-                Skip &#9654;
-              </TerminalSkip>
-            </Terminal> */}
-					</div>
-				</div>
+				<Terminal />
 			</section>
 			<section className="w-full min-h-[80vh] bg-white m-auto py-[10%]">
 				<div
