@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useRef, useState, useMemo } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { OrbitControls, Stats, Stars } from "@react-three/drei";
-import { Leva, useControls } from "leva";
+import React, { useState } from "react";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, Stars } from "@react-three/drei";
+import { Leva } from "leva";
 import { useClickAway } from "@uidotdev/usehooks";
 
-import { Debug } from "./debug";
+import { Debug, DebugControls } from "./debug";
 import { Planet } from "./planet";
 import { Sun } from "./sun";
 import { System } from "./system";
@@ -18,41 +18,11 @@ const SolarSystem = () => {
 	const ref = useClickAway(() => {
 		setOrbitEnabled(false);
 	});
-
-	const sunControl = useControls("Sun", {
-		color: "#ffffff",
-		intensity: 1,
-	});
-
-	const ambientLight = useControls("Ambient Light", {
-		color: "#ffffff",
-		intensity: 0.2,
-	});
-
-	const system1 = useControls("System 1", {
-		distance: {
-			value: 6.5,
-			min: 1,
-			max: 10,
-		},
-		speed: {
-			value: 1,
-			min: 0.01,
-			max: 25,
-		},
-		orbit: true,
-		planetRadius: {
-			value: 1,
-			min: 0.1,
-			max: 2,
-		},
-		PlanetColor: "#0000ff",
-	});
+	const { sunControl, ambientLight, system1, earthControl } = DebugControls();
 
 	return (
-		<>
+		<div ref={ref} className="h-full bg-black">
 			<Canvas
-				ref={ref}
 				className="flex-1 bg-black"
 				camera={{ fov: 45, position: [30, 10, 0], rotation: [0, 0, 45] }}
 			>
@@ -68,10 +38,11 @@ const SolarSystem = () => {
 							texture={"/textures/mars_texture.jpg"}
 						/>
 					</System>
-					<System distance={10}>
+					<System distance={earthControl.distance}>
 						<Planet
-							radius={0.8}
-							color="green"
+							radius={earthControl.planetRadius}
+							color={earthControl.planetColor}
+							speed={earthControl.planetSpeed}
 							texture={"/textures/earth_texture.jpg"}
 						/>
 						<System distance={1.75} speed={15}>
@@ -87,7 +58,7 @@ const SolarSystem = () => {
 						<Planet
 							radius={1}
 							color="yellow"
-							texture={"/textures/saturn_texture.jpg"}
+							texture={"/textures/jupiter_texture.jpg"}
 						/>
 					</System>
 					<Sun
@@ -113,14 +84,14 @@ const SolarSystem = () => {
 				<OrbitControls
 					target={[0, 0, 0]}
 					enablePan={false}
-                    minDistance={10}
+					minDistance={10}
 					maxDistance={50}
 					enabled={orbitEnabled}
 				/>
 				<Debug />
 			</Canvas>
 			<Leva hidden={!controlOpen} />
-		</>
+		</div>
 	);
 };
 
