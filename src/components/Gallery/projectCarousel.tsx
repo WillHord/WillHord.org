@@ -1,9 +1,7 @@
-"use client"
+"use client";
 import type React from "react";
 import type { Project } from "@/types/projects";
-
 import { ProjectCard } from "@/components/Gallery/projectCard";
-
 import {
 	Carousel,
 	CarouselContent,
@@ -11,8 +9,7 @@ import {
 	CarouselNext,
 	CarouselPrevious,
 } from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
-import AutoScroll from 'embla-carousel-auto-scroll'
+import AutoScroll from "embla-carousel-auto-scroll";
 
 interface ProjectCarouselProps {
 	projects: Project[];
@@ -27,8 +24,7 @@ export const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
 		<Carousel
 			plugins={[
 				AutoScroll({
-					// delay: 2000,
-                    stopOnInteraction: true,
+					stopOnInteraction: true,
 					speed: 1,
 					direction: direction,
 				}),

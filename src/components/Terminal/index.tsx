@@ -62,7 +62,7 @@ const Terminal: React.FC = () => {
 					<p className="max-w-full overflow-hidden truncate text-clip">
 						##################################################################################################################################
 					</p>
-					<p className="px-12 indent-8 flex justify-center">
+					<p className="px-12 indent-12 flex justify-center">
 						Hello! My name is Will Hord. I{"'"}m a software engineer, a maker, a
 						developer and a collaborator. I make everything from websites and
 						bots to machine learning algorithms and games. I{"'"}m interested in
