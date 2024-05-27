@@ -35,11 +35,11 @@ const Resume: React.FC<ResumeProps> = ({ data }) => {
 				<h2 className="scroll-m-20 text-3xl font-semibold tracking-tight first:mt-0 text-center pt-4">
 					Resume
 				</h2>
-				<section>
+				<section className="pb-12">
 					<SectionTitle>Education</SectionTitle>
 					{data.education.map((item, index) => (
 						<div key={`${index}-${item.degree}`}>
-							<div className="py-4">
+							<div className="py-1">
 								<a href={item.image.link} target="_blank" rel="noreferrer" className="hidden lg:block">
 									<Image
 										src={item.image.image.full_size}
@@ -87,7 +87,7 @@ const Resume: React.FC<ResumeProps> = ({ data }) => {
 						</div>
 					))}
 				</section>
-				<section>
+				<section className="pb-12">
 					<SectionTitle>Work Experience</SectionTitle>
 					{data.workExperience.map((item, index) => (
 						<div key={`${index}-${item.title}`} className="py-4">
@@ -132,7 +132,7 @@ const Resume: React.FC<ResumeProps> = ({ data }) => {
 						</div>
 					))}
 				</section>
-				<section>
+				<section className="pb-12">
 					<SectionTitle>Technical Skills</SectionTitle>
 					{Object.keys(data.technicalSkills).map(
 						(key: string, index: number) => (
@@ -153,7 +153,7 @@ const Resume: React.FC<ResumeProps> = ({ data }) => {
 						),
 					)}
 				</section>
-				<section>
+				<section className="pb-12">
 					<SectionTitle>Awards and Publications</SectionTitle>
 					<div>
 						{data.publications.map((item, index) => (
