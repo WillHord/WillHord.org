@@ -4,6 +4,7 @@ export interface ImageSizes {
 
 export interface Image {
     name: string;
-    content: string;
+    content?: string;
     image: ImageSizes;
+    pk?: number;
 }

@@ -8,4 +8,5 @@ export interface Project {
     displayed: boolean;
     img: Image
     languages: string[];
+    teaser?: string;
 }

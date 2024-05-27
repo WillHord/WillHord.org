@@ -40,9 +40,9 @@ export const metadata: Metadata = {
 		siteName: siteConfig.name,
 	},
 	icons: {
-		icon: "/favicon.ico",
-		shortcut: "/favicon-16x16.png",
-		apple: "/apple-touch-icon.png",
+		icon: "/icon.png",
+		shortcut: "/icon.png",
+		apple: "/icon.png",
 	},
 	manifest: `${siteConfig.url}/site.webmanifest`,
 };

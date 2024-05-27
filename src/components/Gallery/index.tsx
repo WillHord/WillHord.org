@@ -27,7 +27,7 @@ const Gallery: React.FC<{ projects: Project[] }> = ({ projects }) => {
 	useEffect(() => {
 		const updateColumns = () => {
 			if (galleryRef.current) {
-				const containerWidth = galleryRef.current?.offsetWidth;
+				const containerWidth = galleryRef.current["offsetWidth"];
 				const itemWidth = 210;
 				setColumns(Math.floor(containerWidth / itemWidth));
 			}

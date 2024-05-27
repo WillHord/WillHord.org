@@ -1,5 +1,3 @@
-import { link } from "fs"
-
 export const siteConfig = {
   name: "Will Hord",
   url: "https://willhord.dev",

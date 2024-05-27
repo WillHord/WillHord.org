@@ -26,7 +26,7 @@ const InstancedMeshComponent = ({count = 100, pushRef=(ref:any)=>{}})=>{
                     pushRef(ref)
                 }
             }} 
-            args={[mesh.geometry, meshPhongMaterial, count]}
+            // args={[mesh.geometry, meshPhongMaterial, count]}
             scale={[3,3,3]}
             rotation={[0, 0, 0]}
         />

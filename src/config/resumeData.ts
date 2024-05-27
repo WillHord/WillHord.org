@@ -64,7 +64,6 @@ export const resumeData: ResumeType = {
         description: [
           "Coordinated technical logistics for district-wide virtual STEM conference attended by over 2000 students and educators.",
         ],
-        fileText: null,
         optionalFile: null,
         image: {
           pk: 4,

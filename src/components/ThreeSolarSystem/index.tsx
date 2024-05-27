@@ -11,17 +11,16 @@ import { Planet } from "./planet";
 import { Sun } from "./sun";
 import { System } from "./system";
 
-
 const SolarSystem = () => {
 	const [controlOpen, setControlOpen] = useState(false);
 	const [orbitEnabled, setOrbitEnabled] = useState(false);
-	const ref = useClickAway(() => {
-		setOrbitEnabled(false);
-	});
+	// const ref = useClickAway(() => {
+	// 	setOrbitEnabled(false);
+	// });
 	const { sunControl, ambientLight, system1, earthControl } = DebugControls();
 
 	return (
-		<div ref={ref} className="h-full bg-black">
+		<div className="h-full bg-black">
 			<Canvas
 				className="flex-1 bg-black"
 				camera={{ fov: 45, position: [30, 20, 0], rotation: [0, 0, 45] }}

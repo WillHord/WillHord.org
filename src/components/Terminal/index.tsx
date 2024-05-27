@@ -1,7 +1,4 @@
 import type React from "react";
-
-import { terminalText } from "@/config/homepageData";
-
 import { ChevronRight } from "lucide-react";
 
 interface TerminalLineProps {
@@ -53,7 +50,7 @@ const Terminal: React.FC = () => {
                         <pre>&nbsp;&nbsp;&nbsp;@@@@~@&nbsp;&nbsp;&nbsp;&nbsp;</pre>
                         <pre>  @@@~@@@@                                                                 o</pre>
                         <pre>  @@@@@@@                 O_/                         _ O  .------\------.  ,_O _</pre>
-                        <pre>    @@_@                _/|                         o' / \ |\      \      \    \ `o</pre>
+                        <pre>    @@_@                _/|                         o&apos; / \ |\      \      \    \ `o</pre>
                         <pre>     || \___Q           __)\                        __|\___|_`------\------`__ /|____</pre>
                         <pre>    _||_ /\ /\         `    \  o                      / |     |          |    | \</pre>
                         <pre>{'""""""""""""""""""""""""""""""""""""""""""""""""'}              |          |</pre>

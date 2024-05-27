@@ -13,7 +13,6 @@ import SolarSystem from "@/components/ThreeSolarSystem";
 
 import Terminal from "@/components/Terminal";
 
-import { terminalText } from "@/config/homepageData";
 import { headerImages } from "@/config/headerImages";
 
 // import Gallery from "@/components/Gallery/gallery";
@@ -27,10 +26,7 @@ import { porta } from "@/components/fonts";
 import "@/styles/text-tracking-in.css";
 // import HeaderContext from "../../context";
 
-export default function Homepage(props) {
-	//   const { setHeaderProps } = useContext(HeaderContext);
-
-	const TerminalText = terminalText;
+export default function Homepage() {
 	const HeaderImages = headerImages;
 
 	const isDesktop = true;
@@ -49,7 +45,9 @@ export default function Homepage(props) {
 			</div>
 			<div className="min-h-[80vh] w-full z-0 absolute top-0 right-0 pointer-events-none">
 				<div className="flex justify-center items-center h-[80vh] pointer-events-none">
-					<h1 className={`text-white text-9xl pl-24 tracking-in-expand ${porta.className}`}>
+					<h1
+						className={`text-white text-9xl pl-24 tracking-in-expand ${porta.className}`}
+					>
 						Will Hord
 					</h1>
 				</div>

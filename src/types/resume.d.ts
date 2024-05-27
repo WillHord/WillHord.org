@@ -20,7 +20,8 @@ export interface WorkExperience {
     dates: string;
     description: string[];
     image: ResumeImage;
-    optionalFile?: File;
+    optionalFile?: File | null;
+    fileText?: string;
 }
 
 export interface Education {
