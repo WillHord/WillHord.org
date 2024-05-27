@@ -39,7 +39,7 @@ export const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
 				{projects.map((project, index) => (
 					<CarouselItem
 						key={`Project-${index}-${project.name}`}
-						className="pl-1 md:basis-1/4 lg:basis-1/4"
+						className="pl-1 sm:basis-6/12 md:basis-5/12 lg:basis-4/12"
 					>
 						<div className="p-1">
 							<ProjectCard project={project} />

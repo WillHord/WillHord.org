@@ -2,7 +2,6 @@ import React from "react";
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import type { Group } from "three";
-import * as THREE from "three";
 
 // import type { Planet } from "./planet";
 import { Orbit } from "./orbit";
@@ -11,14 +10,14 @@ interface SystemProps {
 	children: React.ReactNode;
 	speed?: number;
 	distance?: number;
-    orbit?: boolean;
+	orbit?: boolean;
 }
 
 export const System: React.FC<SystemProps> = ({
 	children,
 	speed = 1,
 	distance = 0,
-    orbit = true,
+	orbit = true,
 }) => {
 	const groupRef = useRef<Group>(null);
 
@@ -35,8 +34,15 @@ export const System: React.FC<SystemProps> = ({
 		const childCount = React.Children.count(children);
 
 		return React.Children.map(children, (child, index) => {
-			if (child.type === System)
-				return <group position={[distance, 0, 0]}>{child}</group>;
+			if (child.type === System) {
+				// if center set position of the group to random position of length distance
+				const randomRotation = Math.random() * Math.PI * 2;
+				return (
+					<group position={[distance, 0, 0]} rotation={[0, randomRotation, 0]}>
+						{child}
+					</group>
+				);
+			}
 			const angle = (index / childCount) * Math.PI * 2;
 			const x = distance * Math.cos(angle);
 			const z = distance * Math.sin(angle);
@@ -46,11 +52,7 @@ export const System: React.FC<SystemProps> = ({
 
 	return (
 		<group ref={groupRef}>
-            {orbit && <Orbit distance={distance} />}
-			{/* <mesh rotation={[-Math.PI / 2, 0, 0]}>
-				<torusGeometry args={[distance, 0.01, 16, 100]} />
-				<meshBasicMaterial color="white" opacity={0.3} transparent />
-			</mesh> */}
+			{orbit && <Orbit distance={distance} />}
 			{renderChildren({ children, distance })}
 		</group>
 	);

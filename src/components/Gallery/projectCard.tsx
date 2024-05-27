@@ -95,8 +95,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 								className="hover:opacity-50 transition-opacity duration-300"
 							>
 								<Button variant={"link"}>
-									<Icons.gitHub className="h-6 w-6" />
-									<ChevronRight className="h-6 w-6" />
+									<Icons.gitHub className="h-6 w-6 text-white" />
+									<ChevronRight className="h-6 w-6 text-white" />
 								</Button>
 							</a>
 						</DialogFooter>

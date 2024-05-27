@@ -11,7 +11,7 @@ import { Planet } from "./planet";
 import { Sun } from "./sun";
 import { System } from "./system";
 
-// Main component
+
 const SolarSystem = () => {
 	const [controlOpen, setControlOpen] = useState(false);
 	const [orbitEnabled, setOrbitEnabled] = useState(false);
@@ -24,7 +24,7 @@ const SolarSystem = () => {
 		<div ref={ref} className="h-full bg-black">
 			<Canvas
 				className="flex-1 bg-black"
-				camera={{ fov: 45, position: [30, 10, 0], rotation: [0, 0, 45] }}
+				camera={{ fov: 45, position: [30, 20, 0], rotation: [0, 0, 45] }}
 			>
 				<System>
 					<System
@@ -72,10 +72,10 @@ const SolarSystem = () => {
 					radius={100}
 					depth={50}
 					count={5000}
-					factor={4}
-					saturation={0}
-					fade
-					speed={1}
+					factor={5}
+					saturation={10}
+					fade={false}
+					speed={0.000001}
 				/>
 				<ambientLight
 					intensity={ambientLight.intensity}
@@ -86,6 +86,7 @@ const SolarSystem = () => {
 					enablePan={false}
 					minDistance={10}
 					maxDistance={50}
+					enableZoom={false}
 					enabled={orbitEnabled}
 				/>
 				<Debug />

@@ -1,5 +1,7 @@
+"use client"
 import Link from "next/link"
 
+import { usePathname } from 'next/navigation'
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 // import { CommandMenu } from "@/components/command-menu"
@@ -10,8 +12,11 @@ import { ModeToggle } from "@/components/mode-toggle"
 import { buttonVariants } from "@/components/ui/button"
 
 export function SiteHeader() {
+  const pathname = usePathname()
+
+  console.log("pathname", pathname)
   return (
-    <header className="top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className={`top-0 z-50 w-full  ${pathname === "/" ? "absolute bg-transparent" : "border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"}`}>
       <div className="container flex h-14 max-w-screen-2xl items-center">
         <MainNav />
         <MobileNav />
@@ -51,7 +56,7 @@ export function SiteHeader() {
                 <span className="sr-only">Linkedin</span>
               </div>
             </Link>
-            <ModeToggle />
+            {/* <ModeToggle /> */}
           </nav>
         </div>
       </div>

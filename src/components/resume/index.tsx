@@ -32,7 +32,7 @@ const Resume: React.FC<ResumeProps> = ({ data }) => {
 	return (
 		<div className="w-full py-4 flex flex-1 justify-center p-4">
 			<div className="max-w-[1024px] w-[700px]">
-				<h2 className="scroll-m-20 text-3xl font-semibold tracking-tight first:mt-0 text-center">
+				<h2 className="scroll-m-20 text-3xl font-semibold tracking-tight first:mt-0 text-center pt-4">
 					Resume
 				</h2>
 				<section>
@@ -46,7 +46,7 @@ const Resume: React.FC<ResumeProps> = ({ data }) => {
 										alt={item.image.description}
                                         width={64}
                                         height={64}
-										className="w-16 h-16 float-left object-cover rounded-full -ml-24"
+										className="w-16 h-16 float-left object-fill bg-white rounded-full -ml-24"
 									/>
 								</a>
 
@@ -97,7 +97,7 @@ const Resume: React.FC<ResumeProps> = ({ data }) => {
 										alt={item.image.description}
                                         width={64}
                                         height={64}
-										className="w-16 h-16 float-left object-cover rounded-full -ml-24"
+										className="w-16 h-16 float-left object-contain bg-white rounded-full -ml-24"
 									/>
 								</a>
 							<b>{item.title}</b>
