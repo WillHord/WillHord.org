@@ -1,4 +1,5 @@
-import React, { useContext, useEffect } from "react";
+"use client";
+import React, { useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -6,16 +7,8 @@ import { Button } from "@/components/ui/button";
 
 // import SolarSystem from "@/components/SolarSystem";
 import SolarSystem from "@/components/ThreeSolarSystem";
-
-// import Terminal from "@/components/Terminal/Terminal";
-// import TerminalItem from "@/components/Terminal/TerminalItem";
-// import TerminalSkip from "@/components/Terminal/TerminalSkip";
-
 import Terminal from "@/components/Terminal";
-
 import { headerImages } from "@/config/headerImages";
-
-// import Gallery from "@/components/Gallery/gallery";
 
 import { ProjectCard } from "@/components/Gallery/projectCard";
 import { ProjectCarousel } from "@/components/Gallery/projectCarousel";
@@ -26,17 +19,11 @@ import { porta } from "@/components/fonts";
 import "@/styles/text-tracking-in.css";
 // import HeaderContext from "../../context";
 
+import { useIsDesktop } from "@/hooks/isDesktop";
+
 export default function Homepage() {
+	const isDesktop = useIsDesktop();
 	const HeaderImages = headerImages;
-
-	const isDesktop = true;
-	//   const isDesktop = GetDesktop();
-
-	//   useEffect(() => {
-	//     setHeaderProps({ lead: false, background: 'bg-transparent' });
-
-	//     return () => setHeaderProps({});
-	//   }, [setHeaderProps]);
 
 	return (
 		<>
@@ -54,7 +41,7 @@ export default function Homepage() {
 			</div>
 
 			<div className="backdrop-filter backdrop-blur-sm">
-				<section className="w-full min-h-[40vh] py-24">
+				<section className="w-full min-h-[40vh] py-24 px-6 lg:px-0">
 					<Terminal />
 				</section>
 				<section className="w-full min-h-[80vh] bg-white m-auto py-[10%] bg-opacity-90 flex justify-center items-center">

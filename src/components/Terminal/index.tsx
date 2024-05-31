@@ -30,7 +30,7 @@ const TerminalLine: React.FC<TerminalLineProps> = ({
 const Terminal: React.FC = () => {
 	return (
 		<div className="font-mono h-full flex flex-row items-center justify-center">
-			<div className="w-3/5 min-h-[80vh] flex flex-col overflow-x-hidden rounded-lg bg-gray-800 shadow-lg">
+			<div className="w-full lg:w-2/3 min-h-[80vh] flex flex-col overflow-x-hidden rounded-lg bg-gray-800 shadow-lg">
 				<div className="w-full h-8 bg-gray-400 flex items-center justify-left gap-2 pl-2">
 					<div className="w-4 h-4 bg-red-500 rounded-full" />
 					<div className="w-4 h-4 bg-orange-300 rounded-full" />
