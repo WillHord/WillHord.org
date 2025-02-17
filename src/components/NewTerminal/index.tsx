@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { Terminal as XTerm } from "@xterm/xterm";
 import type { ITerminal, IFileSystem } from "@/lib/terminal/types";
-import { FileSystem } from "@/lib/terminal/filesystem/fileSystem";
+import { FileSystem } from "@/lib/terminal/filesystem/filesystem";
 import { defaultFileSystem } from "@/lib/terminal/filesystem/defaultFs";
 import { commands } from "@/lib/terminal/commands";
 
