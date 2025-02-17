@@ -1,19 +1,17 @@
 "use client";
-import { siteConfig } from "@/config/site";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { cn } from "@/lib/utils";
 
 import { Icons } from "@/components/icons";
+import { siteConfig } from "@/config/site";
+import { cn } from "@/lib/utils";
 import { Mail } from "lucide-react";
-import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export function SiteFooter() {
 	const pathname = usePathname();
 
 	return (
-		<footer className="py-6 md:px-8 md:py-6">
+		<footer className="py-6 md:px-8 md:py-6 pointer-events-auto relative bg-background/80 backgrop-blur ">
 			<div className="text-center flex flex-col gap-3">
 				<nav className="flex flex-row text-center space-x-4 justify-center">
 					<Link

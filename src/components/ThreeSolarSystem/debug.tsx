@@ -1,5 +1,5 @@
 import type React from "react";
-import { Stats } from "@react-three/drei";
+// import { Stats } from "@react-three/drei";
 import { folder, useControls } from "leva";
 
 export const Debug: React.FC = () => {
@@ -17,7 +17,7 @@ export const Debug: React.FC = () => {
 		<>
 			{degbugControls.Axes && <axesHelper args={[5]} />}
 			{degbugControls.Grid && <gridHelper args={[40, 40, 0xff0000, "teal"]} />}
-			{degbugControls.Stats && <Stats />}
+			{/* {degbugControls.Stats && <Stats />} */}
 		</>
 	);
 };
@@ -40,7 +40,6 @@ export const DebugControls = () => {
 				value: 0.4,
 				min: 0.1,
 				max: 1,
-			
 			},
 		},
 		{ collapsed: true },

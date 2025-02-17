@@ -51,7 +51,7 @@ const Gallery: React.FC<{ projects: Project[] }> = ({ projects }) => {
 				.map((project: Project, index) => {
 					const row = Math.floor(index / columns);
 					const col = index % columns;
-					const delay = (row + col) * 1000; // Diagonal delay calculation
+					const delay = (row + col) * 2000; // Diagonal delay calculation
 
 					return (
 						<GalleryItem

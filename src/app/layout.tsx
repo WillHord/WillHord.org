@@ -1,13 +1,14 @@
-import { type Metadata, Viewport } from "next";
-import { siteConfig } from "@/config/site";
-
 import { ThemeProvider } from "@/components/providers";
-import { ThemeSwitcher } from "@/components/theme-switcher";
-
+import { siteConfig } from "@/config/site";
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { SiteHeader } from "@/components/site-header";
 
 import "@/styles/globals.css";
+
+const variants = {
+	hidden: { opacity: 0, x: -200, y: 0 },
+	enter: { opacity: 1, x: 0, y: 0 },
+};
 
 const inter = Inter({ subsets: ["latin"] });
 

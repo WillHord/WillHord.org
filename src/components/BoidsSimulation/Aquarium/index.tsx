@@ -55,9 +55,9 @@ const Aquarium = () => {
 		};
 	}, []);
 
-	const cohesionWeight = useRef<any>();
-	const separationWeight = useRef<any>();
-	const alignmentWeight = useRef<any>();
+	const cohesionWeight = useRef<any>(undefined);
+	const separationWeight = useRef<any>(undefined);
+	const alignmentWeight = useRef<any>(undefined);
 
 	cohesionWeight.current = useControls("Cohesion", turnWeightOptions(1.2, 15));
 	separationWeight.current = useControls(
