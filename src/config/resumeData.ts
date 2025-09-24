@@ -5,12 +5,12 @@ export const resumeData: ResumeType = {
 		{
 			index: 1,
 			title: "NASA",
-			position: "Junior Machine Learning Engineer - Contractor",
+			position: "Software Engineer Intern - Machine Learning",
 			location: "Greenbelt, MD",
-			dates: "September 2024 - Current",
+			dates: "September 2024 - August 2025",
 			description: [
-				"Leading the development, training, and testing of machine learning models for the classification of exoplanet candidates using time series light curve data, improving detection accuracy and efficiency.",
-				"Designing and implementing a data pipeline to automatically process and analyze new TESS telescope data, streamlining the detection of exoplanet candidates and prioritizing them for further study.",
+				"Led the development, training, and testing of machine learning models for the classification of exoplanet candidates using time series light curve data, improving detection accuracy and efficiency.",
+				"Designed and implemented a data pipeline to automatically process and analyze new TESS telescope data, streamlining the detection of exoplanet candidates and prioritizing them for further study.",
 				"Created a comprehensive dataset of tens of thousands of exoplanet light curves, non-planetary light curves, and false positive eclipsing binary star system data ensuring high quality input for model training.",
 			],
 			image: {
