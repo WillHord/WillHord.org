@@ -1,0 +1,43 @@
+---
+import SectionTitle from "src/components/sectionTitle.astro";
+import type { Education } from "$lib/types/resume";
+
+interface Props {
+	items: Education[];
+}
+const { items } = Astro.props;
+---
+
+<section class="pb-6">
+  <SectionTitle>Education</SectionTitle>
+  {items.map(item  => (
+    <div >
+      <div class="py-8 flex items-center">
+        <a
+          href={item.image.link}
+          target="_blank"
+          rel="noreferrer"
+          class="hidden lg:block lg:mr-4"
+        >
+          <div class="float-left pr-4">
+            <img
+              src={item.image.image.full_size}
+              alt={item.image.description}
+              width={64}
+              height={64}
+              class="w-16 h-16 float-left object-contain bg-white rounded-full "
+            />
+          </div>
+        </a>
+        <div class="grow">
+          <b class="">{item.school}</b>
+          <b class="float-right">{item.location}</b>
+          <br />
+          <i class="">{item.degree}</i>
+          <i class="float-right">{item.dates}</i>
+        </div>
+      </div>
+    </div>
+  ))}
+</section>
+

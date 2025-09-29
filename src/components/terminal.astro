@@ -1,0 +1,57 @@
+---
+import TerminalLine from "./terminalLine.astro";
+---
+
+<div class="font-mono h-full flex flex-row items-center justify-center">
+  <div class="w-full lg:w-2/3 min-h-[80vh] flex flex-col overflow-x-hidden rounded-lg bg-gray-800 shadow-lg">
+    <div class="w-full h-8 bg-gray-400 flex items-center justify-left gap-2 pl-2">
+      <div class="w-4 h-4 bg-red-500 rounded-full" />
+      <div class="w-4 h-4 bg-orange-300 rounded-full" />
+      <div class="w-4 h-4 bg-green-500 rounded-full" />
+    </div>
+    <div class="flex flex-col p-2">
+      <TerminalLine path="~" command="cd" text="~/Documents/WillHord" />
+      <TerminalLine
+        path="~/Documents/WillHord"
+        command="cat"
+        text="about.txt"
+      />
+      <div>
+                    <pre>&nbsp;&nbsp;&nbsp;&nbsp;@@@@&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>
+                    <pre>&nbsp;&nbsp;&nbsp;@@@@~@&nbsp;&nbsp;&nbsp;&nbsp;</pre>
+                    <pre>  @@@~@@@@                                                                 o</pre>
+                    <pre>  @@@@@@@                 O_/                         _ O  .------\------.  ,_O _</pre>
+                    <pre>    @@_@                _/|                         o&apos; / \ |\      \      \    \ `o</pre>
+                    <pre>     || \___Q           __)\                        __|\___|_`------\------`__ /|____</pre>
+                    <pre>    _||_ /\ /\         `    \  o                      / |     |          |    | \</pre>
+                    <pre>{'""""""""""""""""""""""""""""""""""""""""""""""""'}              |          |</pre>
+                </div>
+      {/* prettier-ignore-end */}
+      <p class="max-w-full overflow-hidden truncate text-clip">
+        ##################################################################################################################################
+      </p>
+      <p class="px-12 indent-12 flex justify-center">
+        Hello! My name is Will Hord. I'm a software engineer, a maker, a
+        developer and a collaborator. I make everything from websites and
+        bots to machine learning algorithms and games. I'm interested in
+        pushing the boundaries of what machines can do, to see how far
+        humanity can go with the aid of technology. Through my career so
+        far, I've worked on a variety of projects, from creating a
+        machine learning model to predict patients at risk of addiction to
+        developing and mainting a variety of sites for UC Santa Cruz. I'
+        m always seeking out opportunities to put my skills to use towards
+        any challenge. Check out my Resume and my Projects page to learn
+        more about me and what I do. Or Check out my Github.
+      </p>
+      <p class="max-w-full overflow-hidden truncate text-clip">
+        ##################################################################################################################################
+      </p>
+      <TerminalLine
+        path="~/Documents/WillHord"
+        command=""
+      >
+      <span class="w-[10px] h-5 animate-pulse duration-1000 text-xl bg-gray-100" />
+      </TerminalLine>
+    </div>
+  </div>
+</div>

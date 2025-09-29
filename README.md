@@ -1,30 +1,46 @@
-# WillHord.dev
+# Astro Starter Kit: Basics
 
-This repo contains the source code and documentation powering [WillHord.dev](https://WillHord.dev/).
+```sh
+bun create astro@latest -- --template basics
+```
 
-## Getting started
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-### Prerequisites
+## 🚀 Project Structure
 
-1. Git
-1. Node: v12 or greater
-1. Yarn: See [Yarn website for installation instructions](https://yarnpkg.com/lang/en/docs/install/)
-1. A clone of the [WillHord.org repo](https://github.com/WillHord/WillHord.org) on your local machine
+Inside of your Astro project, you'll see the following folders and files:
 
-### Installation
+```text
+/
+├── public/
+│   └── favicon.svg
+├── src
+│   ├── assets
+│   │   └── astro.svg
+│   ├── components
+│   │   └── Welcome.astro
+│   ├── layouts
+│   │   └── Layout.astro
+│   └── pages
+│       └── index.astro
+└── package.json
+```
 
-1. `git clone https://github.com/WillHord/WillHord.org.git'` to clone the repo
-1. `cd WillHord.org` to go into the project root
-1. `yarn` to install the website's npm dependencies
+To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
-### Running locally
+## 🧞 Commands
 
-1. `yarn start` to start the development server 
-1. `open http://localhost:3000` to open the site in your favorite browser
+All commands are run from the root of the project, from a terminal:
 
-## Troubleshooting
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `bun install`             | Installs dependencies                            |
+| `bun dev`             | Starts local dev server at `localhost:4321`      |
+| `bun build`           | Build your production site to `./dist/`          |
+| `bun preview`         | Preview your build locally, before deploying     |
+| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `bun astro -- --help` | Get help using the Astro CLI                     |
 
-- `yarn reset` to clear the local cache
+## 👀 Want to learn more?
 
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

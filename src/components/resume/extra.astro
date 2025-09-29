@@ -1,0 +1,28 @@
+---
+import SectionTitle from "src/components/sectionTitle.astro";
+import type { Resume } from "$lib/types/resume";
+
+interface Props {
+	data: Resume;
+}
+const { data } = Astro.props;
+---
+
+<section class="pb-12">
+  <SectionTitle>Awards and Publications</SectionTitle>
+  <div>
+    {data.publications.map((item, index) => (
+      <div class="py-4">
+        <b>{item.title}</b>
+        <i> {item.date}</i>
+      </div>
+    ))}
+  </div>
+  <ul>
+    {data.awards.map((award, index) => (
+      <li class="py-1">
+        <b>{award.title}</b> -<i> {award.description}</i>
+      </li>
+    ))}
+  </ul>
+</section>

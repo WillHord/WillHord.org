@@ -1,0 +1,61 @@
+---
+import Education from "src/components/resume/education.astro";
+import Extras from "src/components/resume/extra.astro";
+import TechnicalSkills from "src/components/resume/technicalSkills.astro";
+
+import WorkExperience from "src/components/resume/workExperience.astro";
+import Layout from "src/layouts/Layout.astro";
+import Button from "$lib/components/ui/button/button.svelte";
+import GridPattern from "$lib/components/ui/gridpattern.svelte";
+import { resumeData } from "$lib/resumeData";
+import { cn } from "$lib/utils";
+---
+
+<Layout>
+  <!-- TODO: Add background -->
+  <div class="fixed inset-0 z-0 ">
+    <GridPattern
+      client:only
+      numSquares={60}
+      duration={3}
+      squaresClassName="stroke-1"
+      class={cn(
+        "[mask-image:radial-gradient(1200px_circle_at_center,white,transparent)]",
+        "inset-x-0 inset-y-[-30%] h-[200%] skew-y-12",
+      )}
+    />
+  </div>
+  <div class="w-full flex justify-center py-16"><div class={
+    cn("rounded-lg border text-card-foreground shadow-sm relative pointer-events-auto z-10"
+    ,"md:w-4/5 bg-background/85")}>
+  	<div class="flex flex-col space-y-1.5 p-6">
+  		<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight first:mt-0 text-center pt-4">
+  			Resume
+  		</h2>
+  	</div>
+  	<div class="p-6 pt-0">
+        <WorkExperience experiences={resumeData.workExperience} />
+        <Education items={resumeData.education} />
+        <TechnicalSkills skills={resumeData.technicalSkills} />
+      <Extras data={resumeData} />
+
+  		<div class="flex justify-center py-4">
+  			<Button
+  				variant={"outline"}
+  				size={"lg"}
+  				class="border-white hover:bg-white hover:text-black"
+  				asChild
+  			>
+  				<a
+  					target="_blank"
+  					rel="noopener noreferrer"
+  					href="/files/Will_Hord-Resume.pdf"
+  				>
+  					Full Resume
+  				</a>
+  			</Button>
+  		</div>
+  	</div>
+    </div>
+  </div>
+</Layout>

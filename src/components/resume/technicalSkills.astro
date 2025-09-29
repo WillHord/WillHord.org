@@ -1,0 +1,37 @@
+---
+import SectionTitle from "src/components/sectionTitle.astro";
+import type { TechnicalSkills } from "$lib/types/resume";
+
+interface Props {
+	skills: TechnicalSkills;
+}
+const { skills } = Astro.props;
+---
+
+<section class="pb-6">
+  <SectionTitle>Technical Skills</SectionTitle>
+  {Object.keys(skills).map(
+    (key: string, index: number) => (
+      <div class="py-1">
+        <b>
+          {key !== "tools_other"
+            ? key
+            : "Tools & Other"}
+        </b>
+        :{" "}
+        {skills[key as keyof TechnicalSkills].map(
+          (skill: string, index: number) => (
+            <>
+              <span>{skill}</span>
+              {index <
+                skills[key as keyof TechnicalSkills]
+                  .length -
+                  1 && <span>, </span>}
+            </>
+          ),
+        )}
+      </div>
+    ),
+  )}
+</section>
+

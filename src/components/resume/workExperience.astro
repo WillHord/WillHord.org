@@ -1,0 +1,64 @@
+---
+import SectionTitle from "src/components/sectionTitle.astro";
+import Button from "$lib/components/ui/button/button.svelte";
+import type { WorkExperience } from "$lib/types/resume";
+
+interface Props {
+	experiences: WorkExperience[];
+}
+const { experiences } = Astro.props;
+---
+
+<section class="pb-12">
+  <SectionTitle>Work Experience</SectionTitle>
+  {experiences.map(item => (
+    <div class="py-4">
+      <a
+        href={item.image.link}
+        target="_blank"
+        rel="noreferrer"
+        class="hidden lg:block lg:mr-4"
+      >
+        <div class="float-left pr-4">
+          <img
+            src={item.image.image.full_size}
+            alt={item.image.description}
+            width={64}
+            height={64}
+            class="w-16 h-16 float-left object-contain bg-white rounded-full "
+          />
+        </div>
+      </a>
+      <b>{item.title}</b>
+      <b class="float-right">{item.location}</b>
+      <br />
+      <i>{item.position}</i>
+      <i class="float-right">{item.dates}</i>
+      <ul class="sm:list-['-_'] pt-3 lg:mt-4">
+        {item.description.map((desc, index) => (
+          <li class="py-1">
+            {desc}
+          </li>
+        ))}
+      </ul>
+      {item.optionalFile && (
+        <div class="flex justify-center ">
+          <Button
+          	variant={"outline"}
+          	class="mt-4 border-white hover:bg-white hover:text-black"
+          	asChild
+          >
+          	<a
+          		href={item.optionalFile.fileupload}
+          		target="_blank"
+          		rel="noreferrer"
+          	>
+          		View My Paper
+          	</a>
+          </Button>
+        </div>
+      )}
+    </div>
+  ))}
+</section>
+
