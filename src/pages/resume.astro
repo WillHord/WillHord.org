@@ -1,14 +1,33 @@
 ---
+import path from 'node:path';
 import Education from "src/components/resume/education.astro";
 import Extras from "src/components/resume/extra.astro";
 import TechnicalSkills from "src/components/resume/technicalSkills.astro";
-
 import WorkExperience from "src/components/resume/workExperience.astro";
 import Layout from "src/layouts/Layout.astro";
 import Button from "$lib/components/ui/button/button.svelte";
 import GridPattern from "$lib/components/ui/gridpattern.svelte";
 import { resumeData } from "$lib/resumeData";
 import { cn } from "$lib/utils";
+import {convertDocxToHTML} from "$lib/utils/convert_docx"
+import { ScrapeResume } from "$lib/utils/scrape_html";
+
+const docxpath= path.join(process.cwd(), 'public', 'Will Hord-Resume.docx');
+const _html = await convertDocxToHTML(docxpath)
+const scraped_resume_data = ScrapeResume(_html, [
+	"Experience",
+	"Education",
+	"Certifications",
+	"Awards & Publications",
+	"Skills",
+])
+
+console.log("SCRAPED RESUME DATA: ", scraped_resume_data)
+
+// TODO: merge with resumeData
+
+
+
 ---
 
 <Layout>
