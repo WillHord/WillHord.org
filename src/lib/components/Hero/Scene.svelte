@@ -100,14 +100,6 @@ onMount(() => {
   {/snippet}
 </SheetObject>
 
-<!-- <SheetObject key="Directional Light"> -->
-<!--   {#snippet children({ Sync })} -->
-<!--     <T.DirectionalLight position={[0, 0, 10]}> -->
-<!--       <Sync intensity color position /> -->
-<!--     </T.DirectionalLight> -->
-<!--   {/snippet} -->
-<!-- </SheetObject> -->
-
 <Sequence autoplay>
 
   <SheetObject key="sun">
@@ -116,13 +108,13 @@ onMount(() => {
         <Sun />
       </Transform>
     {/snippet}
-
-  </SheetObject>
+  
+</SheetObject>
 
 
 
 <SheetObject key="mars">
-  {#snippet children({ Sync, Transform })}
+  {#snippet children({  Transform })}
     <Transform>
 
     <System

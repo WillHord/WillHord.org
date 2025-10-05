@@ -1,7 +1,7 @@
 <script lang="ts">
-import { T, useLoader, useTask } from "@threlte/core";
-import { Mesh, TextureLoader } from "three";
+import { T, useTask } from "@threlte/core";
 import { useTexture } from "@threlte/extras";
+import { Mesh } from "three";
 
 const {
 	color,
@@ -16,7 +16,6 @@ const {
 } = $props();
 
 let ref = $state<Mesh>();
-const { load } = useLoader(TextureLoader);
 
 useTask(() => {
 	if (ref) {
@@ -28,7 +27,7 @@ useTask(() => {
 <T.Mesh bind:ref>
   <T.SphereGeometry args={[radius, 32, 32]} />
   {#if texture}
-    {#await load(texture) then map}
+    {#await useTexture(texture) then map}
       <T.MeshStandardMaterial {map}  />
     {/await}
   {:else}

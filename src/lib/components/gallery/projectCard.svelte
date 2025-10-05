@@ -3,7 +3,7 @@ import type { HTMLAttributes } from "svelte/elements";
 import * as Card from "$lib/components/ui/card/index.js";
 import * as Dialog from "$lib/components/ui/dialog/index.js";
 import { type Project } from "$lib/types/project";
-import { cn, type WithElementRef } from "$lib/utils.js";
+import { cn, type WithElementRef } from "$lib/utils";
 
 import { IconBrandGithub } from "@tabler/icons-svelte";
 
