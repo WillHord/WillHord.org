@@ -1,6 +1,6 @@
 <script lang="ts">
-import Marquee from "$lib/components/ui/marquee.svelte";
 import ProjectCard from "$lib/components/gallery/projectCard.svelte";
+import Marquee from "$lib/components/ui/marquee.svelte";
 
 import { projectData } from "$lib/projectData";
 
@@ -13,12 +13,16 @@ const secondRow = projectData.slice(projectData.length / 2);
 >
   <Marquee pauseOnHover class="[--duration:20s]">
     {#each firstRow as project}
+      <a href={ `/projects#${encodeURIComponent(project.name.trim().toLowerCase().replaceAll(' ', '_'))}` }>
       <ProjectCard {project} />
+  </a>
     {/each}
   </Marquee>
   <Marquee reverse pauseOnHover class="[--duration:20s]">
     {#each secondRow as project}
+      <a href={ `/projects#${encodeURIComponent(project.name.trim().toLowerCase().replaceAll(' ', '_'))}` }>
       <ProjectCard {project} />
+      </a>
     {/each}
   </Marquee>
   <div

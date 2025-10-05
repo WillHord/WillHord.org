@@ -21,6 +21,29 @@ const updateColumns = () => {
 	}
 };
 
+let openDialog = $state("");
+function checkHash() {
+	const hash = window.location.hash;
+	const dialogName = hash.startsWith("#") ? hash.slice(1) : "";
+	openDialog = dialogName;
+}
+
+$effect(() => {
+	console.log("OPEN DIALOG: ", openDialog);
+});
+
+onMount(() => {
+	checkHash();
+
+	window.addEventListener("hashchange", checkHash);
+	window.addEventListener("popstate", checkHash);
+
+	return () => {
+		window.removeEventListener("hashchange", checkHash);
+		window.removeEventListener("popstate", checkHash);
+	};
+});
+
 onMount(() => {
 	window.addEventListener("resize", updateColumns);
 	// console.log("PATH: ", page.route);
@@ -61,6 +84,7 @@ const displayedProjects = $derived(
     <ProjectCard
       project={project}
       class="gallery-item"
+      current_dialog={openDialog}
     />
   {/each}
 </div></div>

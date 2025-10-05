@@ -1,25 +1,36 @@
 <script lang="ts">
+import { IconBrandGithub } from "@tabler/icons-svelte";
 import type { HTMLAttributes } from "svelte/elements";
+import { Button } from "$lib/components/ui/button/index";
 import * as Card from "$lib/components/ui/card/index.js";
 import * as Dialog from "$lib/components/ui/dialog/index.js";
 import { type Project } from "$lib/types/project";
 import { cn, type WithElementRef } from "$lib/utils";
-
-import { IconBrandGithub } from "@tabler/icons-svelte";
-
-import { Button } from "$lib/components/ui/button/index";
 import Badge from "../ui/badge/badge.svelte";
 
 const {
 	project,
 	class: className,
+	current_dialog = $bindable(),
+	onclick,
 	...rest
 }: WithElementRef<HTMLAttributes<HTMLDivElement>> & {
 	project: Project;
+	current_dialog?: string;
 } = $props();
+
+const hash = $derived(
+	encodeURIComponent(project.name.trim().toLowerCase().replaceAll(" ", "_")),
+);
 </script>
 
-<Dialog.Root>
+<Dialog.Root open={ current_dialog === hash} onOpenChange={(isOpen) => {
+  if (isOpen){
+    window.location.hash = hash
+  } else {
+    window.history.replaceState(null, document.title, window.location.pathname + window.location.search);
+  }
+}}>
   <Dialog.Trigger>
     <Card.Root 
       class={ cn( className, 

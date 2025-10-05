@@ -1,12 +1,23 @@
 <script lang="ts">
 import { cn } from "$lib/utils";
-export let pauseOnHover: boolean = false;
-export let vertical: boolean = false;
-export let repeat: number = 4;
-export let reverse: boolean = false;
+import type { Snippet } from "svelte";
+import type { ClassValue } from "svelte/elements";
 
-let className: any = "";
-export { className as class };
+let {
+	pauseOnHover = false,
+	vertical = false,
+	repeat = 4,
+	reverse = false,
+	class: className,
+	children,
+}: {
+	pauseOnHover?: boolean;
+	vertical?: boolean;
+	repeat?: number;
+	reverse?: boolean;
+	class?: ClassValue;
+	children?: Snippet;
+} = $props();
 </script>
 
 <div
@@ -28,7 +39,7 @@ export { className as class };
         "[animation-direction:reverse]": reverse,
       })}
     >
-      <slot>Default</slot>
+      {@render children?.()}
     </div>
   {/each}
 </div>
