@@ -12,26 +12,28 @@ const { data } = Astro.props;
   <SectionTitle>Awards and Publications</SectionTitle>
   <div>
     {
-      data.publications.map((item) => (
-        <div class="py-4">
-          <b>{item.title}</b>
-          <i> {item.date}</i>
-        </div>
-      ))
+      data.publications &&
+        data.publications.map((item) => (
+          <div class="py-4">
+            <b>{item.title}</b>
+            <i> {item.date}</i>
+          </div>
+        ))
     }
   </div>
   <ul>
     {
-      data.awards.map((award) => {
-        const split_title = award.title.split(/–(.*)/s);
+      data.awards &&
+        data.awards.map((award) => {
+          const split_title = award.title.split(/–(.*)/s);
 
-        return (
-          <li class="py-1">
-            <b>{split_title[0]}</b> -<span>{split_title[1]} - </span>{" "}
-            <i> {award.date}</i>
-          </li>
-        );
-      })
+          return (
+            <li class="py-1">
+              <b>{split_title[0]}</b> -<span>{split_title[1]} - </span>{" "}
+              <i> {award.date}</i>
+            </li>
+          );
+        })
     }
   </ul>
 </section>

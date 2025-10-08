@@ -13,12 +13,9 @@ const { skills } = Astro.props;
   {
     Object.entries(skills).map(([title, values]) => (
       <div class="py-1">
-        <b>{title}</b>:{" "}
+        <b>{title}</b>:
         {values.map((skill: string, index: number) => (
-          <>
-            <span>{skill}</span>
-            {index < values.length - 1 && <span>, </span>}
-          </>
+          <span>{skill.concat(index < values.length - 1 ? "," : "")}</span>
         ))}
       </div>
     ))
