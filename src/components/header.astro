@@ -4,7 +4,8 @@ import LinkedIn from "$lib/icons/linkedin.svg";
 import Github from "$lib/icons/github.svg";
 import { Mail } from "@lucide/astro";
 import { buttonVariants } from "$lib/components/ui/button";
-import MobileNav from "./mainnav.astro";
+import MainNav from "./mainnav.astro";
+import MobileNav from "$lib/components/mobileNav.svelte";
 
 import { siteConfig } from "$lib/site";
 
@@ -15,15 +16,13 @@ const pathname = Astro.url.pathname;
   class={`top-0 z-50 w-full px-4 ${pathname === "/" ? "absolute bg-transparent" : "border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 relative"} pointer-events-auto `}
 >
   <div class="container flex h-14 max-w-screen-2xl items-center">
-    <!-- <MainNav /> -->
-    <MobileNav />
-    <div class="flex flex-1 items-center justify-between space-x-2 md:justify-end">
+    <MainNav />
+    <MobileNav client:load pathname={pathname} />
+    <div
+      class="flex flex-1 items-center justify-between space-x-2 md:justify-end"
+    >
       <nav class="flex items-center">
-        <a
-          href={siteConfig.links.github}
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href={siteConfig.links.github} target="_blank" rel="noreferrer">
           <div
             class={cn(
               buttonVariants({
@@ -36,11 +35,7 @@ const pathname = Astro.url.pathname;
             <span class="sr-only">GitHub</span>
           </div>
         </a>
-        <a
-          href={siteConfig.links.linkedin}
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href={siteConfig.links.linkedin} target="_blank" rel="noreferrer">
           <div
             class={cn(
               buttonVariants({

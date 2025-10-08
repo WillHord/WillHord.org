@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @import "tw-animate-css";
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
 
 @custom-variant dark (&:is(.dark *));
 
@@ -109,6 +110,8 @@
 	--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
 	--color-sidebar-border: var(--sidebar-border);
 	--color-sidebar-ring: var(--sidebar-ring);
+	--font-potra: "potra";
+	--font-jetbrains: "JetBrains Mono", monospace;
 
 	--animate-marquee: marquee var(--duration) linear infinite;
 	--animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
@@ -139,4 +142,12 @@
 	to {
 		transform: translateY(calc(-100% - var(--gap)));
 	}
+}
+
+@font-face {
+	font-family: "potra";
+	src: url("/fonts/potra/Potra.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
 }
