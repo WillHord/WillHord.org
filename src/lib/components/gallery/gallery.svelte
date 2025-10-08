@@ -1,20 +1,20 @@
 <script lang="ts">
-import type { Project } from "$lib/types/projects";
 import { animate, stagger } from "animejs";
 import { onDestroy, onMount } from "svelte";
+import type { Project } from "$lib/types/project";
 import ProjectCard from "./projectCard.svelte";
 
 const { projects }: { projects: Project[] } = $props();
 
 let columns = $state(4);
 let rows = $state(4);
-let galleryRef = $state(null);
+let galleryRef = $state<HTMLDivElement>();
 
 const max = $derived(projects.length);
 
 const updateColumns = () => {
-	if (galleryRef?.current) {
-		const containerWidth = galleryRef.current["offsetWidth"];
+	if (galleryRef?.offsetWidth) {
+		const containerWidth = galleryRef.offsetWidth;
 		const itemWidth = 210;
 		columns = Math.floor(containerWidth / itemWidth);
 		rows = projects.length / columns;
@@ -27,10 +27,6 @@ function checkHash() {
 	const dialogName = hash.startsWith("#") ? hash.slice(1) : "";
 	openDialog = dialogName;
 }
-
-$effect(() => {
-	console.log("OPEN DIALOG: ", openDialog);
-});
 
 onMount(() => {
 	checkHash();

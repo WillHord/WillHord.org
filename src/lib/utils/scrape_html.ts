@@ -1,14 +1,19 @@
 import * as cheerio from "cheerio";
 import he from "he";
-
-import type {
-	AwardData,
-	CertData,
-	EducationData,
-	JobExperienceData,
-	PaperData,
-	ScrapedResumeData,
-} from "$lib/types/scraped_resume";
+import {
+	type Awards,
+	awardData,
+	type Certs,
+	certData,
+	type Education,
+	educationData,
+	experienceData,
+	type Papers,
+	paperData,
+	type Resume,
+	resumeData,
+	type WorkExperience,
+} from "$lib/types/resume";
 
 function normalizeText(text: string): string {
 	return he
@@ -52,10 +57,7 @@ function getSections(html: string, sections: string[]) {
 	return found_sections;
 }
 
-export function ScrapeResume(
-	html: string,
-	resume_sections: string[],
-): ScrapedResumeData {
+export function scrapeResume(html: string, resume_sections: string[]): Resume {
 	// const html = fs.readFileSync(file_path, "utf8");
 
 	const sections = getSections(html, resume_sections);
@@ -72,7 +74,7 @@ export function ScrapeResume(
 	let expHtml = sections.Experience;
 	let $$ = cheerio.load(expHtml);
 
-	const experiences: Record<string, JobExperienceData> = {};
+	const experiences: Record<string, WorkExperience> = {};
 
 	$$("p > strong").each((_, elem) => {
 		const title = $$(elem).text().trim();
@@ -100,12 +102,12 @@ export function ScrapeResume(
 			next = next.next();
 		}
 
-		experiences[company] = {
+		experiences[company] = experienceData.parse({
 			location: location,
 			details: details,
 			role: role,
 			dates: dates,
-		};
+		});
 	});
 	// END Experience Section
 
@@ -113,7 +115,7 @@ export function ScrapeResume(
 	expHtml = sections.Education;
 	$$ = cheerio.load(expHtml);
 
-	const education: Record<string, EducationData> = {};
+	const education: Record<string, Education> = {};
 
 	$$("p > strong").each((_, elem) => {
 		const title = $$(elem).text().trim();
@@ -134,12 +136,11 @@ export function ScrapeResume(
 		const degree = degree_date[1];
 		const dates = degree_date[2];
 
-		education[title] = {
-			school: school,
+		education[school] = educationData.parse({
 			location: location,
 			dates: dates,
 			degree: degree,
-		};
+		});
 	});
 	// END EDUCATION SECTION
 
@@ -147,7 +148,7 @@ export function ScrapeResume(
 	expHtml = sections.Certifications;
 	$$ = cheerio.load(expHtml);
 
-	const certs: Record<string, CertData> = {};
+	const certs: Record<string, Certs> = {};
 
 	$$("li").each((_, elem) => {
 		const data = $$(elem).text().trim();
@@ -159,10 +160,10 @@ export function ScrapeResume(
 		const from = matches[2];
 		const year = matches[3];
 
-		certs[title] = {
+		certs[title] = certData.parse({
 			from: from,
 			year: year,
-		};
+		});
 	});
 	// END CERTIFICATIONS SECTION
 
@@ -203,17 +204,17 @@ export function ScrapeResume(
 			}
 		});
 
-	const papers: PaperData[] = [];
+	const papers: Papers[] = [];
 	const paper_matches = preUlPs
 		.join(" ")
 		.matchAll(/^(.*et\sal.)\s(\w+\s[0-9]*)/gms);
 	paper_matches.forEach((m) => {
-		papers.push({ title: m[1].trim(), date: m[2].trim() });
+		papers.push(paperData.parse({ title: m[1].trim(), date: m[2].trim() }));
 	});
 
 	const $$$ = cheerio.load(`<div id="wrapper">${remainingHtml}</div>`);
 
-	const awards: AwardData[] = [];
+	const awards: Awards[] = [];
 
 	$$$("#wrapper ul").each((_, ul) => {
 		const $ul = $$$(ul);
@@ -245,7 +246,7 @@ export function ScrapeResume(
 
 			const title = titleParts.join(" ").replace(/\s+/g, " ").trim();
 
-			awards.push({ title, date });
+			awards.push(awardData.parse({ title, date }));
 		});
 	});
 	// END AWARDS AND PUBLICATIONS SECTION
@@ -274,12 +275,12 @@ export function ScrapeResume(
 
 	// END SKILLS SECTION
 
-	return {
-		experiences: experiences,
+	return resumeData.parse({
+		experience: experiences,
 		education: education,
 		certs: certs,
 		publications: papers,
 		awards: awards,
 		skills: skills,
-	};
+	});
 }

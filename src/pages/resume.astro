@@ -1,5 +1,5 @@
 ---
-import path from 'node:path';
+import path from "node:path";
 import Education from "src/components/resume/education.astro";
 import Extras from "src/components/resume/extra.astro";
 import TechnicalSkills from "src/components/resume/technicalSkills.astro";
@@ -7,32 +7,26 @@ import WorkExperience from "src/components/resume/workExperience.astro";
 import Layout from "src/layouts/Layout.astro";
 import Button from "$lib/components/ui/button/button.svelte";
 import GridPattern from "$lib/components/ui/gridpattern.svelte";
-import { resumeData } from "$lib/resumeData";
+import { supplimental_data } from "$lib/extra_resume_data";
 import { cn } from "$lib/utils";
-import {convertDocxToHTML} from "$lib/utils/convert_docx"
-import { ScrapeResume } from "$lib/utils/scrape_html";
+import { convertDocxToHTML } from "$lib/utils/convert_docx";
+import { mergeResume } from "$lib/utils/merge_resume";
+import { scrapeResume } from "$lib/utils/scrape_html";
 
-const docxpath= path.join(process.cwd(), 'public', 'Will Hord-Resume.docx');
-const _html = await convertDocxToHTML(docxpath)
-const scraped_resume_data = ScrapeResume(_html, [
-	"Experience",
-	"Education",
-	"Certifications",
-	"Awards & Publications",
-	"Skills",
-])
+const docxpath = path.join(process.cwd(), "public", "Will Hord-Resume.docx");
+const scraped_resume_data = scrapeResume(await convertDocxToHTML(docxpath), [
+  "Experience",
+  "Education",
+  "Certifications",
+  "Awards & Publications",
+  "Skills",
+]);
 
-console.log("SCRAPED RESUME DATA: ", scraped_resume_data)
-
-// TODO: merge with resumeData
-
-
-
+const resumeData = mergeResume(scraped_resume_data, supplimental_data);
 ---
 
 <Layout>
-  <!-- TODO: Add background -->
-  <div class="fixed inset-0 z-0 ">
+  <div class="fixed inset-0 z-0">
     <GridPattern
       client:only
       numSquares={60}
@@ -44,37 +38,44 @@ console.log("SCRAPED RESUME DATA: ", scraped_resume_data)
       )}
     />
   </div>
-  <div class="w-full flex justify-center py-16"><div class={
-    cn("rounded-lg border text-card-foreground shadow-sm relative pointer-events-auto z-10"
-    ,"md:w-4/5 bg-background/85")}>
-  	<div class="flex flex-col space-y-1.5 p-6">
-  		<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight first:mt-0 text-center pt-4">
-  			Resume
-  		</h2>
-  	</div>
-  	<div class="p-6 pt-0">
-        <WorkExperience experiences={resumeData.workExperience} />
-        <Education items={resumeData.education} />
-        <TechnicalSkills skills={resumeData.technicalSkills} />
-      <Extras data={resumeData} />
+  <div class="w-full flex justify-center py-16">
+    <div
+      class={cn(
+        "rounded-lg border text-card-foreground shadow-sm relative pointer-events-auto z-10",
+        "md:w-4/5 bg-background/85",
+      )}
+    >
+      <div class="flex flex-col space-y-1.5 p-6">
+        <h2
+          class="scroll-m-20 text-3xl font-semibold tracking-tight first:mt-0 text-center pt-4"
+        >
+          Resume
+        </h2>
+      </div>
+      <div class="p-6 pt-0">
+        {
+          resumeData.experience && (
+            <WorkExperience experiences={resumeData.experience} />
+          )
+        }
+        {resumeData.education && <Education items={resumeData.education} />}
+        {resumeData.skills && <TechnicalSkills skills={resumeData.skills} />}
+        <Extras data={resumeData} />
 
-  		<div class="flex justify-center py-4">
-  			<Button
-  				variant={"outline"}
-  				size={"lg"}
-  				class="border-white hover:bg-white hover:text-black"
-  				asChild
-  			>
-  				<a
-  					target="_blank"
-  					rel="noopener noreferrer"
-  					href="/files/Will_Hord-Resume.pdf"
-  				>
-  					Full Resume
-  				</a>
-  			</Button>
-  		</div>
-  	</div>
+        <div class="flex justify-center py-4">
+          <Button
+            variant={"outline"}
+            size={"lg"}
+            class="border-white hover:bg-white hover:text-black"
+            asChild
+            href="/files/Will_Hord-Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Full Resume
+          </Button>
+        </div>
+      </div>
     </div>
   </div>
 </Layout>

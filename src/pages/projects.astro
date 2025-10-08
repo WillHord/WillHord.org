@@ -1,22 +1,14 @@
 ---
-import Welcome from "../components/Welcome.astro";
-import Layout from "../layouts/Layout.astro";
-
-import Particles from "$lib/components/ui/particles.svelte";
-import Test from "$lib/components/test.svelte";
-
 import Gallery from "$lib/components/gallery/gallery.svelte";
-import TestGallery from "$lib/components/gallery/test.svelte";
-
+import Particles from "$lib/components/ui/particles.svelte";
 import { projectData } from "$lib/projectData";
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
   <div class="fixed inset-0 h-screen -z-100">
     <Particles
-    client:load
+      client:load
       className="absolute inset-0 -z-90 "
       quantity={1000}
       ease={80}
@@ -24,18 +16,14 @@ import { projectData } from "$lib/projectData";
       refresh
     />
   </div>
-    <div class="xl:mx-36 lg:mx-28 md:mx-22 sm:mx-10 my-12">
+  <div class="xl:mx-36 lg:mx-28 md:mx-22 sm:mx-10 my-12">
     <div class="my-8">
       <h1 class="text-4xl text-center">Projects</h1>
 
       <!-- <Separator /> -->
     </div>
     <div class="py-8">
-      <Gallery client:only projects={projectData} /> 
+      <Gallery client:only projects={projectData} />
     </div>
-        <!-- <TestGallery client:only /> -->
-				<!-- <Gallery projects={projectData} /> -->
-			</div>
-
-	<!-- <Welcome /> -->
+  </div>
 </Layout>
