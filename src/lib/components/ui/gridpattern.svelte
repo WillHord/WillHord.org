@@ -66,7 +66,8 @@ function animateRandomSquare() {
 						a.classList.remove("!fill-gray-400");
 					});
 					timeline.revert();
-					if (last) setTimeout(animateRandomSquare, Math.random() * 1500 + 500);
+					if (last)
+						setTimeout(animateRandomSquare, Math.random() * 1500 + 1000);
 				},
 			},
 			utils.random(100, 1500),
