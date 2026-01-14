@@ -21,11 +21,12 @@
     "@threlte/extras": "^9.5.4",
     "@threlte/studio": "^0.1.9",
     "@threlte/theatre": "^3.0.7",
+    "@types/animejs": "^3.1.13",
     "@types/he": "^1.2.3",
     "@types/lodash": "^4.17.20",
     "@types/pdf-parse": "^1.1.5",
     "@types/three": "^0.180.0",
-    "animejs": "^4.1.4",
+    "animejs": "^4.2.2",
     "astro": "5.15.2",
     "cheerio": "^1.1.2",
     "he": "^1.2.0",
@@ -39,7 +40,8 @@
     "svelte": "^5.39.3",
     "tailwindcss": "^4.1.13",
     "three": "^0.180.0",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "vercel": "^50.3.2"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.4",

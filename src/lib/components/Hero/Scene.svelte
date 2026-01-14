@@ -10,7 +10,6 @@ import {
 } from "@threlte/extras";
 import { Sequence, SheetObject } from "@threlte/theatre";
 import { onMount } from "svelte";
-// import AnimatableCube from './AnimatableCube.svelte'
 import KeyboardControls from "./KeyboardControls.svelte";
 import { mouseCoordsSpring, springScrollPos } from "./scrollPos";
 import ScrollSheet from "./ScrollSheet.svelte";
@@ -101,14 +100,12 @@ onMount(() => {
 </SheetObject>
 
 <Sequence autoplay>
-
   <SheetObject key="sun">
     {#snippet children({ Transform })}
       <Transform>
         <Sun />
       </Transform>
     {/snippet}
-  
 </SheetObject>
 
 
@@ -175,64 +172,7 @@ onMount(() => {
       </Transform>
     {/snippet}
   </SheetObject>
-
 </Sequence>
-
-
-
-
-<!-- <Sequence autoplay> -->
-<!--   <SheetObject key="composite"> -->
-<!--     {#snippet children({ Transform })} -->
-<!--       <Transform> -->
-<!--         <T.Group -->
-<!--           position.x={-$mouseCoordsSpring.x * 0.2} -->
-<!--           position.y={$mouseCoordsSpring.y * 0.1} -->
-<!--         > -->
-<!--           <ScrollSheet -->
-<!--             name="Threlte-Composite" -->
-<!--             startAtScrollPosition={0} -->
-<!--             endAtScrollPosition={3} -->
-<!--           > -->
-<!--             <SheetObject -->
-<!--               key="Composite" -->
-<!--               props={{ -->
-<!--                 position: { -->
-<!--                   x: 0, -->
-<!--                   y: -25, -->
-<!--                   z: 0, -->
-<!--                 }, -->
-<!--                 floatIntensity: 1, -->
-<!--                 rotationIntensity: 1, -->
-<!--                 rotationSpeed: 1, -->
-<!--                 floatSpeed: 1, -->
-<!--                 opacity: 1, -->
-<!--               }} -->
-<!--             > -->
-<!--               {#snippet children({ Transform, values })} -->
-<!--                 <Float -->
-<!--                   floatIntensity={values.floatIntensity} -->
-<!--                   rotationIntensity={values.rotationIntensity} -->
-<!--                   rotationSpeed={values.rotationSpeed} -->
-<!--                   speed={values.floatSpeed} -->
-<!--                   opacity={values.opacity} -->
-<!--                 > -->
-<!--                   <KeyboardControls> -->
-<!--                     {#snippet children({ transform })} -->
-<!--                       <Transform {...transform}> -->
-<!--                         <AnimatablePlanet key="exoplanet" /> -->
-<!--                       </Transform> -->
-<!--                     {/snippet} -->
-<!--                   </KeyboardControls> -->
-<!--                 </Float> -->
-<!--               {/snippet} -->
-<!--             </SheetObject> -->
-<!--           </ScrollSheet> -->
-<!--         </T.Group> -->
-<!--       </Transform> -->
-<!--     {/snippet} -->
-<!--   </SheetObject> -->
-<!-- </Sequence> -->
 
 <T.Group position.x={-$mouseCoordsSpring.x * 0.6}>
   <ScrollSheet

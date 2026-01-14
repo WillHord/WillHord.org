@@ -39,16 +39,17 @@ const hash = $derived(
       {...rest}>
       <Card.Header class="absolute opacity-0 group-hover/card:opacity-100 transition-all duration-300 h-48 w-48 z-10 flex items-center justify-center">
         <div class="flex items-center justify-center">
-          <Card.Title class="">{project.name}</Card.Title>
+          <Card.Title class="text-accent-foreground">{project.name}</Card.Title>
         </div>
       </Card.Header>
       <Card.Content class="p-0 w-full h-full flex justify-center items-center relative ">
         <img
           src={project.img.image.full_size}
           alt={project.name}
+          loading="eager"
           class={cn( "object-cover w-full h-full transition-transform duration-300 group-hover/card:scale-110")}
         />
-        <div class="absolute inset-0 bg-primary-foreground opacity-0 group-hover/card:opacity-60 transition-opacity duration-300"></div>
+        <div class="absolute inset-0 bg-primary opacity-0 group-hover/card:opacity-60 transition-opacity duration-300"></div>
       </Card.Content>
     </Card.Root>
 </Dialog.Trigger>

@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import SectionTitle from "src/components/sectionTitle.astro";
 import Button from "$lib/components/ui/button/button.svelte";
 import type { WorkExperience } from "$lib/types/resume";
@@ -13,7 +14,7 @@ const { experiences } = Astro.props;
   <SectionTitle>Work Experience</SectionTitle>
   {
     experiences &&
-      Object.entries(experiences).map(([title, item]) => (
+      Object.entries(experiences).map(([title, item], index) => (
         <div class="py-4">
           {item.image && (
             <a
@@ -23,11 +24,12 @@ const { experiences } = Astro.props;
               class="hidden lg:block lg:mr-4"
             >
               <div class="float-left pr-4">
-                <img
+                <Image
                   src={item.image.url}
-                  alt={item.image.alt}
+                  alt={item.image.alt || ""}
                   width={64}
                   height={64}
+                  loading={index < 3 ? "eager" : "lazy"}
                   class="w-16 h-16 float-left object-contain bg-white rounded-full "
                 />
               </div>

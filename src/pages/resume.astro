@@ -13,7 +13,12 @@ import { convertDocxToHTML } from "$lib/utils/convert_docx";
 import { mergeResume } from "$lib/utils/merge_resume";
 import { scrapeResume } from "$lib/utils/scrape_html";
 
-const docxpath = path.join(process.cwd(), "public", "Will Hord-Resume.docx");
+const docxpath = path.join(
+  process.cwd(),
+  "public",
+  "files",
+  "Will Hord-Resume.docx",
+);
 const scraped_resume_data = scrapeResume(await convertDocxToHTML(docxpath), [
   "Experience",
   "Education",

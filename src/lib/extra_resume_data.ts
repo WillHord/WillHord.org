@@ -46,7 +46,7 @@ export const supplimental_data: Resume = {
 			image: {
 				name: "IBM Logo",
 				alt: "Logo for IBM",
-				link: "https://www.research.ibm.com/labs/watson/",
+				link: "https://research.ibm.com/",
 				url: "/imgs/resumeImages/IBMLogo.jpg",
 			},
 		},
@@ -60,18 +60,6 @@ export const supplimental_data: Resume = {
 				url: "/imgs/resumeImages/PelhamScoolsLogo.jpg",
 			},
 		},
-		// "TESTING Pelham School District": {
-		// 	location: "Pelham, NY",
-		// 	role: "Technology Office Intern",
-		// 	dates: "May - June 2019",
-		// 	details: [],
-		// 	image: {
-		// 		name: "Pelham School District",
-		// 		alt: "Logo for Pelham School District",
-		// 		link: "https://www.pelhamschools.org/",
-		// 		url: "/imgs/resumeImages/PelhamScoolsLogo.jpg",
-		// 	},
-		// },
 	},
 	education: {
 		"University of California Santa Cruz - Baskin School of Engineering": {

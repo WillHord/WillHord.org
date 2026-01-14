@@ -2,7 +2,6 @@
 import { cn } from "$lib/_utils";
 import LinkedIn from "$lib/icons/linkedin.svg";
 import Github from "$lib/icons/github.svg";
-import { Mail } from "@lucide/astro";
 import { buttonVariants } from "$lib/components/ui/button";
 import MainNav from "./mainnav.astro";
 import MobileNav from "$lib/components/mobileNav.svelte";
@@ -15,7 +14,7 @@ const pathname = Astro.url.pathname;
 <header
   class={`top-0 z-50 w-full px-4 ${pathname === "/" ? "absolute bg-transparent" : "border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 relative"} pointer-events-auto `}
 >
-  <div class="container flex h-14 max-w-screen-2xl items-center">
+  <div class="flex h-14 w-full items-center">
     <MainNav />
     <MobileNav client:load pathname={pathname} />
     <div
