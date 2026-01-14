@@ -1,46 +1,52 @@
-# Astro Starter Kit: Basics
+# WillHord.dev
 
-```sh
-bun create astro@latest -- --template basics
-```
+This repository contains the source code for [WillHord.dev](https://WillHord.dev/), a personal portfolio built with Astro.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Tech Stack
 
-## 🚀 Project Structure
+- **Framework**: [Astro](https://astro.build/) (Static Site Generation / Server-Side Rendering)
+- **UI Components**: [Svelte 5](https://svelte.dev/) (Runes-based reactive components)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/) (High-performance styling)
+- **3D Graphics**: [Three.js](https://threejs.org/) with [Threlte](https://threlte.xyz/) and [Theatre.js](https://www.theatrejs.com/)
+- **Runtime & Package Manager**: [Bun](https://bun.sh/)
+- **Deployment**: [Vercel](https://vercel.com/)
 
-Inside of your Astro project, you'll see the following folders and files:
+## Getting Started
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+### Prerequisites
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+1.  **Bun**: [Install Bun](https://bun.sh/docs/installation) (version 1.0 or greater recommended)
+2.  **Node.js**: v20 or greater (if not using Bun directly)
+3.  **Git**
 
-## 🧞 Commands
+### Installation
 
-All commands are run from the root of the project, from a terminal:
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/WillHord/WillHord.org.git
+    cd WillHord.org
+    ```
+2.  Install dependencies:
+    ```bash
+    bun install
+    ```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
+### Running Locally
 
-## 👀 Want to learn more?
+1.  Start the development server:
+    ```bash
+    bun dev
+    ```
+2.  Open [http://localhost:4321](http://localhost:4321) in your browser.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Project Structure
+
+- `src/pages/`: Contains the site's routes and pages.
+- `src/components/`: Reusable Svelte and Astro components.
+- `src/lib/`: Utility functions, stores, and shared logic.
+- `public/`: Static assets like images and fonts.
+- `astro.config.mjs`: Astro configuration and integrations.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
