@@ -18,10 +18,12 @@ import Planet from "./SolarSystem/planet.svelte";
 import Sun from "./SolarSystem/sun.svelte";
 import System from "./SolarSystem/system.svelte";
 
-// import { debug } from "./state";
+interface Props {
+	debug: boolean;
+	camera_debug: boolean;
+}
 
-let debug = true;
-let camera_debug: boolean = false;
+let { debug, camera_debug }: Props = $props();
 
 interactivity();
 

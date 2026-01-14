@@ -11,6 +11,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
+	site: "https://willhord.dev",
 	integrations: [svelte(), sitemap()],
 	adapter: vercel(),
 

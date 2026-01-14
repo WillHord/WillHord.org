@@ -12,6 +12,13 @@ type CubeGltf = {
 	materials: {};
 };
 
+interface Props {
+  debug: boolean;
+  camera_debug: boolean;
+}
+
+let { debug, camera_debug }: Props = $props();
+
 const { scene } = useThrelte();
 </script>
 
@@ -38,4 +45,4 @@ const { scene } = useThrelte();
   />
 </ScrollSheet>
 
-<Scene />
+<Scene {debug} {camera_debug} />

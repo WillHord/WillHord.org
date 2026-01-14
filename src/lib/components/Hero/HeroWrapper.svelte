@@ -4,20 +4,17 @@ import { Sheet, Theatre } from "@threlte/theatre";
 import { onMount } from "svelte";
 import { NoToneMapping, WebGLRenderer } from "three";
 import App from "./App.svelte";
-import FadeOut from "./FadeOut.svelte";
 import Intro from "./Intro/Intro.svelte";
-import Reveal from "./Reveal.svelte";
-import TextEffect from "./TextEffect.svelte";
-import Trigger from "./Trigger.svelte";
 import {
 	_springScrollPos,
 	mouseCoords,
 	mouseCoordsSpring,
 	scrollPos,
-	springScrollPos,
 } from "./scrollPos";
-// import { debug } from './state'
-import state from "./state.json";
+import theatreState from "./state.json";
+
+let debug = $state(import.meta.env.DEV);
+let camera_debug = $state(false);
 
 const onScroll = () => {
 	// get normalized scroll position in document. 0 should equal top of page, 1
@@ -37,8 +34,10 @@ onMount(() => {
 	});
 });
 
-const onKeyDown = (_e: KeyboardEvent) => {
-	// if (e.key === 'd') debug.set(!debug.current)
+const onKeyDown = (e: KeyboardEvent) => {
+	if (!import.meta.env.DEV) return;
+	if (e.key === "d") debug = !debug;
+	if (e.key === "c") camera_debug = !camera_debug;
 };
 
 const onMouseMove = (e: MouseEvent) => {
@@ -57,7 +56,7 @@ const onMouseMove = (e: MouseEvent) => {
 />
 
 <div class="pointer-events-none relative -z-20 h-[300vh] bg-black">
-  <Theatre config={{ state: state }} studio={{ enabled: true }}>
+  <Theatre config={{ state: theatreState }} studio={{ enabled: debug }}>
     <div class="fixed left-0 top-0 z-10 h-[100lvh] w-screen">
       <Canvas
         toneMapping={NoToneMapping}
@@ -73,7 +72,7 @@ const onMouseMove = (e: MouseEvent) => {
           });
         }}
       >
-        <App />
+        <App {debug} {camera_debug} />
       </Canvas>
     </div>
 
