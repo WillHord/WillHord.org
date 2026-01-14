@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { animate, createTimeline, Timeline } from "animejs";
+  import { createTimeline, type Timeline } from "animejs";
   import { clamp, mapLinear } from "three/src/math/MathUtils.js";
 
   export let type:

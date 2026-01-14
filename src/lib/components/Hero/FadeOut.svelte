@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { MathUtils } from "three";
+  import { MathUtils } from "three/src/math/MathUtils.js";
 
   interface Props {
     progress: number;

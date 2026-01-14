@@ -15,6 +15,6 @@ const {
 </script>
 
 <T.Mesh rotation={[-Math.PI / 2, 0, 0]}>
-  <T.TorusGeometry args={ [distance, 0.01, 16, 100] } />
+  <T.TorusGeometry args={ [distance, 0.02, 16, 100] } />
   <T.MeshBasicMaterial {color} {opacity} {transparent} />
 </T.Mesh>

@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
-  import { MathUtils } from "three";
+  import { MathUtils } from "three/src/math/MathUtils.js";
 
   interface Props {
     progress: number;

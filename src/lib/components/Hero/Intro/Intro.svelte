@@ -1,5 +1,5 @@
 <script lang="ts">
-import { Sequence, createSheetObjectAction } from "@threlte/theatre";
+import { Sequence } from "@threlte/theatre";
 import FadeOut from "../FadeOut.svelte";
 import { springScrollPos } from "../scrollPos";
 import TheatreTextBox from "./TheatreTextBox.svelte";
@@ -23,19 +23,3 @@ import TheatreTextBox from "./TheatreTextBox.svelte";
   </div>
 </FadeOut>
 
-<style>
-  @keyframes custom-pulse {
-    50% {
-      opacity: 0;
-    }
-  }
-  .pulse-1 {
-    animation: custom-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-  .pulse-2 {
-    animation: custom-pulse 2s 0.3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-  .pulse-3 {
-    animation: custom-pulse 2s 0.6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-</style>
