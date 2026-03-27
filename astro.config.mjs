@@ -11,11 +11,21 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://willhord.dev",
-	integrations: [svelte(), sitemap()],
-	adapter: vercel(),
+  site: "https://willhord.dev",
+  integrations: [svelte(), sitemap()],
+  adapter: vercel(),
 
-	vite: {
-		plugins: [tailwindcss()],
-	},
+  vite: {
+    plugins: [tailwindcss()],
+    resolve: {
+      noExternal: [
+        "@lucide/svelte",
+        "@tabler/icons-svelte",
+        "bits-ui",
+        "svelte-toolbelt",
+        "svelte-render",
+        "runed",
+      ],
+    },
+  },
 });
